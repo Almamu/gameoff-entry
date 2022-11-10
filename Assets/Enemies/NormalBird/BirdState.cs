@@ -16,12 +16,6 @@ public class BirdState : MonoBehaviour
         this.AttackState = GetComponent <BirdAttack> ();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public virtual void OnStateEnter()
     {
         

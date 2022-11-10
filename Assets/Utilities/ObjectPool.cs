@@ -17,7 +17,7 @@ public class ObjectPool : MonoBehaviour
 
     private GameObject[] mPool;
     
-    void Start()
+    void Awake()
     {
         this.mPool = new GameObject [PoolLimit];
         

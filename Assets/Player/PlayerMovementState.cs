@@ -5,9 +5,11 @@ public class PlayerMovementState : PlayerState
 {
     public float MovementSpeed = 500.0f;
     public float InterpolationSpeed = 0.1f;
+    public float ShootingCooldown = 0.1f;
     
     private float mHorizontal = 0.0f;
     private float mVertical = 0.0f;
+    private float mShootingCooldown = 0.0f;
 
     private Vector3 mLookAtPoint;
 
@@ -20,6 +22,9 @@ public class PlayerMovementState : PlayerState
             HandleShooting();
         if (Input.GetButton ("Dodge") == true)
             HandleDodge ();
+        
+        // increase the cooldown timers
+        this.mShootingCooldown += Time.fixedDeltaTime;
     }
 
     private void HandleMovement()
@@ -54,6 +59,10 @@ public class PlayerMovementState : PlayerState
 
     private void HandleShooting()
     {
+        // prevent shooting if it's not cooled down
+        if (this.mShootingCooldown < this.ShootingCooldown)
+            return;
+        
         // get the bullet from the pool
         GameObject bullet = this.BulletPool.Pop();
 

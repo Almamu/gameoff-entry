@@ -8,19 +8,27 @@ public class BirdStateMachine : MonoBehaviour
     [HideInInspector]
     public BirdState CurrentState { get; set; }
 
-    private Queue<BirdState> mStateQueue = new Queue <BirdState> ();
-    
-    // Start is called before the first frame update
-    void Awake()
+    private Queue<BirdState> mStateQueue;
+
+    void Start()
     {
         // get the current, active state so the state machine has something to do
         this.CurrentState = GetComponent<BirdState>();
+        // clear the state list
+        this.mStateQueue = new Queue <BirdState> ();
+        // fire the stateenter event
+        this.CurrentState.OnStateEnter ();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player Bullet") == true)
-            Destroy(gameObject);
+        if (collision.gameObject.CompareTag ("Player Bullet") == true)
+        {
+            // send message for death to the parent
+            this.transform.parent.SendMessage ("OnEnemyDead", this.gameObject);
+            // finally deactivate ourselves
+            this.gameObject.SetActive (false);
+        }
     }
 
     /// <summary>
