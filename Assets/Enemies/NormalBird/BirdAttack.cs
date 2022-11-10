@@ -23,17 +23,31 @@ public class BirdAttack : BirdState
     /// </summary>
     public float AggresiveTurnDistance = 100.0f;
     /// <summary>
+    /// The maximum time (in seconds) the bird can be in attack mode
+    /// </summary>
+    public float MaxAttackModeTime = 10.0f;
+    /// <summary>
     /// The current movement speed
     /// </summary>
     private float mMovementSpeed = 0.0f;
+    /// <summary>
+    /// Indicates whether the bird got into the close aggressiveness area of the player
+    /// </summary>
+    private bool mInAggressivenessArea = false;
+    /// <summary>
+    /// The time the bird has been in attack mode
+    /// </summary>
+    private float mCurrentTime = 0.0f;
     
     public override void OnStateEnter ()
     {
         // decide the movement speed
+        this.mInAggressivenessArea = false;
         this.mMovementSpeed = Random.Range (this.MinimumAttackSpeed, this.MaximumAttackSpeed);
+        this.mCurrentTime = 0.0f;
     }
 
-    void FixedUpdate ()
+    private void HandleMovement ()
     {
         float turnSpeed = 0.02f;
         // first lerp the rotation to the player
@@ -60,12 +74,50 @@ public class BirdAttack : BirdState
         this.transform.rotation = Quaternion.LookRotation (finalDirection);
     }
 
+    private void HandleAggressivenessArea ()
+    {
+        if (this.mInAggressivenessArea == false)
+            return;
+    }
+
+    private void HandleTimer ()
+    {
+        this.mCurrentTime += Time.fixedDeltaTime;
+        
+        if (this.mCurrentTime > this.MaxAttackModeTime)
+            this.Machine.PopState ();
+    }
+    
+    void FixedUpdate ()
+    {
+        this.HandleMovement ();
+        this.HandleAggressivenessArea ();
+        this.HandleTimer ();
+    }
+
     private void OnCollisionEnter (Collision collision)
     {
-        if (collision.gameObject.CompareTag ("Player") == false || this.enabled == false)
+        if (this.enabled == false || collision.gameObject.CompareTag ("Player") == false)
             return;
         
         // bird collided with the player, we can go back to normal movement
+        this.Machine.PopState ();
+    }
+
+    private void OnTriggerEnter (Collider other)
+    {
+        if (this.enabled == false || other.CompareTag ("AggressivenessArea") == false)
+            return;
+
+        this.mInAggressivenessArea = true;
+    }
+
+    private void OnTriggerExit (Collider other)
+    {
+        if (this.enabled == false || this.mInAggressivenessArea == false || other.CompareTag ("AggressivenessArea") == false)
+            return;
+
+        // the bird almost hit the player but failed, go back to normal movement
         this.Machine.PopState ();
     }
 }
