@@ -16,6 +16,11 @@ public class BirdMovement : BirdState
     /// The maximum amount of time a bird will spend flying before the next state change
     /// </summary>
     public float MaximumTimeFlying = 5.0f;
+
+    /// <summary>
+    /// The speed to rotate towards the final point
+    /// </summary>
+    public float TurnSpeed = 0.1f;
     
     /// <summary>
     /// The area where the bird can move around
@@ -68,7 +73,7 @@ public class BirdMovement : BirdState
         finalDirection.Normalize ();
         
         // get the forward vector and lerp both
-        finalDirection = math.lerp (this.transform.forward, finalDirection, 1.0f);
+        finalDirection = math.lerp (this.transform.forward, finalDirection, TurnSpeed);
         
         // translate the bird in the right direction
         this.transform.Translate (Time.fixedDeltaTime * 5 * finalDirection);
