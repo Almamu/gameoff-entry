@@ -5,11 +5,6 @@ using UnityEngine;
 public class DirectionVectorBehaviour : MonoBehaviour
 {
     /// <summary>
-    /// The game object to move
-    /// </summary>
-    public GameObject DirectionVector;
-
-    /// <summary>
     /// Maximum distance the direction vector will be
     /// </summary>
     public float MaxDistance = 2.0f;
@@ -19,7 +14,7 @@ public class DirectionVectorBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.mRigidbody = GetComponent<Rigidbody>();
+        this.mRigidbody = GetComponentInParent <Rigidbody> ();
     }
 
     // Update is called once per frame
@@ -30,10 +25,10 @@ public class DirectionVectorBehaviour : MonoBehaviour
         // y position shouldn't be taken into account
         velocity.y = 0;
         
-        DirectionVector.transform.position = Vector3.Lerp(
-            DirectionVector.transform.position,
-            transform.position + (velocity * MaxDistance),
-            0.1f
+        this.transform.position = Vector3.Lerp(
+            this.transform.position,
+            this.mRigidbody.position + (velocity * MaxDistance),
+            0.005f
         );
     }
 }

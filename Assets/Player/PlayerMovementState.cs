@@ -1,11 +1,25 @@
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerMovementState : PlayerState
 {
-    public float MovementSpeed = 500.0f;
-    public float InterpolationSpeed = 0.1f;
+    /// <summary>
+    /// The player's movement speed
+    /// </summary>
+    public float MovementSpeed = 5.0f;
+    /// <summary>
+    /// The speed at which the player gains speed
+    /// </summary>
+    public float InterpolationSpeed = 1.0f;
+    /// <summary>
+    /// The amount of time shooting needs to cooldown
+    /// </summary>
     public float ShootingCooldown = 0.1f;
+    /// <summary>
+    /// Adds some angle to the shooting so not all bullets go straight
+    /// </summary>
+    public float ShootingJitter = 1.0f;
     
     private float mHorizontal = 0.0f;
     private float mVertical = 0.0f;
@@ -75,6 +89,9 @@ public class PlayerMovementState : PlayerState
         // setup the bullet
         bullet.transform.position = transform.position;
         bullet.transform.rotation = transform.rotation;
+
+        // some jitter so not all bullets go the same direction
+        bullet.transform.Rotate (Vector3.up, Random.Range (-this.ShootingJitter, this.ShootingJitter));
         
         // enable the bullet
         bullet.SetActive(true);
