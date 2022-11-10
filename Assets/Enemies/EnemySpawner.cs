@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -55,13 +57,18 @@ public class EnemySpawner : MonoBehaviour
         
         // create the required amount of enemies
         for (int i = 0; i < this.mActiveEnemies.Length; i++)
-        {
-            this.AmountOfEnemies--;
+            ActivateEnemy (i);
+    }
 
-            this.mActiveEnemies [i] = this.mObjectPool.Pop ();
-            this.mActiveEnemies [i].SetActive (true);
-            this.mActiveEnemies [i].transform.position = this.PickupRandomSpawnPoint ();
-        }
+    private void ActivateEnemy (int i)
+    {
+        // decrement counter
+        this.AmountOfEnemies--;
+        
+        // take one enemy from the pool
+        this.mActiveEnemies [i] = this.mObjectPool.Pop ();
+        this.mActiveEnemies [i].transform.position = this.PickupRandomSpawnPoint ();
+        this.mActiveEnemies [i].SetActive (true);
     }
 
     void OnEnemyDead (GameObject enemy)
@@ -74,16 +81,11 @@ public class EnemySpawner : MonoBehaviour
             // move it back to the object pool
             this.mActiveEnemies [i] = null;
             
-            // decrement counter
-            this.AmountOfEnemies--;
-
             // if required create a new one in place
             if (this.AmountOfEnemies <= 0)
                 break;
 
-            this.mActiveEnemies [i] = this.mObjectPool.Pop ();
-            this.mActiveEnemies [i].SetActive (true);
-            this.mActiveEnemies [i].transform.position = this.PickupRandomSpawnPoint ();
+            this.ActivateEnemy (i);
         }
     }
 }

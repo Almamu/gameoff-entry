@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 2033746562}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1017,6 +1017,10 @@ PrefabInstance:
     - target: {fileID: 6968910410365232597, guid: bb0c9ba09d72dacf38586f0251fef815, type: 3}
       propertyPath: m_Name
       value: Bird
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968910410365232597, guid: bb0c9ba09d72dacf38586f0251fef815, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb0c9ba09d72dacf38586f0251fef815, type: 3}

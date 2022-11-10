@@ -1,13 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class BirdStateMachine : MonoBehaviour
 {
     [HideInInspector]
-    public BirdState CurrentState { get; set; }
+    public BirdState CurrentState { get; private set; }
+    
+    [HideInInspector]
+    public Vector3 SpawnerCenter { get; private set; }
 
+    [HideInInspector]
+    public BoxCollider MovementArea { get; private set; }
+    
+    public GameObject Player { get; private set; }
+    
     private Queue<BirdState> mStateQueue;
 
     void Start()
@@ -16,19 +25,25 @@ public class BirdStateMachine : MonoBehaviour
         this.CurrentState = GetComponent<BirdState>();
         // clear the state list
         this.mStateQueue = new Queue <BirdState> ();
+        // get the movement area
+        this.MovementArea = this.transform.parent.Find ("MovementArea").GetComponent <BoxCollider> ();
+        // get the spawn's center
+        this.SpawnerCenter = this.MovementArea.transform.position;
+        // find the player
+        this.Player = GameObject.FindWithTag ("Player");
         // fire the stateenter event
         this.CurrentState.OnStateEnter ();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag ("Player Bullet") == true)
-        {
-            // send message for death to the parent
-            this.transform.parent.SendMessage ("OnEnemyDead", this.gameObject);
-            // finally deactivate ourselves
-            this.gameObject.SetActive (false);
-        }
+        if (collision.gameObject.CompareTag ("Player Bullet") == false)
+            return;
+        
+        // send message for death to the parent
+        this.transform.parent.SendMessage ("OnEnemyDead", this.gameObject);
+        // finally deactivate ourselves
+        this.gameObject.SetActive (false);
     }
 
     /// <summary>
