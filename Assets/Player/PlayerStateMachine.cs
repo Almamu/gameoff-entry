@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,15 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerState CurrentState { get; set; }
 
     private Queue<PlayerState> mStateQueue = new Queue <PlayerState> ();
-    
+
     // Start is called before the first frame update
     void Awake()
     {
         // get the current, active state so the state machine has something to do
         this.CurrentState = GetComponent<PlayerState>();
+        // subscribe to required events to alter state
+        EventManager.DisableMovement += OnDisableMovement;
+        EventManager.EnableMovement += OnEnableMovement;
     }
 
     /// <summary>
@@ -43,5 +47,17 @@ public class PlayerStateMachine : MonoBehaviour
         this.CurrentState = this.mStateQueue.Dequeue();
         this.CurrentState.enabled = true;
         this.CurrentState.OnStateEnter();
+    }
+
+    void OnEnableMovement()
+    {
+        // enable current state
+        this.CurrentState.enabled = true;
+    }
+
+    void OnDisableMovement()
+    {
+        // disable current state
+        this.CurrentState.enabled = false;
     }
 }

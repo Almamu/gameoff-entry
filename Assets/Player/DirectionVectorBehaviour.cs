@@ -25,15 +25,15 @@ public class DirectionVectorBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 velocity = this.mRigidbody.velocity.normalized;
+        Vector3 direction = this.mRigidbody.velocity.normalized;
 
         // y position shouldn't be taken into account
-        velocity.y = 0;
+        direction.y = 0;
         
-        DirectionVector.transform.position = Vector3.Lerp(
+        DirectionVector.transform.position = Vector3.Lerp (
             DirectionVector.transform.position,
-            transform.position + (velocity * MaxDistance),
-            0.1f
+            transform.position + (direction * MaxDistance),
+            0.05f
         );
     }
 }
