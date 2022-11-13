@@ -9,25 +9,19 @@ public class DirectionVectorBehaviour : MonoBehaviour
     /// </summary>
     public float MaxDistance = 2.0f;
 
-    private Rigidbody mRigidbody;
+    public Rigidbody RigidbodyToFollow;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.mRigidbody = GetComponentInParent <Rigidbody> ();
-    }
-
     // Update is called once per frame
     void Update()
     {
-        Vector3 velocity = this.mRigidbody.velocity.normalized;
+        Vector3 velocity = this.RigidbodyToFollow.velocity.normalized;
 
         // y position shouldn't be taken into account
         velocity.y = 0;
         
         this.transform.position = Vector3.Lerp(
             this.transform.position,
-            this.mRigidbody.position + (velocity * MaxDistance),
+            this.RigidbodyToFollow.position + (velocity * MaxDistance),
             0.005f
         );
     }

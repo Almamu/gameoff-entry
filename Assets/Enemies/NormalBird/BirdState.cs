@@ -9,7 +9,7 @@ public class BirdState : MonoBehaviour
     protected BirdAttack AttackState { get; set; }
     
     // Start is called before the first frame update
-    protected void Awake()
+    void Awake()
     {
         this.Machine = GetComponent <BirdStateMachine> ();
         this.MovementState = GetComponent <BirdMovement> ();

@@ -131,6 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9317178c700ac5a56aa9be751e47a0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinimumAttackSpeed: 0
+  MaximumAttackSpeed: 10
+  TurnFactor: 1
+  AggresiveTurnDistance: 100
+  MaxAttackModeTime: 10
 --- !u!114 &4072025339144262131
 MonoBehaviour:
   m_ObjectHideFlags: 0

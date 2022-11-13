@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -20,12 +21,25 @@ public class PlayerMovementState : PlayerState
     /// Adds some angle to the shooting so not all bullets go straight
     /// </summary>
     public float ShootingJitter = 1.0f;
+    /// <summary>
+    /// The time it takes to reload
+    /// </summary>
+    public float ClipReloadTime = 2.0f;
+
+    public int ClipBullets = 10;
     
     private float mHorizontal = 0.0f;
     private float mVertical = 0.0f;
     private float mShootingCooldown = 0.0f;
 
     private Vector3 mLookAtPoint;
+
+    private int mClipBullets;
+
+    /// <summary>
+    /// Event fired when the player shoots
+    /// </summary>
+    public static event Action<int> OnShoot;
 
     void FixedUpdate()
     {
@@ -95,6 +109,9 @@ public class PlayerMovementState : PlayerState
         
         // enable the bullet
         bullet.SetActive(true);
+        
+        // fire the onshoot event
+        OnShoot?.Invoke(1);
     }
 
     private void HandleDodge()

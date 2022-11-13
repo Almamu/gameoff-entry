@@ -48,7 +48,7 @@ public class BirdMovement : BirdState
     /// <summary>
     /// The time spent on the current movement
     /// </summary>
-    private float mMovementTime = 0.0f;
+    private float mMovementTime = 1.0f;
 
     /// <summary>
     /// Gets a random point inside the movement area
@@ -133,6 +133,10 @@ public class BirdMovement : BirdState
 
     private void OnDrawGizmos ()
     {
+        // do not draw gizmos if disabled
+        if (this.enabled == false)
+            return;
+        
         Vector3 position = transform.position;
         
         // draw a ball at the destination point

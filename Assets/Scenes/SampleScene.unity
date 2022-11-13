@@ -156,7 +156,7 @@ Transform:
   - {fileID: 247384366}
   - {fileID: 490768043}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &180835786
 MonoBehaviour:
@@ -775,13 +775,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722502820}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2033746557}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1722502822
 MonoBehaviour:
@@ -796,6 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxDistance: 2
+  RigidbodyToFollow: {fileID: 2033746559}
 --- !u!1 &1734936317
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,9 +943,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 833687726}
-  - {fileID: 1722502821}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2033746558
 MonoBehaviour:
@@ -990,6 +990,8 @@ MonoBehaviour:
   InterpolationSpeed: 1
   ShootingCooldown: 0.1
   ShootingJitter: 1
+  ClipReloadTime: 2
+  ClipBullets: 10
 --- !u!114 &2033746561
 MonoBehaviour:
   m_ObjectHideFlags: 0
