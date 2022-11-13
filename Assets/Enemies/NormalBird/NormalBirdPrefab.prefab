@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3580868113194728690}
   - component: {fileID: 1097396960190201445}
   - component: {fileID: 4072025339144262131}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NormalBirdPrefab
   m_TagString: Bird Enemy
   m_Icon: {fileID: 0}

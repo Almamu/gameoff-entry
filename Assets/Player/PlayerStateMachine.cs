@@ -39,10 +39,20 @@ public class PlayerStateMachine : MonoBehaviour
     /// The ID of the InvulnerabilityTimer in the animator
     /// </summary>
     private static readonly int InvulnerabilityTimerId = Animator.StringToHash ("InvulnerabilityTimer");
-
+    /// <summary>
+    /// The collision layer at which the birds are at
+    /// </summary>
+    private static int BirdsCollisionLayer;
+    /// <summary>
+    /// The collision layer at which the birds are at
+    /// </summary>
+    private static int PlayerCollisionLayer;
+    
     // Start is called before the first frame update
     void Awake()
     {
+        BirdsCollisionLayer = LayerMask.NameToLayer ("Enemies");
+        PlayerCollisionLayer = LayerMask.NameToLayer ("Player");
         // get the current, active state so the state machine has something to do
         this.CurrentState = GetComponent<PlayerState>();
         // get reference to the animator
@@ -97,6 +107,12 @@ public class PlayerStateMachine : MonoBehaviour
             return;
 
         this.mInvulnerabilityTimer -= Time.fixedDeltaTime;
+
+        if (this.mInvulnerabilityTimer > 0.0f)
+            return;
+        
+        // set collision layers so birds can hit the player again
+        Physics.IgnoreLayerCollision (PlayerCollisionLayer, BirdsCollisionLayer, false);
     }
     
     void OnEnableMovement ()
@@ -119,6 +135,7 @@ public class PlayerStateMachine : MonoBehaviour
         this.mHealth -= amount;
         // update the health
         HealthUpdate?.Invoke (this.mHealth);
-        // TODO: ANIMATE THE PLAYER
+        // set collision layers so birds cannot hit the player
+        Physics.IgnoreLayerCollision (PlayerCollisionLayer, BirdsCollisionLayer, true);
     }
 }
