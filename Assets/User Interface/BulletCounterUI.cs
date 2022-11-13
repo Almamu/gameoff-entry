@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BulletCounterUI : MonoBehaviour
 {
-    // TODO: CHANGE TO SOME KIND OF ICON
-    private TextMeshProUGUI mText;
+    private Image [] mIcons;
     
     void Start ()
     {
-        this.mText = GetComponent <TextMeshProUGUI> ();
+        this.mIcons = GetComponentsInChildren <Image> ();
         // subscribe to the player's event
         PlayerMovementState.OnReload += this.OnAmmunitionUpdate;
         PlayerMovementState.OnShoot += this.OnAmmunitionUpdate;
@@ -18,6 +18,8 @@ public class BulletCounterUI : MonoBehaviour
 
     void OnAmmunitionUpdate (int newCount)
     {
-        this.mText.text = newCount.ToString ();
+        // hide all icons and show the only ones required
+        for (int i = 0; i < this.mIcons.Length; i++)
+            this.mIcons [i].enabled = i < newCount;
     }
 }

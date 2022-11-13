@@ -57,7 +57,7 @@ public class PlayerStateMachine : MonoBehaviour
     /// Changes the current active state to the newState
     /// </summary>
     /// <param name="newState"></param>
-    public void PushState(PlayerState newState)
+    public void PushState (PlayerState newState)
     {
         this.mStateQueue.Enqueue(this.CurrentState);
         
@@ -74,7 +74,7 @@ public class PlayerStateMachine : MonoBehaviour
     /// <summary>
     /// Deactivates the current state and enables the last one in the queue
     /// </summary>
-    public void PopState()
+    public void PopState ()
     {
         this.CurrentState.OnStateExit();
         this.CurrentState.enabled = false;
@@ -99,13 +99,13 @@ public class PlayerStateMachine : MonoBehaviour
         this.mInvulnerabilityTimer -= Time.fixedDeltaTime;
     }
     
-    void OnEnableMovement()
+    void OnEnableMovement ()
     {
         // enable current state
         this.CurrentState.enabled = true;
     }
 
-    void OnDisableMovement()
+    void OnDisableMovement ()
     {
         // disable current state
         this.CurrentState.enabled = false;

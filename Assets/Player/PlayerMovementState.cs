@@ -28,7 +28,7 @@ public class PlayerMovementState : PlayerState
     /// <summary>
     /// The amount of bullets a magazine/clip has
     /// </summary>
-    public int ClipBullets = 10;
+    public int ClipBullets = 8;
     
     /// <summary>
     /// Horizontal position of the stick
