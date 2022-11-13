@@ -162,7 +162,8 @@ public class PlayerMovementState : PlayerState
     private void HandleCooldown ()
     {
         // increase the cooldown timers
-        this.mShootingCooldown += Time.fixedDeltaTime;
+        if (this.mShootingCooldown < this.ShootingCooldown)
+            this.mShootingCooldown += Time.fixedDeltaTime;
     }
 
     private void HandleReload ()
@@ -195,5 +196,14 @@ public class PlayerMovementState : PlayerState
         this.DodgeState.Direction = direction;
             
         this.Machine.PushState(this.DodgeState);
+    }
+
+    private void OnCollisionEnter (Collision collision)
+    {
+        if (this.enabled == false || collision.gameObject.CompareTag ("Bird Enemy") == false || this.Machine.IsInvulnerable () == true)
+            return;
+        
+        // collided with an enemy, notify the state machine to handle it
+        this.Machine.SendMessage ("ApplyDamage");
     }
 }
