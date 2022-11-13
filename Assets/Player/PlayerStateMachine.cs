@@ -13,28 +13,21 @@ public class PlayerStateMachine : MonoBehaviour
     /// The animator used by the player
     /// </summary>
     public Animator Animator { get; set; }
-
-    /// <summary>
-    /// The number of lifes the player starts the level
-    /// </summary>
-    public int StartingLifes = 5;
     /// <summary>
     /// The time the invulnerability timer is effective for
     /// </summary>
     public float InvulnerabilityTimer = 3.5f;
-
     /// <summary>
-    /// Event fired when the player loses a life
+    /// Event fired when the health value is changed
     /// </summary>
-    public static event Action <int> LifeLost;
-    /// <summary>
-    /// Event fired when the player picks up a life
-    /// </summary>
-    public static event Action <int> LifeFound;
+    public static event Action <float> HealthUpdate;
 
     private Queue<PlayerState> mStateQueue = new Queue <PlayerState> ();
 
-    private int mLifesLeft = 0;
+    /// <summary>
+    /// The health left for the player
+    /// </summary>
+    private float mHealth = 1.0f;
     private float mInvulnerabilityTimer = 0.0f;
 
     /// <summary>
@@ -118,22 +111,14 @@ public class PlayerStateMachine : MonoBehaviour
         this.CurrentState.enabled = false;
     }
 
-    public void DecreaseLife ()
-    {
-        LifeLost?.Invoke (--this.mLifesLeft);
-    }
-
-    public void IncreaseLife ()
-    {
-        LifeFound?.Invoke (++this.mLifesLeft);
-    }
-
-    public void ApplyDamage ()
+    public void ApplyDamage (float amount)
     {
         // start invulnerability timer
         this.mInvulnerabilityTimer = this.InvulnerabilityTimer;
         // decrease lifes
-        this.DecreaseLife ();
+        this.mHealth -= amount;
+        // update the health
+        HealthUpdate?.Invoke (this.mHealth);
         // TODO: ANIMATE THE PLAYER
     }
 }

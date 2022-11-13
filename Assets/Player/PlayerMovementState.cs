@@ -204,6 +204,6 @@ public class PlayerMovementState : PlayerState
             return;
         
         // collided with an enemy, notify the state machine to handle it
-        this.Machine.SendMessage ("ApplyDamage");
+        this.Machine.SendMessage ("ApplyDamage", 0.1f);
     }
 }
