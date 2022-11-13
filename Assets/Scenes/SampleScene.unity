@@ -988,9 +988,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 5
   InterpolationSpeed: 1
-  ShootingCooldown: 0.1
+  ShootingCooldown: 0.5
   ShootingJitter: 1
-  ClipReloadTime: 2
+  ClipReloadTime: 1
   ClipBullets: 10
 --- !u!114 &2033746561
 MonoBehaviour:

@@ -16,7 +16,7 @@ public class PlayerMovementState : PlayerState
     /// <summary>
     /// The amount of time shooting needs to cooldown
     /// </summary>
-    public float ShootingCooldown = 0.1f;
+    public float ShootingCooldown = 0.5f;
     /// <summary>
     /// Adds some angle to the shooting so not all bullets go straight
     /// </summary>
@@ -24,22 +24,55 @@ public class PlayerMovementState : PlayerState
     /// <summary>
     /// The time it takes to reload
     /// </summary>
-    public float ClipReloadTime = 2.0f;
-
+    public float ClipReloadTime = 1.0f;
+    /// <summary>
+    /// The amount of bullets a magazine/clip has
+    /// </summary>
     public int ClipBullets = 10;
     
+    /// <summary>
+    /// Horizontal position of the stick
+    /// </summary>
     private float mHorizontal = 0.0f;
+    /// <summary>
+    /// Vertical position of the stick
+    /// </summary>
     private float mVertical = 0.0f;
+    /// <summary>
+    /// The shooting cooldown timer
+    /// </summary>
     private float mShootingCooldown = 0.0f;
+    /// <summary>
+    /// The reload timer
+    /// </summary>
+    private float mReloadTimer = 0.0f;
 
     private Vector3 mLookAtPoint;
 
+    /// <summary>
+    /// The current amount of bullets inside the clip
+    /// </summary>
     private int mClipBullets;
 
     /// <summary>
     /// Event fired when the player shoots
     /// </summary>
     public static event Action<int> OnShoot;
+
+    /// <summary>
+    /// Event fired when the player finishes reloading
+    /// </summary>
+    public static event Action <int> OnReload;
+
+    private void OnEnable ()
+    {
+        // TODO: PLAY SOUND
+        
+        // reload the magazine/clip (when enabled, so this applies to state change and other events that enable/disable components)
+        this.mClipBullets = this.ClipBullets;
+
+        OnReload?.Invoke (this.mClipBullets);
+    }
 
     void FixedUpdate()
     {
@@ -50,9 +83,9 @@ public class PlayerMovementState : PlayerState
             HandleShooting();
         if (Input.GetButton ("Dodge") == true)
             HandleDodge ();
-        
-        // increase the cooldown timers
-        this.mShootingCooldown += Time.fixedDeltaTime;
+
+        HandleCooldown ();
+        HandleReload ();
     }
 
     private void HandleMovement()
@@ -88,7 +121,7 @@ public class PlayerMovementState : PlayerState
     private void HandleShooting()
     {
         // prevent shooting if it's not cooled down
-        if (this.mShootingCooldown < this.ShootingCooldown)
+        if (this.mShootingCooldown < this.ShootingCooldown || this.mReloadTimer > 0.0f)
             return;
         
         // get the bullet from the pool
@@ -110,8 +143,44 @@ public class PlayerMovementState : PlayerState
         // enable the bullet
         bullet.SetActive(true);
         
+        // decrease ammunition count
+        this.mClipBullets--;
+        
+        // reset shooting cooldown
+        this.mShootingCooldown = 0.0f;
+        
         // fire the onshoot event
-        OnShoot?.Invoke(1);
+        OnShoot?.Invoke(this.mClipBullets);
+
+        if (this.mClipBullets > 0)
+            return;
+        
+        // set the reload timer
+        this.mReloadTimer = this.ClipReloadTime;
+    }
+
+    private void HandleCooldown ()
+    {
+        // increase the cooldown timers
+        this.mShootingCooldown += Time.fixedDeltaTime;
+    }
+
+    private void HandleReload ()
+    {
+        // reload only needs to be handled if the timer is not yet depleted
+        if (this.mReloadTimer <= 0.0f)
+            return;
+
+        // decrease timer
+        this.mReloadTimer -= Time.fixedDeltaTime;
+
+        // only fire the reload event if the timer is finished
+        if (this.mReloadTimer > 0.0f)
+            return;
+
+        this.mClipBullets = this.ClipBullets;
+        
+        OnReload?.Invoke (this.mClipBullets);
     }
 
     private void HandleDodge()
