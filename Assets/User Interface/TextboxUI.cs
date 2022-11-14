@@ -4,29 +4,22 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class TextboxUI : MonoBehaviour
 {
     /// <summary>
     /// The amount of time between each character appearing
     /// </summary>
-    public float TextDisplayDelay = 0.2f;
+    public float TextDisplayDelay = 0.1f;
     /// <summary>
     /// The amount of characters will appear each time
     /// </summary>
-    public int DisplayCharactersAtOnce = 2;
-    /// <summary>
+    public int DisplayCharactersAtOnce = 1;
     /// Queue of text to show in the textboxes
     /// </summary>
     private Queue <string> mMessageQueue = new Queue <string> ();
-    /// <summary>
-    /// The message currently displaying
-    /// </summary>
-    private string mCurrentMessage = "";
-    /// <summary>
-    /// The current text of the message visible
-    /// </summary>
-    private string mMessageProgress = "";
     /// <summary>
     /// Whether the textbox is being displayed or not
     /// </summary>
@@ -34,13 +27,17 @@ public class TextboxUI : MonoBehaviour
 
     private TextMeshProUGUI mText;
     private float mTimer = 0.0f;
+
+    private AudioSource mAudioSource;
     
     void Start()
     {
         // bind to specific events
         EventManager.Textbox += this.QueueTextbox;
-        // get elements inside
+        // get the text container
         this.mText = GetComponentInChildren <TextMeshProUGUI> (true);
+        // get the audio source so we can play sounds
+        this.mAudioSource = GetComponent <AudioSource> ();
     }
 
     void FixedUpdate ()
@@ -55,22 +52,31 @@ public class TextboxUI : MonoBehaviour
             this.DequeueMessage ();
         }
 
+        // do not do anything timer-related if enough characters are shown
+        if (this.mText.maxVisibleCharacters >= this.mText.text.Length)
+            return;
+        
         this.mTimer -= Time.fixedDeltaTime;
 
         if (this.mTimer > 0.0f)
             return;
         
         // get next X characters
-        this.mMessageProgress =
-            this.mCurrentMessage.Substring (
-                0, Math.Min (this.mMessageProgress.Length + this.DisplayCharactersAtOnce, this.mCurrentMessage.Length - 1)
-            );
+        this.mText.maxVisibleCharacters += this.DisplayCharactersAtOnce;
         
-        // update text
-        this.mText.text = this.mMessageProgress;
+        // set a random pitch based off 1
+        this.mAudioSource.pitch = Random.Range (0.9f, 1.1f);
+        // play the audio
+        this.mAudioSource.Play ();
         
         // reset the timer
         this.mTimer = this.TextDisplayDelay;
+    }
+
+    void SetChildrenActive (bool active)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild (i).gameObject.SetActive (active);
     }
 
     void DequeueMessage ()
@@ -78,8 +84,8 @@ public class TextboxUI : MonoBehaviour
         if (this.mMessageQueue.Count == 0)
         {
             this.mDisplayingMessage = false;
-            // disable textbox container
-            this.mText.gameObject.SetActive (false);
+            // disable everything inside us
+            SetChildrenActive (false);
             // enable movement again
             EventManager.InvokeEnableMovement ();
             // TODO: HIDE EVERYTHING RELATED TO THE UI
@@ -88,13 +94,14 @@ public class TextboxUI : MonoBehaviour
         
         // ensure the textbox is active and has information
         this.mDisplayingMessage = true;
-        this.mCurrentMessage = this.mMessageQueue.Dequeue ();
-        this.mMessageProgress = "";
-        this.mText.text = "";
-        // enable the textbox container
-        this.mText.gameObject.SetActive (true);
+        this.mText.text = this.mMessageQueue.Dequeue ();
+        this.mText.maxVisibleCharacters = 0;
+        // force mesh update
+        this.mText.ForceMeshUpdate (forceTextReparsing: true);
         // set the timer
         this.mTimer = this.TextDisplayDelay;
+        // enable everything inside us
+        SetChildrenActive (true);
     }
 
     void QueueTextbox (string message)
