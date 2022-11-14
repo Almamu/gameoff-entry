@@ -10,6 +10,8 @@ public class HealthUI : MonoBehaviour
     /// </summary>
     private Image mFillImage;
     
+    // TODO: MAYBE EASE CHANGES?
+
     void Start()
     {
         this.mFillImage = GetComponent <Image> ();

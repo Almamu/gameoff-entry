@@ -11,6 +11,10 @@ public class BulletBehaviour : MonoBehaviour
     void Start()
     {
         this.mRigidbody = GetComponent <Rigidbody> ();
+        
+        // subscribe to required events to alter state
+        EventManager.DisableMovement += OnDisableMovement;
+        EventManager.EnableMovement += OnEnableMovement;
     }
     
     // Update is called once per frame
@@ -33,4 +37,19 @@ public class BulletBehaviour : MonoBehaviour
         this.mCurrentTime = 0.0f;
         gameObject.SetActive(false);
     }
+    
+    void OnEnableMovement ()
+    {
+        // enable current state
+        this.mRigidbody.isKinematic = false;
+        this.mRigidbody.detectCollisions = true;
+    }
+
+    void OnDisableMovement ()
+    {
+        // disable current state
+        this.mRigidbody.isKinematic = true;
+        this.mRigidbody.detectCollisions = false;
+    }
+
 }

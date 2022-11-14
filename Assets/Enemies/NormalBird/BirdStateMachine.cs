@@ -33,6 +33,10 @@ public class BirdStateMachine : MonoBehaviour
         this.Player = GameObject.FindWithTag ("Player");
         // fire the stateenter event
         this.CurrentState.OnStateEnter ();
+        
+        // subscribe to required events to alter state
+        EventManager.DisableMovement += OnDisableMovement;
+        EventManager.EnableMovement += OnEnableMovement;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -74,5 +78,17 @@ public class BirdStateMachine : MonoBehaviour
         this.CurrentState = this.mStateQueue.Dequeue();
         this.CurrentState.enabled = true;
         this.CurrentState.OnStateEnter();
+    }
+    
+    void OnEnableMovement ()
+    {
+        // enable current state
+        this.CurrentState.enabled = true;
+    }
+
+    void OnDisableMovement ()
+    {
+        // disable current state
+        this.CurrentState.enabled = false;
     }
 }

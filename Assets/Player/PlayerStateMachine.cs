@@ -8,7 +8,6 @@ public class PlayerStateMachine : MonoBehaviour
     /// The current state the machine is in
     /// </summary>
     public PlayerState CurrentState { get; set; }
-    
     /// <summary>
     /// The animator used by the player
     /// </summary>
@@ -29,11 +28,10 @@ public class PlayerStateMachine : MonoBehaviour
     /// </summary>
     private float mHealth = 1.0f;
     private float mInvulnerabilityTimer = 0.0f;
-
     /// <summary>
-    /// The mesh renderer for this object
+    /// The rigidbody the player is using
     /// </summary>
-    private MeshRenderer mRenderer;
+    private Rigidbody mRigidbody;
 
     /// <summary>
     /// The ID of the InvulnerabilityTimer in the animator
@@ -42,11 +40,11 @@ public class PlayerStateMachine : MonoBehaviour
     /// <summary>
     /// The collision layer at which the birds are at
     /// </summary>
-    private static int BirdsCollisionLayer;
+    public static int BirdsCollisionLayer;
     /// <summary>
     /// The collision layer at which the birds are at
     /// </summary>
-    private static int PlayerCollisionLayer;
+    public static int PlayerCollisionLayer;
     
     // Start is called before the first frame update
     void Awake()
@@ -57,6 +55,8 @@ public class PlayerStateMachine : MonoBehaviour
         this.CurrentState = GetComponent<PlayerState>();
         // get reference to the animator
         this.Animator = GetComponent <Animator> ();
+        // get the rigidbody
+        this.mRigidbody = GetComponent <Rigidbody> ();
         
         // subscribe to required events to alter state
         EventManager.DisableMovement += OnDisableMovement;
@@ -108,7 +108,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         this.mInvulnerabilityTimer -= Time.fixedDeltaTime;
 
-        if (this.mInvulnerabilityTimer > 0.0f)
+        if (this.mInvulnerabilityTimer > 0.0f || this.CurrentState is PlayerDodge)
             return;
         
         // set collision layers so birds can hit the player again
@@ -119,12 +119,16 @@ public class PlayerStateMachine : MonoBehaviour
     {
         // enable current state
         this.CurrentState.enabled = true;
+        this.mRigidbody.isKinematic = false;
+        this.mRigidbody.detectCollisions = true;
     }
 
     void OnDisableMovement ()
     {
         // disable current state
         this.CurrentState.enabled = false;
+        this.mRigidbody.isKinematic = true;
+        this.mRigidbody.detectCollisions = false;
     }
 
     public void ApplyDamage (float amount)
