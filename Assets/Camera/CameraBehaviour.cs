@@ -8,18 +8,21 @@ public class CameraBehaviour : MonoBehaviour
     /// Object the camera should follow
     /// </summary>
     public Transform Follow;
-
     /// <summary>
-    /// Distance to the object to follow
+    /// Vertical distance to the object to follow
     /// </summary>
-    public float Distance = 25.0f;
+    public float VerticalDistance = 25.0f;
+    /// <summary>
+    /// Horizontal distance to the object to follow
+    /// </summary>
+    public float HorizontalDistance = 25.0f;
 
     void Update()
     {
         if (this.Follow is null)
             return;
         
-        transform.position = Follow.position + (Follow.up * Distance) + -Vector3.forward * Distance;
+        transform.position = Follow.position + (Follow.up * this.VerticalDistance) + -Vector3.forward * this.HorizontalDistance;
         transform.LookAt(Follow.position);
     }
 }

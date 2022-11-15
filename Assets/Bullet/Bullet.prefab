@@ -97,7 +97,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8294714223716570556
 MonoBehaviour:
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisappearTime: 5
-  ShootSpeed: 25
+  ShootSpeed: 40
 --- !u!54 &4243434240489223579
 Rigidbody:
   m_ObjectHideFlags: 0

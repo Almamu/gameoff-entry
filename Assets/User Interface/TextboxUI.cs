@@ -17,6 +17,10 @@ public class TextboxUI : MonoBehaviour
     /// The amount of characters will appear each time
     /// </summary>
     public int DisplayCharactersAtOnce = 1;
+    /// <summary>
+    /// The maximum pitch shift for the voice
+    /// </summary>
+    public float PitchShift = 0.1f;
     /// Queue of text to show in the textboxes
     /// </summary>
     private Queue <string> mMessageQueue = new Queue <string> ();
@@ -68,7 +72,7 @@ public class TextboxUI : MonoBehaviour
         this.mText.maxVisibleCharacters += this.DisplayCharactersAtOnce;
         
         // set a random pitch based off 1
-        this.mAudioSource.pitch = Random.Range (0.9f, 1.1f);
+        this.mAudioSource.pitch = Random.Range (1.0f - this.PitchShift, 1.0f + this.PitchShift);
         // play the audio
         this.mAudioSource.Play ();
         
