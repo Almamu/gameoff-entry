@@ -46,10 +46,13 @@ public class TextboxUI : MonoBehaviour
         if (this.mDisplayingMessage == false)
             return;
 
-        if (Input.GetButton ("Fire") == true)
+        if (Input.GetButtonDown ("Fire") == true)
         {
-            // dequeu message and go to the next
-            this.DequeueMessage ();
+            // display all the text or go to the next one
+            if (this.mText.maxVisibleCharacters < this.mText.text.Length)
+                this.mText.maxVisibleCharacters = this.mText.text.Length;
+            else
+                this.DequeueMessage ();
         }
 
         // do not do anything timer-related if enough characters are shown
@@ -88,7 +91,6 @@ public class TextboxUI : MonoBehaviour
             SetChildrenActive (false);
             // enable movement again
             EventManager.InvokeEnableMovement ();
-            // TODO: HIDE EVERYTHING RELATED TO THE UI
             return;
         }
         

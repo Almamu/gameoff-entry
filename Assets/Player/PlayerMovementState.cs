@@ -186,9 +186,6 @@ public class PlayerMovementState : PlayerState
 
     private void HandleDodge()
     {
-        // textbox test
-        EventManager.InvokeTextbox ("Hello world!");
-        
         Vector3 direction = this.Rigidbody.velocity.normalized;
         
         if (math.abs (this.mHorizontal) < 0.1 && math.abs (this.mVertical) < 0.1)

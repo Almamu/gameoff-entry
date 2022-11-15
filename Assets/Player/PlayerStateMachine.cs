@@ -27,11 +27,18 @@ public class PlayerStateMachine : MonoBehaviour
     /// The health left for the player
     /// </summary>
     private float mHealth = 1.0f;
+    /// <summary>
+    /// Timer for invulnerability
+    /// </summary>
     private float mInvulnerabilityTimer = 0.0f;
     /// <summary>
     /// The rigidbody the player is using
     /// </summary>
     private Rigidbody mRigidbody;
+    /// <summary>
+    /// Velocity of the rigidbody before being disabled
+    /// </summary>
+    private Vector3 mSavedVelocity;
 
     /// <summary>
     /// The ID of the InvulnerabilityTimer in the animator
@@ -77,7 +84,7 @@ public class PlayerStateMachine : MonoBehaviour
         
         // enable new state and set it as current
         this.CurrentState = newState;
-        this.CurrentState.enabled = true;
+        this.CurrentState.enabled = this.enabled;
         this.CurrentState.OnStateEnter();
     }
 
@@ -89,7 +96,7 @@ public class PlayerStateMachine : MonoBehaviour
         this.CurrentState.OnStateExit();
         this.CurrentState.enabled = false;
         this.CurrentState = this.mStateQueue.Dequeue();
-        this.CurrentState.enabled = true;
+        this.CurrentState.enabled = this.enabled;
         this.CurrentState.OnStateEnter();
     }
 
@@ -118,15 +125,19 @@ public class PlayerStateMachine : MonoBehaviour
     void OnEnableMovement ()
     {
         // enable current state
+        this.enabled = true;
         this.CurrentState.enabled = true;
         this.mRigidbody.isKinematic = false;
         this.mRigidbody.detectCollisions = true;
+        this.mRigidbody.velocity = this.mSavedVelocity;
     }
 
     void OnDisableMovement ()
     {
         // disable current state
+        this.enabled = false;
         this.CurrentState.enabled = false;
+        this.mSavedVelocity = this.mRigidbody.velocity;
         this.mRigidbody.isKinematic = true;
         this.mRigidbody.detectCollisions = false;
     }
