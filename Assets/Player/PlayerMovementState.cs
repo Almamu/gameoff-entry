@@ -200,10 +200,27 @@ public class PlayerMovementState : PlayerState
 
     private void OnCollisionEnter (Collision collision)
     {
-        if (this.enabled == false || collision.gameObject.CompareTag ("Bird Enemy") == false || this.Machine.IsInvulnerable () == true)
+        if (this.enabled == false)
+            return;
+        if (this.Machine.IsInvulnerable () == true)
+            return;
+        if (collision.gameObject.CompareTag ("Bird Enemy") == false)
             return;
         
         // collided with an enemy, notify the state machine to handle it
         this.Machine.SendMessage ("ApplyDamage", 0.1f);
+    }
+
+    private void OnTriggerStay (Collider other)
+    {
+        if (this.enabled == false)
+            return;
+        if (this.Machine.IsInvulnerable () == true)
+            return;
+
+        if (other.gameObject.CompareTag ("Enemy attack") == false)
+            return;
+
+        this.Machine.SendMessage ("ApplyToxicDamage", 0.1f);
     }
 }

@@ -6,7 +6,6 @@ public class PlayerState : MonoBehaviour
     protected PlayerDodge DodgeState { get; set; }
     protected PlayerMovementState MovementState { get; set; }
     protected ObjectPool BulletPool { get; set; }
-    
     protected Rigidbody Rigidbody { get; set; }
     
     // Start is called before the first frame update
@@ -17,12 +16,6 @@ public class PlayerState : MonoBehaviour
         this.MovementState = GetComponent <PlayerMovementState> ();
         this.DodgeState = GetComponent <PlayerDodge> ();
         this.BulletPool = GameObject.Find ("PlayerBulletPool").GetComponent <ObjectPool> ();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public virtual void OnStateEnter()

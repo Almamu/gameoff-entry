@@ -153,4 +153,10 @@ public class PlayerStateMachine : MonoBehaviour
         // set collision layers so birds cannot hit the player
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, BirdsCollisionLayer, true);
     }
+
+    public void ApplyToxicDamage (float amount)
+    {
+        // TODO: WRITE IT'S OWN VERSION FOR NOW
+        this.ApplyDamage (amount);
+    }
 }
