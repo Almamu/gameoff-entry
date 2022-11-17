@@ -367,7 +367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &180835785
 Transform:
   m_ObjectHideFlags: 0
@@ -1623,7 +1623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1004229689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2392,7 +2392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734936317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.91, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2634,7 +2634,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -2745,12 +2745,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a8bdde92207398eb320aef319be20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
+  MovementSpeed: 12
   InterpolationSpeed: 1
   ShootingCooldown: 0.5
   ShootingJitter: 1
   ClipReloadTime: 1
   ClipBullets: 8
+  DodgeCooldown: 2
 --- !u!114 &2033746561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2763,8 +2764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c91bb6651fcdcd548b54e0855f67ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Strength: 9
-  InvulnerabilityTimer: 1
+  Strength: 20
+  InvulnerabilityTimer: 0.4
 --- !u!95 &2033746562
 Animator:
   serializedVersion: 4

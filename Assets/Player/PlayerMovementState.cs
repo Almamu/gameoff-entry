@@ -29,6 +29,14 @@ public class PlayerMovementState : PlayerState
     /// The amount of bullets a magazine/clip has
     /// </summary>
     public int ClipBullets = 8;
+    /// <summary>
+    /// The time it takes for the dodge to cooldown
+    /// </summary>
+    public float DodgeCooldown = 2.0f;
+    /// <summary>
+    /// The time the player stops moving for shooting
+    /// </summary>
+    public float ShootBlockTime = 0.075f;
     
     /// <summary>
     /// Horizontal position of the stick
@@ -46,6 +54,10 @@ public class PlayerMovementState : PlayerState
     /// The reload timer
     /// </summary>
     private float mReloadTimer = 0.0f;
+    /// <summary>
+    /// The dodge cooldown timer
+    /// </summary>
+    private float mDodgeCooldownTimer = 0.0f;
 
     private Vector3 mLookAtPoint;
 
@@ -53,6 +65,8 @@ public class PlayerMovementState : PlayerState
     /// The current amount of bullets inside the clip
     /// </summary>
     private int mClipBullets;
+
+    private float mShootBlock = 0.0f;
 
     /// <summary>
     /// Event fired when the player shoots
@@ -93,11 +107,18 @@ public class PlayerMovementState : PlayerState
         this.mHorizontal = math.lerp (this.mHorizontal, Input.GetAxis("Horizontal"), InterpolationSpeed);
         this.mVertical = math.lerp (this.mVertical, Input.GetAxis("Vertical"), InterpolationSpeed);
 
-        this.Rigidbody.velocity = new Vector3(
-            this.mHorizontal * MovementSpeed,
-            this.Rigidbody.velocity.y, // keep vertical velocity
-            this.mVertical * MovementSpeed
-        );
+        Vector3 movement = new Vector3(0.0f, 0.0f, 0.0f);
+
+        if (this.mShootBlock >= this.ShootBlockTime)
+        {
+            movement = new Vector3(
+                this.mHorizontal * MovementSpeed,
+                this.Rigidbody.velocity.y, // keep vertical velocity
+                this.mVertical * MovementSpeed
+            );
+        }
+
+        this.Rigidbody.velocity = movement;
     }
 
     private void HandleRotationToCamera()
@@ -134,7 +155,7 @@ public class PlayerMovementState : PlayerState
         }
 
         // setup the bullet
-        bullet.transform.position = transform.position;
+        bullet.transform.position = transform.position + transform.forward;
         bullet.transform.rotation = transform.rotation;
 
         // some jitter so not all bullets go the same direction
@@ -148,6 +169,8 @@ public class PlayerMovementState : PlayerState
         
         // reset shooting cooldown
         this.mShootingCooldown = 0.0f;
+        // set the movement lock timer
+        this.mShootBlock = 0.0f;
         
         // fire the onshoot event
         OnShoot?.Invoke(this.mClipBullets);
@@ -164,6 +187,10 @@ public class PlayerMovementState : PlayerState
         // increase the cooldown timers
         if (this.mShootingCooldown < this.ShootingCooldown)
             this.mShootingCooldown += Time.fixedDeltaTime;
+        if (this.mDodgeCooldownTimer < this.DodgeCooldown)
+            this.mDodgeCooldownTimer += Time.fixedDeltaTime;
+        if (this.mShootBlock < this.ShootBlockTime)
+            this.mShootBlock += Time.fixedDeltaTime;
     }
 
     private void HandleReload ()
@@ -186,6 +213,9 @@ public class PlayerMovementState : PlayerState
 
     private void HandleDodge()
     {
+        if (this.mDodgeCooldownTimer < this.DodgeCooldown)
+            return;
+        
         Vector3 direction = this.Rigidbody.velocity.normalized;
         
         if (math.abs (this.mHorizontal) < 0.1 && math.abs (this.mVertical) < 0.1)
@@ -194,6 +224,7 @@ public class PlayerMovementState : PlayerState
         direction.y = 0;
 
         this.DodgeState.Direction = direction;
+        this.mDodgeCooldownTimer = 0.0f;
             
         this.Machine.PushState(this.DodgeState);
     }

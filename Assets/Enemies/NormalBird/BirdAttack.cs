@@ -9,7 +9,7 @@ public class BirdAttack : BirdState
     /// <summary>
     /// The minimum movement speed for an attack
     /// </summary>
-    public float MinimumAttackSpeed = 0.0f;
+    public float MinimumAttackSpeed = 4.0f;
     /// <summary>
     /// The maximum movement speed for an attack
     /// </summary>

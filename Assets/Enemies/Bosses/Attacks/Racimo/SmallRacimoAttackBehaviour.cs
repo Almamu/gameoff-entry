@@ -26,7 +26,12 @@ public class SmallRacimoAttackBehaviour : MonoBehaviour
     /// The timer to control destroyal of this bullet
     /// </summary>
     private float mTimer = 0.0f;
-    
+
+    void Awake ()
+    {
+        this.mTimer = this.DestroyTimer;
+    }
+
     void FixedUpdate()
     {
         transform.position += transform.forward * this.MovementSpeed;
