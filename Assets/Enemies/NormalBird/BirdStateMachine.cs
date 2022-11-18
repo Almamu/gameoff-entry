@@ -6,13 +6,10 @@ using UnityEngine;
 
 public class BirdStateMachine : MonoBehaviour
 {
-    [HideInInspector]
     public BirdState CurrentState { get; private set; }
     
-    [HideInInspector]
     public Vector3 SpawnerCenter { get; private set; }
 
-    [HideInInspector]
     public BoxCollider MovementArea { get; private set; }
     
     public GameObject Player { get; private set; }

@@ -397,7 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e06a5d22440e8e3cbc4bd802557c6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PooledPrefab: {fileID: 6968910410365232597, guid: bb0c9ba09d72dacf38586f0251fef815, type: 3}
+  PooledPrefabs:
+  - {fileID: 6968910410365232597, guid: bb0c9ba09d72dacf38586f0251fef815, type: 3}
+  - {fileID: 6968910410365232597, guid: e3a54c6c6cc31e24babdf1b55ca92f27, type: 3}
   PoolLimit: 20
 --- !u!114 &180835787
 MonoBehaviour:
@@ -1277,7 +1279,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.85
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &850644298
 GameObject:
@@ -2382,7 +2384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e06a5d22440e8e3cbc4bd802557c6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PooledPrefab: {fileID: 3990185179909958464, guid: 7b5c89b43319448c791425cb74878b74, type: 3}
+  PooledPrefabs:
+  - {fileID: 3990185179909958464, guid: 7b5c89b43319448c791425cb74878b74, type: 3}
   PoolLimit: 500
 --- !u!4 &1734936319
 Transform:
@@ -2752,6 +2755,7 @@ MonoBehaviour:
   ClipReloadTime: 1
   ClipBullets: 8
   DodgeCooldown: 2
+  ShootBlockTime: 0.075
 --- !u!114 &2033746561
 MonoBehaviour:
   m_ObjectHideFlags: 0

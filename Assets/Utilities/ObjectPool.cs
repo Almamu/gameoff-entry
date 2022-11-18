@@ -8,7 +8,7 @@ public class ObjectPool : MonoBehaviour
     /// <summary>
     /// The prefab to pool
     /// </summary>
-    public GameObject PooledPrefab;
+    public GameObject[] PooledPrefabs;
 
     /// <summary>
     /// The amount of items to pool
@@ -20,10 +20,14 @@ public class ObjectPool : MonoBehaviour
     void Awake()
     {
         this.mPool = new GameObject [PoolLimit];
+
+        int numberPrefabs = this.PooledPrefabs.Length;
         
         for (int i = 0; i < PoolLimit; i++)
         {
-            GameObject obj = Instantiate(PooledPrefab, gameObject.transform);
+            GameObject randomPrefab = this.PooledPrefabs [Random.Range (0, numberPrefabs)];
+            
+            GameObject obj = Instantiate(randomPrefab, gameObject.transform);
             obj.SetActive(false);
 
             this.mPool[i] = obj;
