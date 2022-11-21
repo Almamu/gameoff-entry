@@ -34,7 +34,7 @@ public class SmallRacimoAttackBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position += transform.forward * this.MovementSpeed;
+        transform.Translate (Vector3.forward * this.MovementSpeed);
 
         this.mTimer -= Time.fixedDeltaTime;
 

@@ -21,8 +21,11 @@ public class CameraBehaviour : MonoBehaviour
     {
         if (this.Follow is null)
             return;
-        
-        transform.position = Follow.position + (Follow.up * this.VerticalDistance) + -Vector3.forward * this.HorizontalDistance;
-        transform.LookAt(Follow.position);
+
+        Vector3 position = this.Follow.position;
+        Vector3 newPosition = position + (Follow.up * this.VerticalDistance) + -Vector3.forward * this.HorizontalDistance;
+
+        transform.position = newPosition;
+        transform.LookAt(position);
     }
 }

@@ -154,9 +154,13 @@ public class PlayerMovementState : PlayerState
             return;
         }
 
+        Transform t = transform;
+
         // setup the bullet
-        bullet.transform.position = transform.position + transform.forward;
-        bullet.transform.rotation = transform.rotation;
+        bullet.transform.SetPositionAndRotation (
+            t.position + t.forward,
+            t.rotation
+        );
 
         // some jitter so not all bullets go the same direction
         bullet.transform.Rotate (Vector3.up, Random.Range (-this.ShootingJitter, this.ShootingJitter));

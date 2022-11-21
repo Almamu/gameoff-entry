@@ -31,10 +31,10 @@ public class RacimoAttackBehaviour : MonoBehaviour
     
     void FixedUpdate ()
     {
-        Transform current = transform;
-        
         // move forward
-        current.position += current.forward * this.MovementSpeed;
+        transform.Translate (Vector3.forward * this.MovementSpeed);
+        // get current position
+        Vector3 currentPosition = transform.position;
         
         this.mTimer -= Time.fixedDeltaTime;
 
@@ -44,15 +44,15 @@ public class RacimoAttackBehaviour : MonoBehaviour
         // end of the shooting, enable childs and destroy ourselves
         foreach (SmallRacimoAttackBehaviour child in this.mChilds)
         {
+            Vector3 childPosition = child.transform.position;
+            
             // store default information for reset purposes
             child.StartParent = transform;
             child.StartLocalPosition = child.transform.localPosition;
             // get the direction to the parent
-            Vector3 direction = child.transform.position - this.transform.position;
-            // get it as a direction vector
-            direction.Normalize ();
+            Vector3 direction = Vector3.Normalize(childPosition - currentPosition);
             // look in the opposite direction
-            child.transform.LookAt (child.transform.position + direction);
+            child.transform.LookAt (childPosition + direction);
             // parent it to our parent so they don't clutter the hierarchy
             child.transform.SetParent (transform.parent);
             // activate them
