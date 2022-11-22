@@ -269,3 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9b6183446f4ea58ad126a611d2d800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CycleTimer: 0.3
+  QuantityPerCycle: 3
+  TotalQuantity: 15
