@@ -21,7 +21,10 @@ public class BossesController : MonoBehaviour
     /// Maximum time for a state change
     /// </summary>
     public float MaxStateChangeTime = 4.0f;
-    
+    /// <summary>
+    /// The playable area for the bosses
+    /// </summary>
+    public BoxCollider PlayableArea { get; set; }
     /// <summary>
     /// State machines of all the bosses created
     /// </summary>
@@ -36,6 +39,7 @@ public class BossesController : MonoBehaviour
     {
         // get access to both state machines as these will be directed from here
         this.mBosses = GetComponentsInChildren <BossStateMachine> ();
+        this.PlayableArea = transform.Find ("PlayableArea").GetComponent <BoxCollider> ();
     }
 
     void FixedUpdate ()

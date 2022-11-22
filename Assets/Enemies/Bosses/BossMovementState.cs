@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossMovementState : BossState
@@ -18,7 +16,6 @@ public class BossMovementState : BossState
     {
         // rotate the parent
         transform.parent.Rotate (Vector3.up, this.MovementSpeed * Time.fixedDeltaTime);
-
 
         Vector3 playerDirection = this.Machine.Objective.transform.position - transform.position;
 

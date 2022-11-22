@@ -1,5 +1,72 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &950821277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 950821278}
+  - component: {fileID: 950821280}
+  - component: {fileID: 950821279}
+  - component: {fileID: 950821281}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Wind effect
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &950821278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950821277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2707346931457953715}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &950821280
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950821277}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!135 &950821279
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950821277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &950821281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950821277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b57c9a4ec143244b1e93caf9dd89ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &283387329897039698
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,6 +84,8 @@ GameObject:
   - component: {fileID: 3925916233182550532}
   - component: {fileID: 881772670}
   - component: {fileID: 881772669}
+  - component: {fileID: 1198281350826228342}
+  - component: {fileID: 7258493894613338336}
   m_Layer: 9
   m_Name: BossPrefab
   m_TagString: Boss enemy
@@ -35,7 +104,8 @@ Transform:
   m_LocalPosition: {x: 27, y: 0.7, z: 22.3}
   m_LocalScale: {x: 3.59, y: 3.59, z: 3.59}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 950821278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,9 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe90d64575640a4a58d0077f1c219eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
-  TurnFactor: 3
-  AggresiveTurnDistance: 100
+  MovementSpeed: 3
+  RotationSpeed: 1
 --- !u!114 &3925916233182550532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864a137f5c6116248946674c1e04a7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackPrefab: {fileID: 20678542366555766, guid: a3f19adcb88c1af4291f83e28ba728f4, type: 3}
 --- !u!114 &881772670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,9 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4907875d0cac11419fb4fcc8838ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 6
-  TurnFactor: 5
-  AggresiveTurnDistance: 100
+  MovementSpeed: 4.5
+  RotationSpeed: 1
+  DashDuration: 1
 --- !u!114 &881772669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,5 +239,33 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5638ad0bb1f144e5bb8f39feb9e34e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1198281350826228342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283387329897039698}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1400c53901ce4a4f9827cc4ce60c5418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 5
+  Difference: 2
+  Speed: 5
+  Force: 6
+--- !u!114 &7258493894613338336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283387329897039698}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9b6183446f4ea58ad126a611d2d800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

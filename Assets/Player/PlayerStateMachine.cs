@@ -144,6 +144,10 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void ApplyDamage (float amount)
     {
+        // invulnerability timer means no damage!
+        if (this.IsInvulnerable () == true)
+            return;
+        
         // start invulnerability timer
         this.mInvulnerabilityTimer = this.InvulnerabilityTimer;
         // decrease lifes
@@ -154,9 +158,18 @@ public class PlayerStateMachine : MonoBehaviour
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, BirdsCollisionLayer, true);
     }
 
-    public void ApplyToxicDamage (float amount)
+    public void ApplyHitDamage ()
     {
-        // TODO: WRITE IT'S OWN VERSION FOR NOW
-        this.ApplyDamage (amount);
+        this.ApplyDamage (0.1f);
+    }
+
+    public void ApplyToxicDamage ()
+    {
+        this.ApplyDamage (0.1f);
+    }
+    
+    public void ApplyWindDamage ()
+    {
+        this.ApplyDamage (0.1f);
     }
 }

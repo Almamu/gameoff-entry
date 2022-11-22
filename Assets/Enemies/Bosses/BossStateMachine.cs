@@ -35,6 +35,10 @@ public class BossStateMachine : MonoBehaviour
     /// The current state the machine is in
     /// </summary>
     public BossState CurrentState { get; set; }
+    /// <summary>
+    /// The controller for the bosses level
+    /// </summary>
+    public BossesController Controller { get; set; }
 
     /// <summary>
     /// The list of states to unwind when poping them
@@ -53,7 +57,15 @@ public class BossStateMachine : MonoBehaviour
     /// Dash movement state used for transition
     /// </summary>
     private BossDashMovementState DashMovementState;
-
+    /// <summary>
+    /// Wings attack state used for transition
+    /// </summary>
+    private BossWingsAttack WingsAttackState;
+    /// <summary>
+    /// Toxic waste fountain attack
+    /// </summary>
+    private BossToxicWasteFountainAttackState ToxicWasteFountainAttackState;
+    
     void Awake ()
     {
         // get the current, active state so the state machine has something to do
@@ -63,6 +75,10 @@ public class BossStateMachine : MonoBehaviour
         this.ToxicWasteAttackState = GetComponent <BossToxicWasteAttackState> ();
         this.RacimoAttackState = GetComponent <BossRacimoAttackState> ();
         this.DashMovementState = GetComponent <BossDashMovementState> ();
+        this.WingsAttackState = GetComponent <BossWingsAttack> ();
+        this.ToxicWasteFountainAttackState = GetComponent <BossToxicWasteFountainAttackState> ();
+        
+        this.Controller = GetComponentInParent <BossesController> (true);
         
         // subscribe to required events to alter state
         EventManager.DisableMovement += OnDisableMovement;

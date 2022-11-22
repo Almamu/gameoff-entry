@@ -243,7 +243,7 @@ public class PlayerMovementState : PlayerState
             return;
         
         // collided with an enemy, notify the state machine to handle it
-        this.Machine.SendMessage ("ApplyDamage", 0.1f);
+        this.SendMessage ("ApplyHitDamage");
     }
 
     private void OnTriggerStay (Collider other)
@@ -256,6 +256,6 @@ public class PlayerMovementState : PlayerState
         if (other.gameObject.CompareTag ("Enemy attack") == false)
             return;
 
-        this.Machine.SendMessage ("ApplyToxicDamage", 0.1f);
+        this.SendMessage ("ApplyToxicDamage");
     }
 }

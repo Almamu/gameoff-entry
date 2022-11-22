@@ -9,6 +9,7 @@ TagManager:
   - Bird Enemy
   - Enemy attack
   - Boss enemy
+  - Wind effect
   layers:
   - Default
   - TransparentFX
