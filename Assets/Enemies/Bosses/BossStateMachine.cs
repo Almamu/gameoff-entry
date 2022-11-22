@@ -73,6 +73,10 @@ public class BossStateMachine : MonoBehaviour
     /// Swing attack state used for transition
     /// </summary>
     private BossSwingAttackState SwingAttackState;
+    /// <summary>
+    /// Meteor strike attack state used for transition
+    /// </summary>
+    private BossMeteorStrikeAttackState MeteorStrikeAttackState;
     
     void Awake ()
     {
@@ -87,6 +91,7 @@ public class BossStateMachine : MonoBehaviour
         this.WingsAttackState = GetComponent <BossWingsAttack> ();
         this.ToxicWasteFountainAttackState = GetComponent <BossToxicWasteFountainAttackState> ();
         this.SwingAttackState = GetComponent <BossSwingAttackState> ();
+        this.MeteorStrikeAttackState = GetComponent <BossMeteorStrikeAttackState> ();
         
         this.Controller = GetComponentInParent <BossesController> (true);
         

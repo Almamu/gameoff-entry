@@ -239,11 +239,15 @@ public class PlayerMovementState : PlayerState
             return;
         if (this.Machine.IsInvulnerable () == true)
             return;
-        if (collision.gameObject.CompareTag ("Bird Enemy") == false)
-            return;
-        
-        // collided with an enemy, notify the state machine to handle it
-        this.SendMessage ("ApplyHitDamage");
+
+        if (collision.gameObject.CompareTag ("Boss enemy") == true)
+        {
+            this.SendMessage ("ApplyBossDamage", collision.collider.transform.position);
+        }
+        else if (collision.gameObject.CompareTag ("Bird Enemy") == true)
+        {
+            this.SendMessage ("ApplyHitDamage");
+        }
     }
 
     private void OnTriggerStay (Collider other)

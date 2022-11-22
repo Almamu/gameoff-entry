@@ -37,9 +37,16 @@ public class BossesController : MonoBehaviour
     
     void Start ()
     {
+        this.ResetChangeTimer ();
+        
         // get access to both state machines as these will be directed from here
         this.mBosses = GetComponentsInChildren <BossStateMachine> ();
         this.PlayableArea = transform.Find ("PlayableArea").GetComponent <BoxCollider> ();
+    }
+
+    private void ResetChangeTimer ()
+    {
+        this.mStateChangeTimer = Random.Range (this.MinStateChangeTime, this.MaxStateChangeTime);
     }
 
     void FixedUpdate ()
@@ -49,8 +56,7 @@ public class BossesController : MonoBehaviour
         if (this.mStateChangeTimer > 0.0f)
             return;
 
-        // decide timer for next change
-        this.mStateChangeTimer = Random.Range (this.MinStateChangeTime, this.MaxStateChangeTime);
+        this.ResetChangeTimer ();
         
         foreach (BossStateMachine machine in this.mBosses)
             machine.RandomNextState ();

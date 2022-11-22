@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
@@ -16,6 +17,10 @@ public class PlayerStateMachine : MonoBehaviour
     /// The time the invulnerability timer is effective for
     /// </summary>
     public float InvulnerabilityTimer = 3.5f;
+    /// <summary>
+    /// The amount of force applied against the player when receiving certain types of damage
+    /// </summary>
+    public float DamagePushbackForce = 8.0f;
     /// <summary>
     /// Event fired when the health value is changed
     /// </summary>
@@ -56,13 +61,22 @@ public class PlayerStateMachine : MonoBehaviour
     /// The collision layer at which the flying attacks are at
     /// </summary>
     public static int FlyingAttacksLayer;
+    /// <summary>
+    /// The collision layer at which the boss enemies are at
+    /// </summary>
+    public static int BossEnemyLayer;
+
+    /// <summary>
+    /// The bounce state used when receiving damage that moves the player
+    /// </summary>
+    private PlayerBounceState BounceState;
     
-    // Start is called before the first frame update
     void Awake()
     {
         BirdsCollisionLayer = LayerMask.NameToLayer ("Enemies");
         PlayerCollisionLayer = LayerMask.NameToLayer ("Player");
         FlyingAttacksLayer = LayerMask.NameToLayer ("Flying attacks");
+        BossEnemyLayer = LayerMask.NameToLayer ("Boss enemy");
         
         // get the current, active state so the state machine has something to do
         this.CurrentState = GetComponent<PlayerState>();
@@ -70,6 +84,8 @@ public class PlayerStateMachine : MonoBehaviour
         this.Animator = GetComponent <Animator> ();
         // get the rigidbody
         this.mRigidbody = GetComponent <Rigidbody> ();
+        // bounce state for receiving damage that moves the player
+        this.BounceState = GetComponent <PlayerBounceState> ();
         
         // subscribe to required events to alter state
         EventManager.DisableMovement += OnDisableMovement;
@@ -113,6 +129,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     void FixedUpdate ()
     {
+        Debug.Log (this.mRigidbody.velocity);
+        
         // set the invulnerability timer so the animation plays
         this.Animator.SetFloat (InvulnerabilityTimerId, this.mInvulnerabilityTimer);
         
@@ -123,10 +141,11 @@ public class PlayerStateMachine : MonoBehaviour
 
         if (this.mInvulnerabilityTimer > 0.0f || this.CurrentState is PlayerDodge)
             return;
-        
+
         // set collision layers so birds can hit the player again
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, BirdsCollisionLayer, false);
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, FlyingAttacksLayer, false);
+        Physics.IgnoreLayerCollision (PlayerCollisionLayer, BossEnemyLayer, false);
     }
     
     void OnEnableMovement ()
@@ -164,6 +183,7 @@ public class PlayerStateMachine : MonoBehaviour
         // set collision layers so birds cannot hit the player
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, BirdsCollisionLayer, true);
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, FlyingAttacksLayer, true);
+        Physics.IgnoreLayerCollision (PlayerCollisionLayer, BossEnemyLayer, true);
     }
 
     public void ApplyHitDamage ()
@@ -179,5 +199,26 @@ public class PlayerStateMachine : MonoBehaviour
     public void ApplyWindDamage ()
     {
         this.ApplyDamage (0.1f);
+    }
+
+    public void ApplyBossDamage (Vector3 center)
+    {
+        this.ApplyDamage (0.1f);
+
+        // enter the bounce state
+        this.PushState (this.BounceState);
+        
+        // pushback the player with force
+        Vector3 direction = (transform.position - center).normalized;
+
+        // ensure the direction points somewhere
+        if (math.abs (direction.x) < 0.1f || math.abs (direction.z) < 0.1f)
+            direction.x = 1.0f;
+
+        // go up a little bit so the force applied actually moves the player
+        direction.y = 0.1f;
+
+        // apply the force
+        this.mRigidbody.velocity = direction * this.DamagePushbackForce;
     }
 }

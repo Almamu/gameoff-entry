@@ -1229,6 +1229,10 @@ PrefabInstance:
       propertyPath: Objective
       value: 
       objectReference: {fileID: 2033746553}
+    - target: {fileID: 7949870794727646703, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
+      propertyPath: StrikeSpeed
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
 --- !u!4 &673506725 stripped
@@ -2701,6 +2705,7 @@ GameObject:
   - component: {fileID: 2033746561}
   - component: {fileID: 2033746562}
   - component: {fileID: 2033746563}
+  - component: {fileID: 2033746564}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2883,6 +2888,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a3f612147d53b4da0a7318a2cde57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2033746564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033746553}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342edb505e3b0564da2a5b0f4b467c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BounceTimer: 0.7
 --- !u!1001 &3925916234046493304
 PrefabInstance:
   m_ObjectHideFlags: 0
