@@ -20,6 +20,10 @@ public class BossStateMachine : MonoBehaviour
     /// </summary>
     public ToxicWasteObjectPool ToxicWasteObjectPool { get; set; }
     /// <summary>
+    /// The object pool used for normal bullets
+    /// </summary>
+    public ObjectPool BulletObjectPool { get; set; }
+    /// <summary>
     /// The probability of a toxic waste attack
     /// </summary>
     public float ToxicWasteAttackProbability = 0.4f;
@@ -62,9 +66,13 @@ public class BossStateMachine : MonoBehaviour
     /// </summary>
     private BossWingsAttack WingsAttackState;
     /// <summary>
-    /// Toxic waste fountain attack
+    /// Toxic waste fountain attack state used for transition
     /// </summary>
     private BossToxicWasteFountainAttackState ToxicWasteFountainAttackState;
+    /// <summary>
+    /// Swing attack state used for transition
+    /// </summary>
+    private BossSwingAttackState SwingAttackState;
     
     void Awake ()
     {
@@ -72,11 +80,13 @@ public class BossStateMachine : MonoBehaviour
         this.CurrentState = GetComponent <BossState> ();
         this.RacimoObjectPool = GetComponentInParent <RacimoObjectPool> ();
         this.ToxicWasteObjectPool = GetComponentInParent <ToxicWasteObjectPool> ();
+        this.BulletObjectPool = GetComponentInParent <ObjectPool> ();
         this.ToxicWasteAttackState = GetComponent <BossToxicWasteAttackState> ();
         this.RacimoAttackState = GetComponent <BossRacimoAttackState> ();
         this.DashMovementState = GetComponent <BossDashMovementState> ();
         this.WingsAttackState = GetComponent <BossWingsAttack> ();
         this.ToxicWasteFountainAttackState = GetComponent <BossToxicWasteFountainAttackState> ();
+        this.SwingAttackState = GetComponent <BossSwingAttackState> ();
         
         this.Controller = GetComponentInParent <BossesController> (true);
         

@@ -8,6 +8,11 @@ public class BulletBehaviour : MonoBehaviour
     private float mCurrentTime;
     private Rigidbody mRigidbody;
 
+    void OnEnable ()
+    {
+        this.mCurrentTime = this.DisappearTime;
+    }
+    
     void Start()
     {
         this.mRigidbody = GetComponent <Rigidbody> ();
@@ -16,40 +21,35 @@ public class BulletBehaviour : MonoBehaviour
         EventManager.DisableMovement += OnDisableMovement;
         EventManager.EnableMovement += OnEnableMovement;
     }
-    
-    // Update is called once per frame
-    void Update()
+
+    void FixedUpdate ()
     {
+        if (this.enabled == false)
+            return;
+        
         this.mRigidbody.velocity = transform.forward * ShootSpeed;
 
-        this.mCurrentTime += Time.deltaTime * Time.timeScale;
+        this.mCurrentTime -= Time.fixedDeltaTime;
 
-        if (this.mCurrentTime > DisappearTime)
-        {
-            gameObject.SetActive(false);
-            // reset the timer for the next time
-            this.mCurrentTime = 0.0f;
-        }
+        if (this.mCurrentTime > 0.0f)
+            return;
+
+        gameObject.SetActive (false);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        this.mCurrentTime = 0.0f;
-        gameObject.SetActive(false);
+        gameObject.SetActive (false);
     }
     
     void OnEnableMovement ()
     {
-        // enable current state
-        this.mRigidbody.isKinematic = false;
-        this.mRigidbody.detectCollisions = true;
+        this.enabled = true;
     }
 
     void OnDisableMovement ()
     {
-        // disable current state
-        this.mRigidbody.isKinematic = true;
-        this.mRigidbody.detectCollisions = false;
+        this.enabled = false;
     }
 
 }

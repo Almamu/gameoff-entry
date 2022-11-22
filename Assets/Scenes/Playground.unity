@@ -1619,6 +1619,7 @@ GameObject:
   - component: {fileID: 1004229689}
   - component: {fileID: 1004229691}
   - component: {fileID: 1004229692}
+  - component: {fileID: 1004229693}
   m_Layer: 0
   m_Name: Bosses
   m_TagString: Untagged
@@ -1688,6 +1689,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PooledPrefab: {fileID: 20678542366555766, guid: a3f19adcb88c1af4291f83e28ba728f4, type: 3}
   PoolLimit: 50
+--- !u!114 &1004229693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004229688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e06a5d22440e8e3cbc4bd802557c6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledPrefabs:
+  - {fileID: 3866752215759374849, guid: f0cd2a273c4dd1d4da0d7f0a3b5ef154, type: 3}
+  PoolLimit: 250
 --- !u!1 &1057492359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,17 +2938,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3925916233182550531, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3925916233182550543, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
       propertyPath: Objective
       value: 
       objectReference: {fileID: 2033746553}
-    - target: {fileID: 7258493894613338336, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 8382773326797163152, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
+      propertyPath: TimeBetweenBullets
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
