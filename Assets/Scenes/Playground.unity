@@ -2942,9 +2942,5 @@ PrefabInstance:
       propertyPath: Objective
       value: 
       objectReference: {fileID: 2033746553}
-    - target: {fileID: 8382773326797163152, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
-      propertyPath: TimeBetweenBullets
-      value: 0.05
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}

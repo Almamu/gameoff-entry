@@ -52,12 +52,18 @@ public class PlayerStateMachine : MonoBehaviour
     /// The collision layer at which the birds are at
     /// </summary>
     public static int PlayerCollisionLayer;
+    /// <summary>
+    /// The collision layer at which the flying attacks are at
+    /// </summary>
+    public static int FlyingAttacksLayer;
     
     // Start is called before the first frame update
     void Awake()
     {
         BirdsCollisionLayer = LayerMask.NameToLayer ("Enemies");
         PlayerCollisionLayer = LayerMask.NameToLayer ("Player");
+        FlyingAttacksLayer = LayerMask.NameToLayer ("Flying attacks");
+        
         // get the current, active state so the state machine has something to do
         this.CurrentState = GetComponent<PlayerState>();
         // get reference to the animator
@@ -120,6 +126,7 @@ public class PlayerStateMachine : MonoBehaviour
         
         // set collision layers so birds can hit the player again
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, BirdsCollisionLayer, false);
+        Physics.IgnoreLayerCollision (PlayerCollisionLayer, FlyingAttacksLayer, false);
     }
     
     void OnEnableMovement ()
@@ -156,6 +163,7 @@ public class PlayerStateMachine : MonoBehaviour
         HealthUpdate?.Invoke (this.mHealth);
         // set collision layers so birds cannot hit the player
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, BirdsCollisionLayer, true);
+        Physics.IgnoreLayerCollision (PlayerCollisionLayer, FlyingAttacksLayer, true);
     }
 
     public void ApplyHitDamage ()

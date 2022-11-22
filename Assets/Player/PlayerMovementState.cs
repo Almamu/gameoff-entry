@@ -252,7 +252,6 @@ public class PlayerMovementState : PlayerState
             return;
         if (this.Machine.IsInvulnerable () == true)
             return;
-
         if (other.gameObject.CompareTag ("Enemy attack") == false)
             return;
 

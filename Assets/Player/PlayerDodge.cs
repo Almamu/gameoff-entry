@@ -41,6 +41,7 @@ public class PlayerDodge : PlayerState
         this.mCurrentTime = 0.0f;
         // disable collision
         Physics.IgnoreLayerCollision (PlayerStateMachine.PlayerCollisionLayer, PlayerStateMachine.BirdsCollisionLayer, true);
+        Physics.IgnoreLayerCollision (PlayerStateMachine.PlayerCollisionLayer, PlayerStateMachine.FlyingAttacksLayer, true);
     }
 
     public override void OnStateExit ()
@@ -50,5 +51,6 @@ public class PlayerDodge : PlayerState
         
         // set collision layers so birds can hit the player again
         Physics.IgnoreLayerCollision (PlayerStateMachine.PlayerCollisionLayer, PlayerStateMachine.BirdsCollisionLayer, false);
+        Physics.IgnoreLayerCollision (PlayerStateMachine.PlayerCollisionLayer, PlayerStateMachine.FlyingAttacksLayer, false);
     }
 }
