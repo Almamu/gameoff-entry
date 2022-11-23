@@ -129,8 +129,6 @@ public class PlayerStateMachine : MonoBehaviour
 
     void FixedUpdate ()
     {
-        Debug.Log (this.mRigidbody.velocity);
-        
         // set the invulnerability timer so the animation plays
         this.Animator.SetFloat (InvulnerabilityTimerId, this.mInvulnerabilityTimer);
         

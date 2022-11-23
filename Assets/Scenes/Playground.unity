@@ -1708,6 +1708,17 @@ MonoBehaviour:
   PooledPrefabs:
   - {fileID: 3866752215759374849, guid: f0cd2a273c4dd1d4da0d7f0a3b5ef154, type: 3}
   PoolLimit: 250
+--- !u!114 &1049318984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 950821281, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
+  m_PrefabInstance: {fileID: 3925916234046493304}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b57c9a4ec143244b1e93caf9dd89ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1057492359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,6 +2817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InvulnerabilityTimer: 3.5
+  DamagePushbackForce: 8
 --- !u!54 &2033746559
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2912,6 +2924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: First boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1198281350826228342, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
+      propertyPath: WindAreaForce
+      value: 
+      objectReference: {fileID: 1049318984}
     - target: {fileID: 2707346931457953715, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
       propertyPath: m_RootOrder
       value: 0

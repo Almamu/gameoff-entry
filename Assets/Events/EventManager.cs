@@ -17,6 +17,11 @@ public class EventManager : MonoBehaviour
     public static event Action EnableMovement;
 
     /// <summary>
+    /// Event fired when the boss' life changes
+    /// </summary>
+    public static event Action <float> BossHealth;
+
+    /// <summary>
     /// Event fired when a textbox has to be displayed on-screen
     /// </summary>
     public static event Action<string> Textbox;
@@ -34,5 +39,10 @@ public class EventManager : MonoBehaviour
     public static void InvokeTextbox(string message)
     {
         Textbox?.Invoke(message);
+    }
+
+    public static void InvokeBossHealth (float healthLeft)
+    {
+        BossHealth?.Invoke (healthLeft);
     }
 }

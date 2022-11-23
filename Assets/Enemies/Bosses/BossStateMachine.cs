@@ -1,9 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Enemies.Bosses;
 using UnityEngine;
 using Random = UnityEngine.Random;
+
+/// <summary>
+/// Contains a list of attacks for the boss to use
+/// </summary>
+public enum BossAttack
+{
+    ToxicWaste,
+    Racimo,
+    Wings,
+    ToxicWasteFountain,
+    Swing,
+    MeteorStrike
+}
 
 public class BossStateMachine : MonoBehaviour
 {
@@ -23,18 +37,6 @@ public class BossStateMachine : MonoBehaviour
     /// The object pool used for normal bullets
     /// </summary>
     public ObjectPool BulletObjectPool { get; set; }
-    /// <summary>
-    /// The probability of a toxic waste attack
-    /// </summary>
-    public float ToxicWasteAttackProbability = 0.4f;
-    /// <summary>
-    /// The probability of a racimo attack
-    /// </summary>
-    public float RacimoAttackProbability = 0.1f;
-    /// <summary>
-    /// The probability of a dash
-    /// </summary>
-    public float DashMovementProbability = 0.6f;
     /// <summary>
     /// The current state the machine is in
     /// </summary>
@@ -144,17 +146,43 @@ public class BossStateMachine : MonoBehaviour
         this.CurrentState.enabled = false;
     }
 
-    public void RandomNextState ()
+    public void SwitchToAttack (BossAttack attack)
     {
-        float random = Random.Range (0.0f, 1.0f);
+        // TODO:
+        // first phase
+        // racimo, toxic waste and swing
 
-        // decide the next state based on the probability values
-        // or do nothing
-        if (random <= this.RacimoAttackProbability)
-            this.PushState (this.RacimoAttackState);
-        else if (random <= this.ToxicWasteAttackProbability)
-            this.PushState (this.ToxicWasteAttackState);
-        else if (random <= this.DashMovementProbability)
-            this.PushState (this.DashMovementState);
+        // second phase
+        // racimo double explosion
+        // toxic waste bigger and longer
+        // swing faster and twice
+        // toxic fountain, as big and long as phase 1
+        // meteor strike when too far away
+        // if you get too close the boss should push you with wind, not periodic
+
+        BossState state = attack switch
+        {
+            BossAttack.Racimo => this.RacimoAttackState,
+            BossAttack.ToxicWaste => this.ToxicWasteAttackState,
+            BossAttack.Wings => this.WingsAttackState,
+            BossAttack.ToxicWasteFountain => this.ToxicWasteFountainAttackState,
+            BossAttack.Swing => this.SwingAttackState,
+            BossAttack.MeteorStrike => this.MeteorStrikeAttackState,
+            _ => throw new InvalidDataException ("Trying to switch to an unknown attack")
+        };
+        
+        // get into the requested state
+        this.PushState (state);
+    }
+    
+    private void OnCollisionEnter (Collision collision)
+    {
+        if (this.enabled == false)
+            return;
+
+        if (collision.gameObject.CompareTag ("Player Bullet") == false)
+            return;
+
+        this.Controller.SendMessage ("ApplyDamage");
     }
 }

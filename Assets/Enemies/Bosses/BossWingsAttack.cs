@@ -32,27 +32,23 @@ public class BossWingsAttack : BossState
     /// <summary>
     /// The collider used to specify the wind's area
     /// </summary>
-    private WindAreaForce mWindAreaForce;
+    public WindAreaForce WindAreaForce;
 
     private float mDefaultRadius;
-    
-    void Start ()
-    {
-        this.mWindAreaForce = this.GetComponentOnlyInChildren <WindAreaForce> ();
-        this.mDefaultRadius = this.mWindAreaForce.Collider.radius;
-        // sets the multiplier
-        this.mWindAreaForce.Multiplier = this.Force;
-    }
-    
+
     public override void OnStateEnter ()
     {
+        // sets the multiplier
+        this.WindAreaForce.Multiplier = this.Force;
         this.mTimer = this.Duration;
-        this.mWindAreaForce.gameObject.SetActive (true);
+        this.WindAreaForce.gameObject.SetActive (true);
+        this.mDefaultRadius = this.WindAreaForce.Collider.radius;
     }
 
     public override void OnStateExit ()
     {
-        this.mWindAreaForce.gameObject.SetActive (false);
+        this.WindAreaForce.Collider.radius = this.mDefaultRadius;
+        this.WindAreaForce.gameObject.SetActive (false);
     }
 
     void FixedUpdate ()
@@ -62,6 +58,6 @@ public class BossWingsAttack : BossState
         if (this.mTimer < 0.0f)
             this.Machine.PopState ();
 
-        this.mWindAreaForce.Collider.radius = this.mDefaultRadius + (math.cos (Time.fixedTime * this.Speed) + this.Difference);
+        this.WindAreaForce.Collider.radius = this.mDefaultRadius + (math.cos (Time.fixedTime * this.Speed) + this.Difference);
     }
 }

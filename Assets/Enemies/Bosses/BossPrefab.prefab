@@ -258,6 +258,7 @@ MonoBehaviour:
   Difference: 2
   Speed: 5
   Force: 6
+  WindAreaForce: {fileID: 950821281}
 --- !u!114 &7258493894613338336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StrikeTime: 5
+  StrikeHeight: 10
+  StrikeSpeed: 10
   StrikeEffect: {fileID: 5784027665560900041}
 --- !u!1001 &3925916233362294106
 PrefabInstance:
