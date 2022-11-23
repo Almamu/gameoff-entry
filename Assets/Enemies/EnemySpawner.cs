@@ -12,7 +12,6 @@ public class EnemySpawner : MonoBehaviour
     /// The amount of enemies that can be spawned at once
     /// </summary>
     public int MaximumActiveEnemies = 15;
-
     /// <summary>
     /// The total amount of enemies to go through
     /// </summary>
@@ -22,17 +21,27 @@ public class EnemySpawner : MonoBehaviour
     /// </summary>
     public int ActiveEnemiesCount = 0;
     /// <summary>
+    /// Probability for enemy b
+    /// </summary>
+    public float EnemyBProbability = 20.0f;
+    
+    /// <summary>
     /// Event fired when an enemy dies
     /// </summary>
     public static event Action<EnemySpawner> EnemyDeath;
     
     private GameObject [] mActiveEnemies;
-    private ObjectPool mObjectPool;
+    private NormalEnemyAObjectPool NormalEnemyAObjectPool;
+    private NormalEnemyBObjectPool NormalEnemyBObjectPool;
     
     /// <summary>
     /// The list of spawn areas available for this spawner (fetched from the current component)
     /// </summary>
     private BoxCollider [] mSpawnAreas;
+    /// <summary>
+    /// The amount of enemies spawned
+    /// </summary>
+    private int mCurrentEnemies = 0;
 
     /// <summary>
     /// Checks the current spawn areas and picks up a random spawn point inside the boxes
@@ -51,7 +60,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.mObjectPool = GetComponent <ObjectPool> ();
+        this.NormalEnemyAObjectPool = GetComponent <NormalEnemyAObjectPool>();
+        this.NormalEnemyBObjectPool = GetComponent <NormalEnemyBObjectPool>();
         this.mActiveEnemies = new GameObject [this.MaximumActiveEnemies];
         Transform spawnArea = this.transform.Find ("SpawnArea");
 
@@ -72,10 +82,18 @@ public class EnemySpawner : MonoBehaviour
     private void ActivateEnemy (int i)
     {
         // decrement counter
-        this.AmountOfEnemies--;
+        this.mCurrentEnemies++;
+        
+        // randomly decide which enemy to activate
+        float range = Random.Range (0.0f, 100.0f);
+        float probability = this.EnemyBProbability * (math.lerp (0, 2, (float) this.mCurrentEnemies / (float) this.AmountOfEnemies));
+
+        if (range < probability)
+            this.mActiveEnemies [i] = this.NormalEnemyBObjectPool.Pop ();
+        else
+            this.mActiveEnemies [i] = this.NormalEnemyAObjectPool.Pop ();
         
         // take one enemy from the pool
-        this.mActiveEnemies [i] = this.mObjectPool.Pop ();
         this.mActiveEnemies [i].transform.position = this.PickupRandomSpawnPoint ();
         this.mActiveEnemies [i].SetActive (true);
         this.ActiveEnemiesCount++;
@@ -97,7 +115,7 @@ public class EnemySpawner : MonoBehaviour
             this.mActiveEnemies [i] = null;
             
             // if required create a new one in place
-            if (this.AmountOfEnemies <= 0)
+            if (this.mCurrentEnemies >= this.AmountOfEnemies)
                 break;
 
             this.ActivateEnemy (i);

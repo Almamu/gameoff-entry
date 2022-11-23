@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &22837878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9d0df95df927f7640b410b35070e1e22, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -359,8 +359,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 180835785}
-  - component: {fileID: 180835786}
   - component: {fileID: 180835787}
+  - component: {fileID: 180835789}
+  - component: {fileID: 180835788}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -385,22 +386,6 @@ Transform:
   m_Father: {fileID: 680772249}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &180835786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180835784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e06a5d22440e8e3cbc4bd802557c6c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PooledPrefabs:
-  - {fileID: 6968910410365232597, guid: bb0c9ba09d72dacf38586f0251fef815, type: 3}
-  - {fileID: 6968910410365232597, guid: e3a54c6c6cc31e24babdf1b55ca92f27, type: 3}
-  PoolLimit: 20
 --- !u!114 &180835787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +401,34 @@ MonoBehaviour:
   MaximumActiveEnemies: 15
   AmountOfEnemies: 98
   ActiveEnemiesCount: 0
+--- !u!114 &180835788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180835784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96a163ff01682a439a3bb8c88d4bad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledPrefabs: {fileID: 6968910410365232597, guid: e3a54c6c6cc31e24babdf1b55ca92f27, type: 3}
+  PoolLimit: 100
+--- !u!114 &180835789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180835784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79be4672a33ecc4d93a2c613f0b79d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledPrefabs: {fileID: 6968910410365232597, guid: bb0c9ba09d72dacf38586f0251fef815, type: 3}
+  PoolLimit: 100
 --- !u!1 &211162410
 GameObject:
   m_ObjectHideFlags: 0
