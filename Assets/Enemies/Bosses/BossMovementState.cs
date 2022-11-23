@@ -19,7 +19,7 @@ public class BossMovementState : BossState
         EventManager.BossHealth += this.BossHealthUpdate;
     }
     
-    void Awake ()
+    new void Awake ()
     {
         base.Awake ();
 
@@ -28,7 +28,6 @@ public class BossMovementState : BossState
     
     void FixedUpdate ()
     {
-        // TODO: CHANGE ROTATION SPEED BASED ON LIFE LEFT ON THE FIRST PHASE
         // rotate the parent
         transform.parent.Rotate (Vector3.up, this.mMovementSpeed * Time.fixedDeltaTime);
         // look at the player
@@ -37,8 +36,6 @@ public class BossMovementState : BossState
 
     void BossHealthUpdate (float newHealth)
     {
-        Debug.Log ($"New health: {newHealth}");
-        
         // substract the threshold so we get a smooth transition between 100-50 within the life
         newHealth = newHealth - this.Machine.Controller.SecondPhaseHealthThreshold;
         float progress = newHealth / (this.Machine.Controller.Health - this.Machine.Controller.SecondPhaseHealthThreshold);

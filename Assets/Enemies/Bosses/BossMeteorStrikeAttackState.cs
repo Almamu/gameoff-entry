@@ -37,7 +37,7 @@ public class BossMeteorStrikeAttackState : BossState
     /// The destination point for the boss when falling down
     /// </summary>
     private Vector3 mDestination;
-    void Awake ()
+    new void Awake ()
     {
         base.Awake ();
         

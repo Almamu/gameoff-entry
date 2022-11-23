@@ -4,17 +4,17 @@ using Extensions;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public enum BossPhase
+{
+    Starting = 0,
+    First = 1,
+    FirstToSecond = 2,
+    Second = 3,
+    Finished = 4
+}
+
 public class BossesController : MonoBehaviour
 {
-    enum BossPhase
-    {
-        Starting = 0,
-        First = 1,
-        FirstToSecond = 2,
-        Second = 3,
-        Finished = 4
-    }
-    
     /// <summary>
     /// The total health of the bosses
     /// </summary>
@@ -52,7 +52,7 @@ public class BossesController : MonoBehaviour
     /// <summary>
     /// Indicates the current state of the boss
     /// </summary>
-    private BossPhase mPhase = BossPhase.Starting;
+    public BossPhase Phase { get; set; } = BossPhase.Starting;
     /// <summary>
     /// The function to handle the current phase
     /// </summary>
@@ -110,7 +110,7 @@ public class BossesController : MonoBehaviour
             _                       => throw new InvalidDataException ("Trying to transition to an unknown boss phase")
         };
 
-        this.mPhase = phase;
+        this.Phase = phase;
     }
 
     void HandleStartingPhase ()
@@ -159,6 +159,20 @@ public class BossesController : MonoBehaviour
 
     void HandleSecondPhase ()
     {
+        if (this.mHealth <= 0.0f)
+        {
+            this.TransitionToPhase (BossPhase.Finished);
+            return;
+        }
+
+        if (this.IsTimerExpired () == false)
+            return;
+        
+        // decide on one attack for the boss
+        this.mBosses [0].SwitchToAttack (
+            EnumExtensions.Random <BossAttack> ()
+        );
+
         // TODO:
         // second phase
         // racimo double explosion

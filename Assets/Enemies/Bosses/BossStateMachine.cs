@@ -148,6 +148,10 @@ public class BossStateMachine : MonoBehaviour
 
     public void SwitchToAttack (BossAttack attack)
     {
+        // ensure the player is in the movement state
+        if (this.CurrentState is not BossMovementState)
+            return;
+        
         // TODO:
         // first phase
         // racimo, toxic waste and swing

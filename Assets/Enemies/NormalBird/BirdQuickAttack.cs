@@ -48,8 +48,8 @@ public class BirdQuickAttack : BirdState
     bool MoveTowardsDestination ()
     {
         float speedDelta = Time.fixedDeltaTime * this.mCurrentSpeed;
-        
-        transform.Translate (Vector3.forward * speedDelta);
+
+        transform.position = Vector3.MoveTowards (transform.position, this.mDestination, speedDelta);
         
         // check how far we're
         return Vector3.Distance (transform.position, this.mDestination) <= speedDelta;

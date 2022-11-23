@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,14 @@ public class EnemySpawner : MonoBehaviour
     /// The total amount of enemies to go through
     /// </summary>
     public int AmountOfEnemies = 98;
+    /// <summary>
+    /// The total amount of active enemies right now
+    /// </summary>
+    public int ActiveEnemiesCount = 0;
+    /// <summary>
+    /// Event fired when an enemy dies
+    /// </summary>
+    public static event Action<EnemySpawner> EnemyDeath;
     
     private GameObject [] mActiveEnemies;
     private ObjectPool mObjectPool;
@@ -69,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
         this.mActiveEnemies [i] = this.mObjectPool.Pop ();
         this.mActiveEnemies [i].transform.position = this.PickupRandomSpawnPoint ();
         this.mActiveEnemies [i].SetActive (true);
+        this.ActiveEnemiesCount++;
     }
 
     void OnEnemyDead (GameObject enemy)
@@ -78,6 +88,11 @@ public class EnemySpawner : MonoBehaviour
             if (enemy != this.mActiveEnemies [i])
                 continue;
 
+            this.ActiveEnemiesCount--;
+            
+            // fire the death events
+            EnemyDeath?.Invoke (this);
+            
             // move it back to the object pool
             this.mActiveEnemies [i] = null;
             
