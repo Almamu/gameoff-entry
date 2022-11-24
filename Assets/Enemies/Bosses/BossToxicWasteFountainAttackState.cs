@@ -6,6 +6,18 @@ using UnityEngine;
 public class BossToxicWasteFountainAttackState : BossState
 {
     /// <summary>
+    /// The scale for the toxic waste
+    /// </summary>
+    public float WasteScale = 0.4f;
+    /// <summary>
+    /// The radius for the hitbox of the waste
+    /// </summary>
+    public float WasteRadius = 2.0f;
+    /// <summary>
+    /// The time it takes for the wastes to disappear
+    /// </summary>
+    public float DisappearanceTimer = 30.0f;
+    /// <summary>
     /// Time to wait between cycles
     /// </summary>
     public float CycleTimer = 0.3f;
@@ -36,6 +48,9 @@ public class BossToxicWasteFountainAttackState : BossState
         ToxicAttackBehaviour behaviour = obj.GetComponent <ToxicAttackBehaviour> ();
         behaviour.Target = target;
         behaviour.transform.position = behaviour.StartPosition = this.transform.position;
+        behaviour.DisappearanceTimer = this.DisappearanceTimer;
+        behaviour.Scale = this.WasteScale;
+        behaviour.Radius = this.WasteRadius;
         
         // calculate speed difference
         Vector3 distance = behaviour.StartPosition - behaviour.Target;

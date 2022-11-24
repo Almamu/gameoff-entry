@@ -368,7 +368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &180835785
 Transform:
   m_ObjectHideFlags: 0
@@ -401,6 +401,7 @@ MonoBehaviour:
   MaximumActiveEnemies: 15
   AmountOfEnemies: 98
   ActiveEnemiesCount: 0
+  EnemyBProbability: 20
 --- !u!114 &180835788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,7 +1691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1004229689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1703,10 +1704,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1647c31aeb558a6418a7f4b02d48c062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 40
   SecondPhaseHealthThreshold: 50
   MinStateChangeTime: 2
   MaxStateChangeTime: 4
+  DistanceForMeteorStrike: 25
+  MaximumDistanceForWings: 5
+  FountainCooldown: 40
 --- !u!4 &1004229690
 Transform:
   m_ObjectHideFlags: 0
@@ -2895,10 +2899,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a8bdde92207398eb320aef319be20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 12
+  MovementSpeed: 15
   InterpolationSpeed: 1
   ShootingCooldown: 0.5
-  ShootingJitter: 1
+  ShootingJitter: 0
   ClipReloadTime: 1
   ClipBullets: 8
   DodgeCooldown: 2

@@ -188,9 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objective: {fileID: 0}
-  ToxicWasteAttackProbability: 0.4
-  RacimoAttackProbability: 0.1
-  DashMovementProbability: 0.6
 --- !u!114 &3925916233182550531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe90d64575640a4a58d0077f1c219eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 3
+  BaseMovementSpeed: 4
+  FinalMovementSpeed: 10
 --- !u!114 &3925916233182550532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864a137f5c6116248946674c1e04a7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstPhaseWasteTime: 10
+  SecondPhaseWasteTime: 30
+  FirstPhaseWasteScale: 0.4
+  SecondPhaseWasteScale: 0.6
 --- !u!114 &881772670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4907875d0cac11419fb4fcc8838ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 4.5
+  BaseMovementSpeed: 4
+  FinalMovementSpeed: 10
   DashDuration: 1
 --- !u!114 &881772669
 MonoBehaviour:
@@ -271,6 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9b6183446f4ea58ad126a611d2d800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WasteScale: 0.4
+  DisappearanceTimer: 30
   CycleTimer: 0.3
   QuantityPerCycle: 3
   TotalQuantity: 15
@@ -286,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38bafce97aa74b359280a03eb0fcb231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationIncrements: 5
+  RotationIncrements: 10
   NumberOfBullets: 5
   TimeBetweenBullets: 0.05
 --- !u!114 &7949870794727646703
@@ -301,9 +306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9177eb8ec9747d4aadd943132e5e06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StrikeTime: 5
-  StrikeHeight: 10
-  StrikeSpeed: 10
+  StrikeTime: 0.5
+  StrikeHeight: 50
+  StrikeSpeed: 200
   StrikeEffect: {fileID: 5784027665560900041}
 --- !u!1001 &3925916233362294106
 PrefabInstance:

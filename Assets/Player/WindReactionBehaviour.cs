@@ -65,7 +65,7 @@ public class WindReactionBehaviour : MonoBehaviour
     
     private void OnTriggerEnter (Collider other)
     {
-        if (other.gameObject.CompareTag ("Wind effect") == false)
+        if (other.gameObject.CompareTag ("Wind effect") == false || other.gameObject.activeSelf == false)
             return;
 
         this.mWindOrigin = other.gameObject.GetComponent <WindAreaForce> ();

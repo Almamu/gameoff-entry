@@ -23,7 +23,6 @@ public class BossesController : MonoBehaviour
     /// The minimum health to pass onto the second phase
     /// </summary>
     public float SecondPhaseHealthThreshold = 50.0f;
-
     /// <summary>
     /// Minimum time for a state change
     /// </summary>
@@ -33,6 +32,18 @@ public class BossesController : MonoBehaviour
     /// </summary>
     public float MaxStateChangeTime = 4.0f;
     /// <summary>
+    /// The minimum distance for a meteor strike to happen on the second phase
+    /// </summary>
+    public float DistanceForMeteorStrike = 1000.0f;
+    /// <summary>
+    /// The maximum distance for the wings attack to happen on the second phase
+    /// </summary>
+    public float MaximumDistanceForWings = 5.0f;
+    /// <summary>
+    /// The cooldown for the fountain attack
+    /// </summary>
+    public float FountainCooldown = 40.0f;
+    /// <summary>
     /// The playable area for the bosses
     /// </summary>
     public BoxCollider PlayableArea { get; set; }
@@ -40,7 +51,6 @@ public class BossesController : MonoBehaviour
     /// State machines of all the bosses created
     /// </summary>
     private BossStateMachine[] mBosses;
-
     /// <summary>
     /// Timer until next state change
     /// </summary>
@@ -57,6 +67,10 @@ public class BossesController : MonoBehaviour
     /// The function to handle the current phase
     /// </summary>
     private Action mPhaseHandler;
+    /// <summary>
+    /// The cooldown timer for the fountain attack
+    /// </summary>
+    private float mFountainCooldownTimer = 0.0f;
     
     void Start ()
     {
@@ -159,6 +173,10 @@ public class BossesController : MonoBehaviour
 
     void HandleSecondPhase ()
     {
+        // decrement the fountain cooldown timer
+        if (this.mFountainCooldownTimer >= 0.0f)
+            this.mFountainCooldownTimer -= Time.fixedDeltaTime;
+
         if (this.mHealth <= 0.0f)
         {
             this.TransitionToPhase (BossPhase.Finished);
@@ -168,19 +186,35 @@ public class BossesController : MonoBehaviour
         if (this.IsTimerExpired () == false)
             return;
         
-        // decide on one attack for the boss
-        this.mBosses [0].SwitchToAttack (
-            EnumExtensions.Random <BossAttack> ()
-        );
+        // check if the player is too far away and do a meteor strike
+        Vector3 distance = this.mBosses [0].transform.position - this.mBosses [0].Objective.transform.position;
+        
+        BossAttack attack;
+        
+        if (distance.magnitude > this.DistanceForMeteorStrike)
+        {
+            attack = BossAttack.MeteorStrike;
+        }
+        else if (distance.magnitude < this.MaximumDistanceForWings)
+        {
+            attack = BossAttack.Wings;
+        }
+        else if (this.mHealth < (this.SecondPhaseHealthThreshold / 2) && this.mFountainCooldownTimer < 0.0f)
+        {
+            attack = EnumExtensions.RandomIgnore (BossAttack.MeteorStrike, BossAttack.Wings);
+        }
+        else
+        {
+            attack = EnumExtensions.RandomIgnore (BossAttack.MeteorStrike, BossAttack.ToxicWasteFountain, BossAttack.Wings);
+        }
 
+        this.mBosses [0].SwitchToAttack (attack);
+
+        if (attack == BossAttack.ToxicWasteFountain)
+            this.mFountainCooldownTimer = this.FountainCooldown;
+        
         // TODO:
-        // second phase
         // racimo double explosion
-        // toxic waste bigger and longer
-        // swing faster and twice
-        // toxic fountain, as big and long as phase 1
-        // meteor strike when too far away
-        // if you get too close the boss should push you with wind, not periodic
     }
 
     void HandleFinishPhase ()

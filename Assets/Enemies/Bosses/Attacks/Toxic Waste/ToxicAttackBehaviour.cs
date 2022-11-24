@@ -17,6 +17,18 @@ public class ToxicAttackBehaviour : MonoBehaviour
     /// </summary>
     public float ArcHeight = 5.0f;
     /// <summary>
+    /// The time it takes for the waste to disappear
+    /// </summary>
+    [HideInInspector]
+    public float DisappearanceTimer = 5.0f;
+    /// <summary>
+    /// The size of the waste
+    /// </summary>
+    [HideInInspector]
+    public float Scale = 1.0f;
+    [HideInInspector]
+    public float Radius = 2f;
+    /// <summary>
     /// The waste to activate when the attack lands
     /// </summary>
     public ToxicWasteBehaviour Waste { get; set; }
@@ -62,9 +74,20 @@ public class ToxicAttackBehaviour : MonoBehaviour
         this.Waste.OriginalLocalPosition = this.Waste.transform.localPosition;
         this.Waste.OriginalParent = this.transform;
         
+        // set the time
+        this.Waste.DisappearanceTimer = this.DisappearanceTimer;
+
+        this.Waste.transform.localScale = new Vector3 (
+            this.Scale,
+            1.0f,
+            this.Scale
+        );
+
         this.Waste.transform.position = nextPos;
         this.Waste.transform.SetParent (transform.parent);
         this.Waste.gameObject.SetActive (true);
+        
+        this.Waste.SphereCollider.radius = this.Radius;
         
         // reset progress and positions
         this.mProgress = 0;

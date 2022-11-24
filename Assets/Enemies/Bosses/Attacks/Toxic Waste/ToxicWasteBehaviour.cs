@@ -6,6 +6,7 @@ public class ToxicWasteBehaviour : MonoBehaviour
     /// <summary>
     /// The time it takes for the toxic waste to disappear
     /// </summary>
+    [HideInInspector]
     public float DisappearanceTimer = 5.0f;
     /// <summary>
     /// Timer used to prevent activation from taking too much time
@@ -30,7 +31,7 @@ public class ToxicWasteBehaviour : MonoBehaviour
     /// <summary>
     /// Sphere collider used as trigger for the player's damage
     /// </summary>
-    private SphereCollider mSphereCollider;
+    public SphereCollider SphereCollider;
 
     /// <summary>
     /// The collision layer to move to when the object is placed at it's final position
@@ -61,7 +62,7 @@ public class ToxicWasteBehaviour : MonoBehaviour
         
         this.mRigidbody = this.GetComponent <Rigidbody> ();
         this.mBoxCollider = this.GetComponent <BoxCollider> ();
-        this.mSphereCollider = this.GetComponent <SphereCollider> ();
+        this.SphereCollider = this.GetComponent <SphereCollider> ();
     }
 
     private void OnCollisionEnter (Collision collision)
@@ -69,7 +70,7 @@ public class ToxicWasteBehaviour : MonoBehaviour
         // collided means rigidbody can be deactivated and real collider enabled
         this.mRigidbody.isKinematic = true;
         this.mBoxCollider.enabled = false;
-        this.mSphereCollider.enabled = true;
+        this.SphereCollider.enabled = true;
         
         // set the collision layer now
         this.gameObject.layer = DefaultCollisionLayer;
@@ -111,7 +112,7 @@ public class ToxicWasteBehaviour : MonoBehaviour
         // reset rigidbody and colliders
         this.mRigidbody.isKinematic = false;
         this.mBoxCollider.enabled = true;
-        this.mSphereCollider.enabled = false;
+        this.SphereCollider.enabled = false;
 
         this.gameObject.layer = this.mStartupLayer;
         

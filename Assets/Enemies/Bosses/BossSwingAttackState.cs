@@ -7,7 +7,7 @@ public class BossSwingAttackState : BossState
     /// <summary>
     /// The increments for each launch
     /// </summary>
-    public float RotationIncrements = 5.0f;
+    public float RotationIncrements = 6.0f;
     /// <summary>
     /// The amount of times to shoot
     /// </summary>
@@ -24,11 +24,16 @@ public class BossSwingAttackState : BossState
     /// Timer used for rotation movement
     /// </summary>
     private float mTimer;
+    /// <summary>
+    /// The phase of the attack (used to revert the attack when the boss is in the second phase)
+    /// </summary>
+    private bool mAttackPhase = false;
     
     public override void OnStateEnter ()
     {
         this.mBulletsLeft = this.NumberOfBullets;
         this.mTimer = this.TimeBetweenBullets;
+        this.mAttackPhase = false;
         
         // rotate the boss a bit to the left
         float rotation = this.RotationIncrements * this.NumberOfBullets / 2;
@@ -47,7 +52,7 @@ public class BossSwingAttackState : BossState
         
         Transform current = this.transform;
         // rotate the boss
-        transform.Rotate (Vector3.up, this.RotationIncrements);
+        transform.Rotate (Vector3.up, this.mAttackPhase == false ? this.RotationIncrements : -this.RotationIncrements);
         // get a bullet from the object pool
         GameObject entry = this.Machine.BulletObjectPool.Pop ();
         
@@ -64,6 +69,15 @@ public class BossSwingAttackState : BossState
 
         if (this.mBulletsLeft > 0)
             return;
+
+        if (this.Machine.Controller.Phase == BossPhase.Second && this.mAttackPhase == false)
+        {
+            transform.Rotate (Vector3.up, this.RotationIncrements / 2);
+            
+            this.mBulletsLeft = this.NumberOfBullets;
+            this.mAttackPhase = true;
+            return;
+        }
         
         this.Machine.PopState ();
     }
