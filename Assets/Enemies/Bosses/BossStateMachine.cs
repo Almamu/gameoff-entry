@@ -192,6 +192,6 @@ public class BossStateMachine : MonoBehaviour
         if (collision.gameObject.CompareTag ("Player Bullet") == true)
             this.Controller.SendMessage ("ApplyDamage");
         if (collision.gameObject.CompareTag ("Player") == true)
-            collision.gameObject.SendMessage ("ApplyBossDamage");
+            collision.gameObject.SendMessage ("ApplyBossDamage", transform.position);
     }
 }
