@@ -64,4 +64,12 @@ public class RacimoAttackBehaviour : MonoBehaviour
         
         this.gameObject.SetActive (false);
     }
+
+    private void OnCollisionEnter (Collision collision)
+    {
+        if (this.enabled == false || collision.gameObject.CompareTag ("Player") == false)
+            return;
+
+        collision.gameObject.SendMessage ("ApplyHitDamage");
+    }
 }

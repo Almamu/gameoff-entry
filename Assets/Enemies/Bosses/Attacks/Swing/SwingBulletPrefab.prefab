@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8174402250725470174}
   - component: {fileID: 8174402250725470173}
   - component: {fileID: 8174402250725470172}
-  - component: {fileID: 6868252946978564112}
   - component: {fileID: 1272472885}
+  - component: {fileID: 8693373429557504790}
   m_Layer: 8
   m_Name: SwingBulletPrefab
   m_TagString: Enemy attack
@@ -99,20 +99,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6868252946978564112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3866752215759374849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a9510a02bbe3f3b2a852415ffe13ab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DisappearTime: 5
-  ShootSpeed: 25
 --- !u!54 &1272472885
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,3 +115,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!114 &8693373429557504790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3866752215759374849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e8b5195bde4d840a45c87f3d2200c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisappearTime: 5
+  ShootSpeed: 25

@@ -237,33 +237,4 @@ public class PlayerMovementState : PlayerState
             
         this.Machine.PushState(this.DodgeState);
     }
-
-    private void OnCollisionEnter (Collision collision)
-    {
-        if (this.enabled == false)
-            return;
-        if (this.Machine.IsInvulnerable () == true)
-            return;
-
-        if (collision.gameObject.CompareTag ("Boss enemy") == true)
-        {
-            this.SendMessage ("ApplyBossDamage", collision.collider.transform.position);
-        }
-        else if (collision.gameObject.CompareTag ("Bird Enemy") == true)
-        {
-            this.SendMessage ("ApplyHitDamage");
-        }
-    }
-
-    private void OnTriggerStay (Collider other)
-    {
-        if (this.enabled == false)
-            return;
-        if (this.Machine.IsInvulnerable () == true)
-            return;
-        if (other.gameObject.CompareTag ("Enemy attack") == false)
-            return;
-
-        this.SendMessage ("ApplyToxicDamage");
-    }
 }

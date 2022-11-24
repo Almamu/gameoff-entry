@@ -127,4 +127,12 @@ public class ToxicWasteBehaviour : MonoBehaviour
         this.HandleActivationTimer ();
         this.HandleMovement ();
     }
+
+    private void OnCollisionStay (Collision collision)
+    {
+        if (this.enabled == false || collision.gameObject.CompareTag ("Player") == false)
+            return;
+
+        collision.gameObject.SendMessage ("ApplyToxicDamage");
+    }
 }

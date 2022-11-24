@@ -47,4 +47,10 @@ public class SmallRacimoAttackBehaviour : MonoBehaviour
         this.mTimer = this.DestroyTimer;
         this.gameObject.SetActive (false);
     }
+    
+    private void OnCollisionEnter (Collision collision)
+    {
+        // try to apply the hit damage to the player
+        collision.gameObject.SendMessage ("ApplyHitDamage");
+    }
 }
