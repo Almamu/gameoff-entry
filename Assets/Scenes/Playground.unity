@@ -1704,7 +1704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1647c31aeb558a6418a7f4b02d48c062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 40
+  Health: 100
   SecondPhaseHealthThreshold: 50
   MinStateChangeTime: 2
   MaxStateChangeTime: 4

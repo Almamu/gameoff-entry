@@ -218,6 +218,8 @@ MonoBehaviour:
   SecondPhaseWasteTime: 30
   FirstPhaseWasteScale: 0.4
   SecondPhaseWasteScale: 0.6
+  FirstPhaseRadius: 2
+  SecondPhaseRadius: 3
 --- !u!114 &881772670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WasteScale: 0.4
+  WasteRadius: 2
   DisappearanceTimer: 30
   CycleTimer: 0.3
   QuantityPerCycle: 3
