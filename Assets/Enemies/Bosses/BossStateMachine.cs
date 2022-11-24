@@ -30,6 +30,10 @@ public class BossStateMachine : MonoBehaviour
     /// </summary>
     public RacimoObjectPool RacimoObjectPool { get; set; }
     /// <summary>
+    /// The racimo object pool used to create the second phase attacks
+    /// </summary>
+    public RacimoSecondPhaseObjectPool RacimoSecondPhaseObjectPool { get; set; }
+    /// <summary>
     /// The object pool used for toxic waste attacks
     /// </summary>
     public ToxicWasteObjectPool ToxicWasteObjectPool { get; set; }
@@ -85,6 +89,7 @@ public class BossStateMachine : MonoBehaviour
         // get the current, active state so the state machine has something to do
         this.CurrentState = GetComponent <BossState> ();
         this.RacimoObjectPool = GetComponentInParent <RacimoObjectPool> ();
+        this.RacimoSecondPhaseObjectPool = GetComponentInParent <RacimoSecondPhaseObjectPool> ();
         this.ToxicWasteObjectPool = GetComponentInParent <ToxicWasteObjectPool> ();
         this.BulletObjectPool = GetComponentInParent <ObjectPool> ();
         this.ToxicWasteAttackState = GetComponent <BossToxicWasteAttackState> ();
