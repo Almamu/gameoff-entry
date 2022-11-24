@@ -40,6 +40,9 @@ public class BirdQuickAttack : BirdState
         this.mDestination = this.Machine.Player.transform.position;
         this.mDirection = (this.mDestination - this.transform.position).normalized;
         this.mHasAttacked = false;
+        
+        // play the attack sound
+        this.Machine.AudioSource.PlayOneShot (this.Machine.AttackAudio);
 
         // look at the destination
         transform.rotation = Quaternion.LookRotation (this.mDirection);

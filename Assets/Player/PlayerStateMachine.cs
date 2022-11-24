@@ -70,6 +70,12 @@ public class PlayerStateMachine : MonoBehaviour
     /// The bounce state used when receiving damage that moves the player
     /// </summary>
     private PlayerBounceState BounceState;
+
+    public AudioClip ShootSound;
+    public AudioClip CannotShootSound;
+    public AudioClip ReloadSound;
+
+    public AudioSource AudioSource { get; set; }
     
     void Awake()
     {
@@ -86,6 +92,8 @@ public class PlayerStateMachine : MonoBehaviour
         this.mRigidbody = GetComponent <Rigidbody> ();
         // bounce state for receiving damage that moves the player
         this.BounceState = GetComponent <PlayerBounceState> ();
+        // get the audio source
+        this.AudioSource = GetComponent <AudioSource> ();
         
         // subscribe to required events to alter state
         EventManager.DisableMovement += OnDisableMovement;

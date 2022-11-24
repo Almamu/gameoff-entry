@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BirdStateMachine : MonoBehaviour
 {
@@ -15,7 +16,13 @@ public class BirdStateMachine : MonoBehaviour
     public GameObject Player { get; private set; }
     
     private Queue<BirdState> mStateQueue;
+    /// <summary>
+    /// Audio source used to play all the sounds
+    /// </summary>
+    public AudioSource AudioSource { get; set; }
 
+    public AudioClip AttackAudio;
+    
     void Start()
     {
         // get the current, active state so the state machine has something to do
@@ -24,6 +31,8 @@ public class BirdStateMachine : MonoBehaviour
         this.mStateQueue = new Queue <BirdState> ();
         // get the movement area
         this.MovementArea = this.transform.parent.Find ("MovementArea").GetComponent <BoxCollider> ();
+        // the audio source used to play sounds
+        this.AudioSource = this.GetComponent <AudioSource> ();
         // get the spawn's center
         this.SpawnerCenter = this.MovementArea.transform.position;
         // find the player
@@ -76,7 +85,7 @@ public class BirdStateMachine : MonoBehaviour
         this.CurrentState.enabled = true;
         this.CurrentState.OnStateEnter();
     }
-    
+
     void OnEnableMovement ()
     {
         // enable current state

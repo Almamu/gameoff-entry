@@ -178,10 +178,15 @@ public class PlayerMovementState : PlayerState
         
         // fire the onshoot event
         OnShoot?.Invoke(this.mClipBullets);
+        
+        // play the shoot sound
+        this.Machine.AudioSource.PlayOneShot (this.Machine.ShootSound);
 
         if (this.mClipBullets > 0)
             return;
         
+        // play the reload sound
+        this.Machine.AudioSource.PlayOneShot (this.Machine.ReloadSound);
         // set the reload timer
         this.mReloadTimer = this.ClipReloadTime;
     }
