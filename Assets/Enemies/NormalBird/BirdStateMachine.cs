@@ -47,6 +47,9 @@ public class BirdStateMachine : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag ("Player") == true)
+            collision.gameObject.SendMessage ("ApplyHitDamage");
+        
         if (collision.gameObject.CompareTag ("Player Bullet") == false)
             return;
         
