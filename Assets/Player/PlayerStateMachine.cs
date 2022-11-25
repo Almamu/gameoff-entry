@@ -241,7 +241,7 @@ public class PlayerStateMachine : MonoBehaviour
             direction.x = 1.0f;
 
         // go up a little bit so the force applied actually moves the player
-        direction.y = 0.1f;
+        direction.y = 0.2f;
 
         // apply the force
         this.mRigidbody.velocity = direction * this.DamagePushbackForce;
