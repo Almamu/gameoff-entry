@@ -11,6 +11,8 @@ public class BulletBehaviour : MonoBehaviour
     void OnEnable ()
     {
         this.mCurrentTime = this.DisappearTime;
+        if (this.mRigidbody is not null)
+            this.mRigidbody.velocity = transform.forward * this.ShootSpeed;
     }
     
     void Start()
@@ -27,7 +29,7 @@ public class BulletBehaviour : MonoBehaviour
         if (this.enabled == false)
             return;
         
-        this.mRigidbody.velocity = transform.forward * ShootSpeed;
+        this.mRigidbody.velocity = transform.forward * this.ShootSpeed;
 
         this.mCurrentTime -= Time.fixedDeltaTime;
 

@@ -174,7 +174,7 @@ public class PlayerMovementState : PlayerState
 
         // setup the bullet
         bullet.transform.SetPositionAndRotation (
-            t.position + t.forward,
+            t.position,
             t.rotation
         );
 
