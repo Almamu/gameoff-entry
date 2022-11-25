@@ -15,9 +15,7 @@ namespace Extensions
         
             foreach (Transform transform in behaviour.transform)
             {
-                T result = transform.GetComponent <T> ();
-
-                if (result is not null)
+                if (transform.TryGetComponent <T> (out T result) == true)
                     return result;
             }
 

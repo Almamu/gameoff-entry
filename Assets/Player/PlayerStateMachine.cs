@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Extensions;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -13,6 +14,10 @@ public class PlayerStateMachine : MonoBehaviour
     /// The animator used by the player
     /// </summary>
     public Animator Animator { get; set; }
+    /// <summary>
+    /// The animator for the model inside
+    /// </summary>
+    public Animator ModelAnimator { get; set; }
     /// <summary>
     /// The time the invulnerability timer is effective for
     /// </summary>
@@ -49,6 +54,18 @@ public class PlayerStateMachine : MonoBehaviour
     /// The ID of the InvulnerabilityTimer in the animator
     /// </summary>
     private static readonly int InvulnerabilityTimerId = Animator.StringToHash ("InvulnerabilityTimer");
+    /// <summary>
+    /// The ID of the walking boolean
+    /// </summary>
+    public static readonly int WalkingId = Animator.StringToHash ("Walking");
+    /// <summary>
+    /// The ID of the walking angle
+    /// </summary>
+    public static readonly int AngleId = Animator.StringToHash ("Angle");
+    /// <summary>
+    /// The ID of the dodge boolean
+    /// </summary>
+    public static readonly int DodgeId = Animator.StringToHash ("Dodge");
     /// <summary>
     /// The collision layer at which the birds are at
     /// </summary>
@@ -94,6 +111,8 @@ public class PlayerStateMachine : MonoBehaviour
         this.BounceState = GetComponent <PlayerBounceState> ();
         // get the audio source
         this.AudioSource = GetComponent <AudioSource> ();
+        // get the model animator
+        this.ModelAnimator = this.GetComponentOnlyInChildren <Animator> ();
         
         // subscribe to required events to alter state
         EventManager.DisableMovement += OnDisableMovement;

@@ -119,6 +119,22 @@ public class PlayerMovementState : PlayerState
         }
 
         this.Rigidbody.velocity = movement;
+
+        // calculate the direction we're looking at and set the right variables in the animator
+        Vector3 localDirection = transform.InverseTransformDirection (movement);
+        
+        if (localDirection == Vector3.zero)
+        {
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.WalkingId, false);
+            
+            return;
+        }
+
+        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.WalkingId, true);
+        this.Machine.ModelAnimator.SetFloat (
+            PlayerStateMachine.AngleId,
+            Quaternion.LookRotation (localDirection).eulerAngles.y
+        );
     }
 
     private void HandleRotationToCamera()

@@ -212,9 +212,6 @@ public class BossesController : MonoBehaviour
 
         if (attack == BossAttack.ToxicWasteFountain)
             this.mFountainCooldownTimer = this.FountainCooldown;
-        
-        // TODO:
-        // racimo double explosion
     }
 
     void HandleFinishPhase ()
