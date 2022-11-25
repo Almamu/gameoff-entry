@@ -7,6 +7,10 @@ using UnityEngine;
 public class PlayerStateMachine : MonoBehaviour
 {
     /// <summary>
+    /// The camera that follows the player
+    /// </summary>
+    public Camera Camera;
+    /// <summary>
     /// The current state the machine is in
     /// </summary>
     public PlayerState CurrentState { get; set; }
@@ -82,6 +86,10 @@ public class PlayerStateMachine : MonoBehaviour
     /// The collision layer at which the boss enemies are at
     /// </summary>
     public static int BossEnemyLayer;
+    /// <summary>
+    /// The collision layer at which the ground is at
+    /// </summary>
+    public static int DefaultLayer;
 
     /// <summary>
     /// The bounce state used when receiving damage that moves the player
@@ -100,6 +108,7 @@ public class PlayerStateMachine : MonoBehaviour
         PlayerCollisionLayer = LayerMask.NameToLayer ("Player");
         FlyingAttacksLayer = LayerMask.NameToLayer ("Flying attacks");
         BossEnemyLayer = LayerMask.NameToLayer ("Boss enemy");
+        DefaultLayer = LayerMask.NameToLayer ("Default");
         
         // get the current, active state so the state machine has something to do
         this.CurrentState = GetComponent<PlayerState>();

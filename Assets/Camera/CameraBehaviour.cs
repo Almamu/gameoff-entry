@@ -17,7 +17,7 @@ public class CameraBehaviour : MonoBehaviour
     /// </summary>
     public float HorizontalDistance = 25.0f;
 
-    void Update()
+    void LateUpdate()
     {
         if (this.Follow is null)
             return;
