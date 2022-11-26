@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumAttackSpeed: 4
-  MaximumAttackSpeed: 10
+  MaximumAttackSpeed: 8
   TurnFactor: 1
   AggresiveTurnDistance: 100
   MaxAttackModeTime: 10
