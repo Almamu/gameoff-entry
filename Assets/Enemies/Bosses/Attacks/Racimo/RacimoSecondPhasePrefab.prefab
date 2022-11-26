@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
 --- !u!1 &1318523191332320335
 GameObject:
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
 --- !u!1 &2176736442863612304
 GameObject:
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2176736443080531225
 GameObject:
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2176736443660603726
 GameObject:
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2176736443742104212
 GameObject:
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2176736444067742595
 GameObject:
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2176736444227033566
 GameObject:
@@ -894,7 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2176736444361792684
 GameObject:
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2176736444544827373
 GameObject:
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2176736444578630703
 GameObject:
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2176736444707586242
 GameObject:
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.6
+  MovementSpeed: 0.4
   DestroyTimer: 8
 --- !u!1 &2636978387122338705
 GameObject:
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
 --- !u!1 &4255776125906313748
 GameObject:
@@ -1566,7 +1566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
 --- !u!1 &4699496603951009023
 GameObject:
@@ -1678,7 +1678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
 --- !u!1 &4938341671768868577
 GameObject:
@@ -1790,7 +1790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
 --- !u!1 &6194281991586739720
 GameObject:
@@ -1902,7 +1902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
 --- !u!1 &6349732746039133763
 GameObject:
@@ -2014,7 +2014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
 --- !u!1 &7526768164534884560
 GameObject:
@@ -2045,7 +2045,7 @@ Transform:
   m_GameObject: {fileID: 7526768164534884560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.4, y: 2, z: 3.6}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2176736443742104213}
@@ -2132,7 +2132,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2176736442769989289
 MonoBehaviour:
@@ -2147,7 +2147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SeparateTimer: 1.2
-  MovementSpeed: 0.6
+  MovementSpeed: 0.3
 --- !u!1 &7889890555914570901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,7 +2258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
 --- !u!1 &8920259086218068497
 GameObject:
@@ -2370,5 +2370,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29f12099f285a428a84a2b9d523c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.5
+  MovementSpeed: 0.3
   DestroyTimer: 8
