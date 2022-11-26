@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Extensions;
+using Mono.Cecil;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -90,6 +91,14 @@ public class PlayerStateMachine : MonoBehaviour
     /// The collision layer at which the ground is at
     /// </summary>
     public static int DefaultLayer;
+    /// <summary>
+    /// The animation hash for the dodge transition
+    /// </summary>
+    public static readonly int DodgeTransitionNameHash = Animator.StringToHash ("AnyState -> Dodge");
+    /// <summary>
+    /// The animation hash for the dodge
+    /// </summary>
+    public static readonly int DodgeNameHash = Animator.StringToHash ("Dodge");
 
     /// <summary>
     /// The bounce state used when receiving damage that moves the player
@@ -165,6 +174,26 @@ public class PlayerStateMachine : MonoBehaviour
 
     void FixedUpdate ()
     {
+        AnimatorTransitionInfo state = this.ModelAnimator.GetAnimatorTransitionInfo (0);
+
+        Transform m = this.ModelAnimator.gameObject.transform;
+        
+        // update rotation based off the animation that is playing
+        m.localRotation = Quaternion.Euler (
+            0,
+            (state.nameHash == DodgeTransitionNameHash || state.nameHash == DodgeNameHash) ? 0 : 34,
+            0
+        );
+
+        Vector3 localPosition = m.localPosition;
+
+        // update the y position too
+        m.localPosition = new Vector3 (
+            localPosition.x,
+            (state.nameHash == DodgeTransitionNameHash || state.nameHash == DodgeNameHash) ? -1.532f : -0.986f,
+            localPosition.z
+        );
+
         // set the invulnerability timer so the animation plays
         this.Animator.SetFloat (InvulnerabilityTimerId, this.mInvulnerabilityTimer);
         

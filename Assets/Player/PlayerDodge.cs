@@ -52,13 +52,14 @@ public class PlayerDodge : PlayerState
 
     public override void OnStateExit ()
     {
+        // reset the dodge boolean
+        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.DodgeId, false);
+        
         if (this.Machine.IsInvulnerable () == true)
             return;
         
         // set collision layers so birds can hit the player again
         Physics.IgnoreLayerCollision (PlayerStateMachine.PlayerCollisionLayer, PlayerStateMachine.BirdsCollisionLayer, false);
         Physics.IgnoreLayerCollision (PlayerStateMachine.PlayerCollisionLayer, PlayerStateMachine.FlyingAttacksLayer, false);
-        // reset the dodge boolean
-        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.DodgeId, false);
     }
 }
