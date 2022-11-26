@@ -121,7 +121,7 @@ public class PlayerMovementState : PlayerState
         this.Rigidbody.velocity = movement;
 
         // calculate the direction we're looking at and set the right variables in the animator
-        Vector3 localDirection = transform.InverseTransformDirection (movement);
+        Vector3 localDirection = transform.InverseTransformDirection (movement.normalized);
         
         if (localDirection == Vector3.zero)
         {
@@ -142,9 +142,9 @@ public class PlayerMovementState : PlayerState
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = gameObject.transform.position.y;
         
-        Ray raycast = Camera.main.ScreenPointToRay(mousePosition);
+        Ray raycast = this.Machine.Camera.ScreenPointToRay(mousePosition);
 
-        if (Physics.Raycast(raycast, out RaycastHit hit) != true)
+        if (Physics.Raycast(raycast, out RaycastHit hit/*, Mathf.Infinity, PlayerStateMachine.DefaultLayer*/) == false)
             return;
         
         this.mLookAtPoint = hit.point;

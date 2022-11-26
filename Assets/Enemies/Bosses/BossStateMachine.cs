@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Enemies.Bosses;
+using Extensions;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -49,6 +50,10 @@ public class BossStateMachine : MonoBehaviour
     /// The controller for the bosses level
     /// </summary>
     public BossesController Controller { get; set; }
+    /// <summary>
+    /// Animator for the vulture model
+    /// </summary>
+    public Animator ModelAnimator { get; set; }
 
     /// <summary>
     /// The list of states to unwind when poping them
@@ -99,7 +104,8 @@ public class BossStateMachine : MonoBehaviour
         this.ToxicWasteFountainAttackState = GetComponent <BossToxicWasteFountainAttackState> ();
         this.SwingAttackState = GetComponent <BossSwingAttackState> ();
         this.MeteorStrikeAttackState = GetComponent <BossMeteorStrikeAttackState> ();
-        
+
+        this.ModelAnimator = this.GetComponentOnlyInChildren <Animator> ();
         this.Controller = GetComponentInParent <BossesController> (true);
         
         // subscribe to required events to alter state
@@ -157,18 +163,6 @@ public class BossStateMachine : MonoBehaviour
         if (this.CurrentState is not BossMovementState)
             return;
         
-        // TODO:
-        // first phase
-        // racimo, toxic waste and swing
-
-        // second phase
-        // racimo double explosion
-        // toxic waste bigger and longer
-        // swing faster and twice
-        // toxic fountain, as big and long as phase 1
-        // meteor strike when too far away
-        // if you get too close the boss should push you with wind, not periodic
-
         BossState state = attack switch
         {
             BossAttack.Racimo => this.RacimoAttackState,
