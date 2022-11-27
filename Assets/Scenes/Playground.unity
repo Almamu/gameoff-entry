@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1647c31aeb558a6418a7f4b02d48c062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 20
   SecondPhaseHealthThreshold: 50
   MinStateChangeTime: 2
   MaxStateChangeTime: 4
@@ -3140,11 +3140,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033746553}
   m_Enabled: 1
---- !u!4 &2123584146 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7035522675930717907, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
-  m_PrefabInstance: {fileID: 3925916234046493304}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3925916234046493304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3204,13 +3199,5 @@ PrefabInstance:
       propertyPath: Objective
       value: 
       objectReference: {fileID: 2033746553}
-    - target: {fileID: 3925916233182550543, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
-      propertyPath: AttacksSpawn
-      value: 
-      objectReference: {fileID: 2123584146}
-    - target: {fileID: 7426785060950633078, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 184bab594392dc1498ce921ea3bbd43d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0958ffda26a2ff94c825b57a5388de85, type: 3}
