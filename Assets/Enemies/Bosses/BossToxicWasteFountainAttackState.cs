@@ -38,6 +38,13 @@ public class BossToxicWasteFountainAttackState : BossState
     {
         this.mTimer = this.CycleTimer;
         this.mQuantityLeft = this.TotalQuantity;
+
+        this.Machine.ModelAnimator.SetBool (BossStateMachine.FountainHash, true);
+    }
+
+    public override void OnStateExit ()
+    {
+        this.Machine.ModelAnimator.SetBool (BossStateMachine.FountainHash, false);
     }
 
     private void ShootFor (Vector3 target)

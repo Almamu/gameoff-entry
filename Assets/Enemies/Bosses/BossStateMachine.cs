@@ -54,6 +54,14 @@ public class BossStateMachine : MonoBehaviour
     /// Animator for the vulture model
     /// </summary>
     public Animator ModelAnimator { get; set; }
+    /// <summary>
+    /// The boolean for the fountain animation
+    /// </summary>
+    public static readonly int FountainHash = Animator.StringToHash ("Fountain");
+    /// <summary>
+    /// The wings attack effect
+    /// </summary>
+    public static readonly int WingsHash = Animator.StringToHash ("Wings");
 
     /// <summary>
     /// The list of states to unwind when poping them

@@ -11,13 +11,22 @@ ModelImporter:
     second: raven_armature|Default
   - first:
       74: 5031533768144141179
-    second: raven_armature|fly
+    second: fly
   - first:
       74: 3243694331764761456
-    second: raven_armature|stand
+    second: fountain
   - first:
       74: 5509898726391086422
     second: raven_armature|fountain
+  - first:
+      74: -4123019631214243641
+    second: fountain
+  - first:
+      74: -6456352421143583393
+    second: wings
+  - first:
+      74: 8396480249412949698
+    second: wings
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -82,7 +91,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: raven_armature|fly
+      name: fly
       takeName: raven_armature|fly
       internalID: 0
       firstFrame: 0
@@ -111,11 +120,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: raven_armature|stand
-      takeName: raven_armature|stand
+      name: fountain
+      takeName: raven_armature|fountain.001
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -140,18 +149,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: raven_armature|fountain
-      takeName: raven_armature|fountain
+      name: wings
+      takeName: raven_armature|wings
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

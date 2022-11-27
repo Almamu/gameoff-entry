@@ -43,12 +43,16 @@ public class BossWingsAttack : BossState
         this.mTimer = this.Duration;
         this.WindAreaForce.gameObject.SetActive (true);
         this.mDefaultRadius = this.WindAreaForce.Collider.radius;
+        
+        this.Machine.ModelAnimator.SetBool (BossStateMachine.WingsHash, true);
     }
 
     public override void OnStateExit ()
     {
         this.WindAreaForce.Collider.radius = this.mDefaultRadius;
         this.WindAreaForce.gameObject.SetActive (false);
+        
+        this.Machine.ModelAnimator.SetBool (BossStateMachine.WingsHash, false);
     }
 
     void FixedUpdate ()
