@@ -28,6 +28,9 @@ public class BossMovementState : BossState
     
     void FixedUpdate ()
     {
+        if (this.Machine.Controller.Phase != BossPhase.First)
+            return;
+        
         // rotate the parent
         transform.parent.Rotate (Vector3.up, this.mMovementSpeed * Time.fixedDeltaTime);
         // look at the player
