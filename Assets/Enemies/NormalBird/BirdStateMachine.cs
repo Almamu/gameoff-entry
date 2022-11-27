@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Extensions;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,12 +15,20 @@ public class BirdStateMachine : MonoBehaviour
     public BoxCollider MovementArea { get; private set; }
     
     public GameObject Player { get; private set; }
+    /// <summary>
+    /// The animator for the model inside
+    /// </summary>
+    public Animator ModelAnimator { get; private set; }
     
     private Queue<BirdState> mStateQueue;
     /// <summary>
     /// Audio source used to play all the sounds
     /// </summary>
     public AudioSource AudioSource { get; set; }
+    /// <summary>
+    /// The boolean for the fountain animation
+    /// </summary>
+    public static readonly int AttackHash = Animator.StringToHash ("Attack");
 
     public AudioClip AttackAudio;
     
@@ -27,6 +36,7 @@ public class BirdStateMachine : MonoBehaviour
     {
         // get the current, active state so the state machine has something to do
         this.CurrentState = GetComponent<BirdState>();
+        this.ModelAnimator = this.GetComponentOnlyInChildren <Animator> ();
         // clear the state list
         this.mStateQueue = new Queue <BirdState> ();
         // get the movement area

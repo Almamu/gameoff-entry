@@ -45,7 +45,16 @@ public class BirdAttack : BirdState
         this.mInAggressivenessArea = false;
         this.mMovementSpeed = Random.Range (this.MinimumAttackSpeed, this.MaximumAttackSpeed);
         this.mCurrentTime = 0.0f;
+        // set the attack animation
+        this.Machine.ModelAnimator.SetBool (BirdStateMachine.AttackHash, true);
     }
+
+    public override void OnStateExit ()
+    {
+        // set the attack animation
+        this.Machine.ModelAnimator.SetBool (BirdStateMachine.AttackHash, false);
+    }
+
 
     private void HandleMovement ()
     {

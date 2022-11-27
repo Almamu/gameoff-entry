@@ -46,6 +46,15 @@ public class BirdQuickAttack : BirdState
 
         // look at the destination
         transform.rotation = Quaternion.LookRotation (this.mDirection);
+        
+        // set the attack animation
+        this.Machine.ModelAnimator.SetBool (BirdStateMachine.AttackHash, true);
+    }
+
+    public override void OnStateExit ()
+    {
+        // set the attack animation
+        this.Machine.ModelAnimator.SetBool (BirdStateMachine.AttackHash, false);
     }
 
     bool MoveTowardsDestination ()
