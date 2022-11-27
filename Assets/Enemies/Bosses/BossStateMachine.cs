@@ -66,6 +66,10 @@ public class BossStateMachine : MonoBehaviour
     /// The wings attack effect
     /// </summary>
     public static readonly int WingsHash = Animator.StringToHash ("Wings");
+    /// <summary>
+    /// The wings attack effect
+    /// </summary>
+    public static readonly int StrikeHash = Animator.StringToHash ("Strike");
 
     /// <summary>
     /// The list of states to unwind when poping them

@@ -59,9 +59,9 @@ public class BossWingsAttack : BossState
     {
         this.mTimer -= Time.fixedDeltaTime;
         
+        this.WindAreaForce.Collider.radius = this.mDefaultRadius + (math.cos (Time.fixedTime * this.Speed) + this.Difference);
+        
         if (this.mTimer < 0.0f)
             this.Machine.PopState ();
-
-        this.WindAreaForce.Collider.radius = this.mDefaultRadius + (math.cos (Time.fixedTime * this.Speed) + this.Difference);
     }
 }

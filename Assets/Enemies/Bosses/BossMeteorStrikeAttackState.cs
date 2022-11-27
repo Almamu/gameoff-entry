@@ -67,6 +67,7 @@ public class BossMeteorStrikeAttackState : BossState
         );
         // move the boss to the sky so it's not visible
         this.transform.position = hit.point + Vector3.up * this.StrikeHeight;
+        this.Machine.ModelAnimator.SetBool (BossStateMachine.StrikeHash, true);
     }
 
     public override void OnStateExit ()
@@ -74,6 +75,7 @@ public class BossMeteorStrikeAttackState : BossState
         // deactivate the strike area
         this.mTimer = 0.0f;
         this.StrikeEffect.gameObject.SetActive (false);
+        this.Machine.ModelAnimator.SetBool (BossStateMachine.StrikeHash, false);
     }
 
     void FixedUpdate ()
