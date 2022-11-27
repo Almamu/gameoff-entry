@@ -54,7 +54,7 @@ public class BossToxicWasteFountainAttackState : BossState
         // setup the attack
         ToxicAttackBehaviour behaviour = obj.GetComponent <ToxicAttackBehaviour> ();
         behaviour.Target = target;
-        behaviour.transform.position = behaviour.StartPosition = this.transform.position;
+        behaviour.transform.position = behaviour.StartPosition = this.Machine.AttacksSpawn.position;
         behaviour.DisappearanceTimer = this.DisappearanceTimer;
         behaviour.Scale = this.WasteScale;
         behaviour.Radius = this.WasteRadius;

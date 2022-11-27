@@ -58,7 +58,7 @@ public class BossSwingAttackState : BossState
         
         // set the direction and position
         entry.transform.SetPositionAndRotation (
-            current.position,
+            this.Machine.AttacksSpawn.position,
             current.rotation
         );
         

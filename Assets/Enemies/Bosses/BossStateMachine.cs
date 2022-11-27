@@ -23,6 +23,10 @@ public enum BossAttack
 public class BossStateMachine : MonoBehaviour
 {
     /// <summary>
+    /// Where the attacks should spawn
+    /// </summary>
+    public Transform AttacksSpawn;
+    /// <summary>
     /// The game object to follow while moving
     /// </summary>
     public GameObject Objective;

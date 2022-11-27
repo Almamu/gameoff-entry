@@ -38,7 +38,7 @@ public class BossToxicWasteAttackState : BossState
         // setup the attack
         ToxicAttackBehaviour behaviour = obj.GetComponent <ToxicAttackBehaviour> ();
         behaviour.Target = this.Machine.Objective.transform.position;
-        behaviour.transform.position = behaviour.StartPosition = this.transform.position;
+        behaviour.transform.position = behaviour.StartPosition = this.Machine.AttacksSpawn.position;
         
         behaviour.Radius = this.Machine.Controller.Phase switch
         {

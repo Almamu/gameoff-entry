@@ -18,7 +18,7 @@ public class BossRacimoAttackState : BossState
 
         // set the shots so they go in the direction the boss is looking at
         entry.transform.SetPositionAndRotation (
-            current.position,
+            this.Machine.AttacksSpawn.position,
             current.rotation
         );
 
