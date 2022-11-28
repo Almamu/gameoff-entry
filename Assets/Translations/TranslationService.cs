@@ -7,7 +7,7 @@ public class TranslationService
 {
     private Dictionary <string, Dictionary <string, string>> mTranslations = new Dictionary <string, Dictionary <string, string>> ();
     private static TranslationService sInstance = null;
-    private string DefaultLanguage = "ES";
+    private string DefaultLanguage = "EN";
     
     public TranslationService ()
     {
