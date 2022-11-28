@@ -1,0 +1,3 @@
+TITLE;Más vale pájaro en mano que ciento volando
+UI.START;Comenzar
+UI.EXIT;Salir

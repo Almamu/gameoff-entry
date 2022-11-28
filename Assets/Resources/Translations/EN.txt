@@ -1,0 +1,3 @@
+TITLE;A bird in hand is worth hundreds in the bush
+UI.START;Start
+UI.EXIT;Exit to Windows
