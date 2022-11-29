@@ -227,6 +227,6 @@ public class BossesController : MonoBehaviour
         // TODO: EXPOSE THIS?
         this.mHealth -= 1.0f;
 
-        EventManager.InvokeBossHealth (this.mHealth);
+        CombatEventManager.InvokeBossHealth (this.mHealth);
     }
 }

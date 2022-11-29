@@ -18,8 +18,8 @@ public class SwingBulletBehaviour : MonoBehaviour
         this.mRigidbody = GetComponent <Rigidbody> ();
         
         // subscribe to required events to alter state
-        EventManager.DisableMovement += OnDisableMovement;
-        EventManager.EnableMovement += OnEnableMovement;
+        CombatEventManager.DisableMovement += OnDisableMovement;
+        CombatEventManager.EnableMovement += OnEnableMovement;
     }
 
     void FixedUpdate ()

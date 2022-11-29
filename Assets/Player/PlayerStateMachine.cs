@@ -72,6 +72,22 @@ public class PlayerStateMachine : MonoBehaviour
     /// </summary>
     public static readonly int DodgeId = Animator.StringToHash ("Dodge");
     /// <summary>
+    /// THe ID of walking forward
+    /// </summary>
+    public static readonly int ForwardId = Animator.StringToHash ("Forward");
+    /// <summary>
+    /// The ID of walking backwards
+    /// </summary>
+    public static readonly int BackwardsId = Animator.StringToHash ("Backwards");
+    /// <summary>
+    /// The ID of walking left
+    /// </summary>
+    public static readonly int LeftId = Animator.StringToHash ("Left");
+    /// <summary>
+    /// The ID of walking right
+    /// </summary>
+    public static readonly int RightId = Animator.StringToHash ("Right");
+    /// <summary>
     /// The collision layer at which the birds are at
     /// </summary>
     public static int BirdsCollisionLayer;
@@ -133,8 +149,8 @@ public class PlayerStateMachine : MonoBehaviour
         this.ModelAnimator = this.GetComponentOnlyInChildren <Animator> ();
         
         // subscribe to required events to alter state
-        EventManager.DisableMovement += OnDisableMovement;
-        EventManager.EnableMovement += OnEnableMovement;
+        CombatEventManager.DisableMovement += OnDisableMovement;
+        CombatEventManager.EnableMovement += OnEnableMovement;
     }
 
     /// <summary>

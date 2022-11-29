@@ -125,8 +125,8 @@ public class BossStateMachine : MonoBehaviour
         this.Controller = GetComponentInParent <BossesController> (true);
         
         // subscribe to required events to alter state
-        EventManager.DisableMovement += OnDisableMovement;
-        EventManager.EnableMovement += OnEnableMovement;
+        CombatEventManager.DisableMovement += OnDisableMovement;
+        CombatEventManager.EnableMovement += OnEnableMovement;
     }
 
     /// <summary>

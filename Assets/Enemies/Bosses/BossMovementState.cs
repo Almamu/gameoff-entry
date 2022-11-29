@@ -16,7 +16,7 @@ public class BossMovementState : BossState
 
     void Start ()
     {
-        EventManager.BossHealth += this.BossHealthUpdate;
+        CombatEventManager.BossHealth += this.BossHealthUpdate;
     }
     
     new void Awake ()
