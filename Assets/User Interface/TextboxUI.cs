@@ -9,6 +9,12 @@ using Random = UnityEngine.Random;
 
 public class TextboxUI : MonoBehaviour
 {
+    struct TextboxInformation
+    {
+        public string Message { get; set; }
+        public Vector3 WorldPosition { get; set; }
+    }
+    
     /// <summary>
     /// The amount of time between each character appearing
     /// </summary>
@@ -23,7 +29,7 @@ public class TextboxUI : MonoBehaviour
     public float PitchShift = 0.1f;
     /// Queue of text to show in the textboxes
     /// </summary>
-    private Queue <string> mMessageQueue = new Queue <string> ();
+    private Queue <TextboxInformation> mMessageQueue = new Queue <TextboxInformation> ();
     /// <summary>
     /// Whether the textbox is being displayed or not
     /// </summary>
@@ -37,7 +43,7 @@ public class TextboxUI : MonoBehaviour
     void Start()
     {
         // bind to specific events
-        EventManager.Textbox += this.QueueTextbox;
+        CombatEventManager.Textbox += this.QueueTextbox;
         // get the text container
         this.mText = GetComponentInChildren <TextMeshProUGUI> (true);
         // get the audio source so we can play sounds
@@ -94,13 +100,15 @@ public class TextboxUI : MonoBehaviour
             // disable everything inside us
             SetChildrenActive (false);
             // enable movement again
-            EventManager.InvokeEnableMovement ();
+            CombatEventManager.InvokeEnableMovement ();
             return;
         }
         
         // ensure the textbox is active and has information
         this.mDisplayingMessage = true;
-        this.mText.text = this.mMessageQueue.Dequeue ();
+        TextboxInformation info = this.mMessageQueue.Dequeue ();
+
+        this.mText.text = TranslationService.Get ().Translate(info.Message);
         this.mText.maxVisibleCharacters = 0;
         // force mesh update
         this.mText.ForceMeshUpdate (forceTextReparsing: true);
@@ -110,12 +118,18 @@ public class TextboxUI : MonoBehaviour
         SetChildrenActive (true);
     }
 
-    void QueueTextbox (string message)
+    void QueueTextbox (string message, Vector3 worldPosition)
     {
         // disable movement for everything
-        EventManager.InvokeDisableMovement ();
+        CombatEventManager.InvokeDisableMovement ();
         // queue the message
-        this.mMessageQueue.Enqueue (message);
+        this.mMessageQueue.Enqueue (
+            new TextboxInformation ()
+            {
+                Message = message,
+                WorldPosition = worldPosition
+            }
+        );
         
         // only dequeue a message if the textbox is not visible yet
         if (this.mDisplayingMessage == false)

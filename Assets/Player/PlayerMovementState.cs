@@ -120,21 +120,52 @@ public class PlayerMovementState : PlayerState
 
         this.Rigidbody.velocity = movement;
 
-        // calculate the direction we're looking at and set the right variables in the animator
         Vector3 localDirection = transform.InverseTransformDirection (movement.normalized);
-        
+
         if (localDirection == Vector3.zero)
         {
-            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.WalkingId, false);
-            
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.ForwardId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.BackwardsId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.LeftId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.RightId, false);
+
             return;
         }
 
-        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.WalkingId, true);
-        this.Machine.ModelAnimator.SetFloat (
-            PlayerStateMachine.AngleId,
-            Quaternion.LookRotation (localDirection).eulerAngles.y
-        );
+        float angle = Quaternion.LookRotation (localDirection).eulerAngles.y;
+
+        if (angle >= 315.0f || angle < 45.0f)
+        {
+            // forward
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.ForwardId, true);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.BackwardsId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.LeftId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.RightId, false);
+        }
+        else if (angle >= 45.0f && angle < 135.0f)
+        {
+            // right
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.ForwardId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.BackwardsId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.LeftId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.RightId, true);
+        }
+        else if (angle >= 135.0f && angle < 225.0f)
+        {
+            // backwards
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.ForwardId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.BackwardsId, true);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.LeftId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.RightId, false);
+        }
+        else if (angle >= 225.0f && angle < 315.0f)
+        {
+            // left
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.ForwardId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.BackwardsId, false);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.LeftId, true);
+            this.Machine.ModelAnimator.SetBool (PlayerStateMachine.RightId, false);
+        }
     }
 
     private void HandleRotationToCamera()

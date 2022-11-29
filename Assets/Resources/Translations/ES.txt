@@ -1,0 +1,6 @@
+TITLE;Más vale pájaro en mano que ciento volando
+UI.START;Comenzar
+UI.EXIT;Salir
+CINEMA.GETUP;¡Arriba novatos!
+CINEMA.TRAINING;¡Entrenamiento sorpresa!
+CINEMA.GETUP_ANSWER;Joder sargento, llegamos hace 2 horas...

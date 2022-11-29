@@ -6,7 +6,7 @@ namespace Extensions
 {
     public static class ComponentExtensions 
     {
-        public static T GetComponentOnlyInChildren <T> (this MonoBehaviour behaviour) where T : class
+        public static T GetComponentOnlyInChildren <T> (this MonoBehaviour behaviour, bool includeInactive = false) where T : class
         {
             if (typeof(T).IsInterface == false &&
                 typeof(T).IsSubclassOf (typeof(Component)) == false &&
@@ -15,6 +15,9 @@ namespace Extensions
         
             foreach (Transform transform in behaviour.transform)
             {
+                if (includeInactive == false && transform.gameObject.activeSelf == false)
+                    continue;
+                
                 if (transform.TryGetComponent <T> (out T result) == true)
                     return result;
             }

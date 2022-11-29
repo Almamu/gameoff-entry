@@ -40,14 +40,17 @@ public class PlayerDodge : PlayerState
         // make the character look at the direction we're jumping so it looks a bit more natural
         transform.rotation = Quaternion.LookRotation (this.Direction);
 
+        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.ForwardId, false);
+        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.BackwardsId, false);
+        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.LeftId, false);
+        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.RightId, false);
+        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.DodgeId, true);
+        
         // reset the timer
         this.mCurrentTime = 0.0f;
         // disable collision
         Physics.IgnoreLayerCollision (PlayerStateMachine.PlayerCollisionLayer, PlayerStateMachine.BirdsCollisionLayer, true);
         Physics.IgnoreLayerCollision (PlayerStateMachine.PlayerCollisionLayer, PlayerStateMachine.FlyingAttacksLayer, true);
-        // set the dodge boolean so any animation is interrupted
-        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.WalkingId, false);
-        this.Machine.ModelAnimator.SetBool (PlayerStateMachine.DodgeId, true);
     }
 
     public override void OnStateExit ()
