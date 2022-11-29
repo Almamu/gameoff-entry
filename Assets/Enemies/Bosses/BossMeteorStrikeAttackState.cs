@@ -72,6 +72,8 @@ public class BossMeteorStrikeAttackState : BossState
 
     public override void OnStateExit ()
     {
+        // play the particles
+        this.Machine.MeteorStrikeParticles.Play ();
         // deactivate the strike area
         this.mTimer = 0.0f;
         this.StrikeEffect.gameObject.SetActive (false);

@@ -45,6 +45,9 @@ public class BossWingsAttack : BossState
         this.mDefaultRadius = this.WindAreaForce.Collider.radius;
         
         this.Machine.ModelAnimator.SetBool (BossStateMachine.WingsHash, true);
+        // play the first effect
+        this.Machine.WingsAttackParticles.Play ();
+        this.Machine.WingsParticles.Play ();
     }
 
     public override void OnStateExit ()
@@ -53,6 +56,7 @@ public class BossWingsAttack : BossState
         this.WindAreaForce.gameObject.SetActive (false);
         
         this.Machine.ModelAnimator.SetBool (BossStateMachine.WingsHash, false);
+        this.Machine.WingsParticles.Stop();
     }
 
     void FixedUpdate ()

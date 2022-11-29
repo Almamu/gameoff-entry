@@ -59,6 +59,18 @@ public class BossStateMachine : MonoBehaviour
     /// </summary>
     public Animator ModelAnimator { get; set; }
     /// <summary>
+    /// The particles to play when doing a meteor strike
+    /// </summary>
+    public ParticleSystem MeteorStrikeParticles { get; set; }
+    /// <summary>
+    /// The particles to play when doing a wing attack
+    /// </summary>
+    public ParticleSystem WingsAttackParticles { get; set; }
+    /// <summary>
+    /// The particle system to use to show wings moving
+    /// </summary>
+    public ParticleSystem WingsParticles { get; set; }
+    /// <summary>
     /// The boolean for the fountain animation
     /// </summary>
     public static readonly int FountainHash = Animator.StringToHash ("Fountain");
@@ -123,6 +135,9 @@ public class BossStateMachine : MonoBehaviour
 
         this.ModelAnimator = this.GetComponentOnlyInChildren <Animator> ();
         this.Controller = GetComponentInParent <BossesController> (true);
+        this.MeteorStrikeParticles = this.transform.Find ("GroundSlamRed").GetComponent <ParticleSystem> ();
+        this.WingsAttackParticles = this.transform.Find ("DustCircleDark").GetComponent <ParticleSystem> ();
+        this.WingsParticles = this.transform.Find ("WingsParticles").GetComponent <ParticleSystem> ();
         
         // subscribe to required events to alter state
         CombatEventManager.DisableMovement += OnDisableMovement;
