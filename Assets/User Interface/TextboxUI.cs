@@ -50,7 +50,7 @@ public class TextboxUI : MonoBehaviour
         this.mAudioSource = GetComponent <AudioSource> ();
     }
 
-    void FixedUpdate ()
+    void Update ()
     {
         // do not do anything if there's no textbox displayed
         if (this.mDisplayingMessage == false)
@@ -69,7 +69,7 @@ public class TextboxUI : MonoBehaviour
         if (this.mText.maxVisibleCharacters >= this.mText.text.Length)
             return;
         
-        this.mTimer -= Time.fixedDeltaTime;
+        this.mTimer -= Time.deltaTime;
 
         if (this.mTimer > 0.0f)
             return;
@@ -96,6 +96,7 @@ public class TextboxUI : MonoBehaviour
     {
         if (this.mMessageQueue.Count == 0)
         {
+            CombatEventManager.InvokeTextboxHidden ();
             this.mDisplayingMessage = false;
             // disable everything inside us
             SetChildrenActive (false);

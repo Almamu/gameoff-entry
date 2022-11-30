@@ -25,6 +25,10 @@ public class CombatEventManager : MonoBehaviour
     /// Event fired when a textbox has to be displayed on-screen
     /// </summary>
     public static event Action<string, Vector3> Textbox;
+    /// <summary>
+    /// Event fired when the textbox is hidden
+    /// </summary>
+    public static event Action TextboxHidden;
 
     public static void InvokeDisableMovement()
     {
@@ -44,5 +48,10 @@ public class CombatEventManager : MonoBehaviour
     public static void InvokeBossHealth (float healthLeft)
     {
         BossHealth?.Invoke (healthLeft);
+    }
+
+    public static void InvokeTextboxHidden ()
+    {
+        TextboxHidden?.Invoke ();
     }
 }

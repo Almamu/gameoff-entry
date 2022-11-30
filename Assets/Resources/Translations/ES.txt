@@ -5,3 +5,5 @@ CINEMA.GETUP;¡Arriba novatos!
 CINEMA.TRAINING;¡Entrenamiento sorpresa!
 CINEMA.GETUP_ANSWER;Joder sargento, llegamos hace 2 horas...
 GAMEOVER.PAYRESPECTS;Pulsa F para mostrar tus respetos
+MOVE.ROOKIES1;¡Arriba novatos!
+MOVE.ROOKIES2;¡Entrenamiento sorpresa!

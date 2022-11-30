@@ -2,3 +2,14 @@ TITLE;A bird in hand is worth hundreds in the bush
 UI.START;Start
 UI.EXIT;Exit to Windows
 GAMEOVER.PAYRESPECTS;Press F to pay respects
+MOVE.ROOKIES1;¡Arriba novatos!
+MOVE.ROOKIES2;¡Entrenamiento sorpresa!
+FUCK.SARGE;Joder sargento,\nllegamos hace 2 horas...
+FUCK.SARGE.ANSWER;¡¿2 horas sin que intenten\nvolarte el culo y te quejas?!
+SHOOT.ANSWER;¡Vale! ¡Vale!\nYa me levanto
+SARGE.FOLLOWME;¡Bien! ¡Seguidme!
+SARGE.TUTORIAL1;Muy bien señoritas, ya sabéis como va esto.\nDisparar, avanzar y esquivar.
+SARGE.TUTORIAL2;¡Vamos soldado!
+SARGE.TUTORIAL3;Recuerde, WASD para moverse,\nratón para apuntar\ny click izquierdo para disparar
+SARGE.TUTORIAL4;¿En serio tengo que explicarle esto?
+SARGE.TUTORIAL5;Joder con Washington...\nLes pido soldados\n y me envian maniquies que cagan...
