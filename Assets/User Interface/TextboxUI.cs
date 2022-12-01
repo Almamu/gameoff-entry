@@ -12,8 +12,11 @@ public class TextboxUI : MonoBehaviour
     struct TextboxInformation
     {
         public string Message { get; set; }
-        public Vector3 WorldPosition { get; set; }
+        public bool IsSarge { get; set; }
     }
+
+    public GameObject SargeAvatar;
+    public GameObject PlayerAvatar;
     
     /// <summary>
     /// The amount of time between each character appearing
@@ -115,11 +118,24 @@ public class TextboxUI : MonoBehaviour
         this.mText.ForceMeshUpdate (forceTextReparsing: true);
         // set the timer
         this.mTimer = this.TextDisplayDelay;
+        
         // enable everything inside us
         SetChildrenActive (true);
+        
+        // ensure the avatar is not enabled if not required
+        if (info.IsSarge == false)
+        {
+            this.PlayerAvatar.SetActive (true);
+            this.SargeAvatar.SetActive (false);
+        }
+        else
+        {
+            this.PlayerAvatar.SetActive (false);
+            this.SargeAvatar.SetActive (true);
+        }
     }
 
-    void QueueTextbox (string message, Vector3 worldPosition)
+    void QueueTextbox (string message, bool isSarge = false)
     {
         // disable movement for everything
         CombatEventManager.InvokeDisableMovement ();
@@ -128,7 +144,7 @@ public class TextboxUI : MonoBehaviour
             new TextboxInformation ()
             {
                 Message = message,
-                WorldPosition = worldPosition
+                IsSarge = isSarge
             }
         );
         

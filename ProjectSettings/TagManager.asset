@@ -10,6 +10,9 @@ TagManager:
   - Enemy attack
   - Boss enemy
   - Wind effect
+  - Missile
+  - Normal Manekin
+  - Shooting Manekin
   layers:
   - Default
   - TransparentFX

@@ -28,7 +28,7 @@ public class ShootingManekinController : MonoBehaviour
         // check if any manekin is destroyed and start shooting
         foreach (GameObject manekin in this.Manekins)
         {
-            if (manekin is null)
+            if (manekin == null)
             {
                 destroyed = true;
                 break;
@@ -47,5 +47,10 @@ public class ShootingManekinController : MonoBehaviour
         this.mTimer = this.ShootingIntervals;
         
         // create a bullet, set it in motion, and go
+        Instantiate (
+            this.ShootPrefab,
+            transform.position,
+            Quaternion.LookRotation ((this.Player.transform.position - transform.position).normalized)
+        );
     }
 }
