@@ -24,7 +24,7 @@ public class ManekinController : MonoBehaviour
     void Start()
     {
         NumberOfManekinsDestroyed = 0;
-        this.mTimer = this.ShootingIntervals;
+        this.mTimer = 0;
         // disable ourselves on movement disabled
         CombatEventManager.DisableMovement += this.MovementDisabled;
         CombatEventManager.EnableMovement += this.MovementEnabled;
