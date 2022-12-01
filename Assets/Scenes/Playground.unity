@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaximumActiveEnemies: 15
-  AmountOfEnemies: 2
+  AmountOfEnemies: 98
   ActiveEnemiesCount: 0
   EnemyBProbability: 20
 --- !u!114 &180835788
@@ -2899,7 +2899,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -49.772392, w: 0}
+  m_margin: {x: -120.62254, y: 0, z: -49.772392, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3174,7 +3174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1647c31aeb558a6418a7f4b02d48c062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 60
+  Health: 100
   SecondPhaseHealthThreshold: 50
   MinStateChangeTime: 2
   MaxStateChangeTime: 4
