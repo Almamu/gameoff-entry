@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
     /// <summary>
     /// The amount of enemies spawned
     /// </summary>
-    private int mCurrentEnemies = 80;
+    private int mCurrentEnemies = 0;
 
     /// <summary>
     /// Checks the current spawn areas and picks up a random spawn point inside the boxes
