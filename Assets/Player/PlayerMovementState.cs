@@ -90,6 +90,12 @@ public class PlayerMovementState : PlayerState
         OnReload?.Invoke (this.mClipBullets);
     }
 
+    private void OnDestroy ()
+    {
+        OnShoot = null;
+        OnReload = null;
+    }
+
     void FixedUpdate()
     {
         HandleMovement();

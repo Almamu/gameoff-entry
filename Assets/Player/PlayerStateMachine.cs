@@ -278,6 +278,11 @@ public class PlayerStateMachine : MonoBehaviour
         this.ApplyDamage (0.1f);
     }
 
+    public void ApplySwingDamage ()
+    {
+        this.ApplyDamage (0.1f);
+    }
+
     public void ApplyBigRacimoDamage ()
     {
         this.ApplyDamage (0.1f);

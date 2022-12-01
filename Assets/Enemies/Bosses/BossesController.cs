@@ -188,6 +188,9 @@ public class BossesController : MonoBehaviour
 
     void HandleSecondPhaseTransition ()
     {
+        // disable one of the bosses and switch to the second phase
+        this.mBosses[1].gameObject.SetActive (false);
+        
         CombatEventManager.EnableMovement -= this.HandleSecondPhaseTransition;
         
         // transition to the real second phase
