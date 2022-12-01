@@ -4,6 +4,7 @@ using Extensions;
 using Mono.Cecil;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -263,6 +264,10 @@ public class PlayerStateMachine : MonoBehaviour
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, BirdsCollisionLayer, true);
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, FlyingAttacksLayer, true);
         Physics.IgnoreLayerCollision (PlayerCollisionLayer, BossEnemyLayer, true);
+        
+        // if no life left, the player is dead, show game over screen
+        if (this.mHealth <= 0.0f)
+            SceneManager.LoadScene ("Game Over");
     }
 
     public void ApplyHitDamage ()
