@@ -488,6 +488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54108d2b6e55e6141beb081e881d5ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SargeAvatar: {fileID: 0}
+  PlayerAvatar: {fileID: 0}
   TextDisplayDelay: 0.1
   DisplayCharactersAtOnce: 1
   PitchShift: 0.1
@@ -605,7 +607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &180835785
 Transform:
   m_ObjectHideFlags: 0
@@ -1807,7 +1809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 47.85}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -526.7, y: -229.3}
+  m_AnchoredPosition: {x: -490, y: -297}
   m_SizeDelta: {x: 73.93, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547808000
@@ -3375,7 +3377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1004229689
 MonoBehaviour:
   m_ObjectHideFlags: 0

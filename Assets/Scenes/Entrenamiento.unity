@@ -6278,9 +6278,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2050393170}
     m_Modifications:
+    - target: {fileID: 1428533664570440, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_Name
       value: soldier_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_TagString
@@ -17215,9 +17223,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2050393170}
     m_Modifications:
+    - target: {fileID: 1428533664570440, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_Name
       value: soldier_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_TagString
@@ -24779,9 +24795,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 550607974}
     m_Modifications:
+    - target: {fileID: 1428533664570440, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_Name
       value: soldier_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_TagString
@@ -24891,15 +24915,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 361872676}
-  Manekins:
-  - {fileID: 760603241}
-  - {fileID: 860906332}
-  - {fileID: 528218014}
-  - {fileID: 275804113}
-  - {fileID: 340149343}
-  - {fileID: 708655487}
   ShootPrefab: {fileID: 3866752215759374849, guid: f0cd2a273c4dd1d4da0d7f0a3b5ef154, type: 3}
-  ShootingIntervals: 5
+  ShootingIntervals: 2
 --- !u!114 &1403736298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27642,15 +27659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 361872676}
-  Manekins:
-  - {fileID: 760603241}
-  - {fileID: 860906332}
-  - {fileID: 528218014}
-  - {fileID: 275804113}
-  - {fileID: 340149343}
-  - {fileID: 708655487}
   ShootPrefab: {fileID: 3866752215759374849, guid: f0cd2a273c4dd1d4da0d7f0a3b5ef154, type: 3}
-  ShootingIntervals: 5
+  ShootingIntervals: 2
 --- !u!114 &1549461222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30272,9 +30282,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2050393170}
     m_Modifications:
+    - target: {fileID: 1428533664570440, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_Name
       value: soldier_04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_TagString
@@ -30384,15 +30402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 361872676}
-  Manekins:
-  - {fileID: 760603241}
-  - {fileID: 860906332}
-  - {fileID: 528218014}
-  - {fileID: 275804113}
-  - {fileID: 340149343}
-  - {fileID: 708655487}
   ShootPrefab: {fileID: 3866752215759374849, guid: f0cd2a273c4dd1d4da0d7f0a3b5ef154, type: 3}
-  ShootingIntervals: 5
+  ShootingIntervals: 2
 --- !u!114 &1692995145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33541,15 +33552,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 361872676}
-  Manekins:
-  - {fileID: 760603241}
-  - {fileID: 860906332}
-  - {fileID: 528218014}
-  - {fileID: 275804113}
-  - {fileID: 340149343}
-  - {fileID: 708655487}
   ShootPrefab: {fileID: 3866752215759374849, guid: f0cd2a273c4dd1d4da0d7f0a3b5ef154, type: 3}
-  ShootingIntervals: 5
+  ShootingIntervals: 2
 --- !u!114 &1912413765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35788,9 +35792,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 550607974}
     m_Modifications:
+    - target: {fileID: 1428533664570440, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_Name
       value: soldier_04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_TagString
@@ -35900,15 +35912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 361872676}
-  Manekins:
-  - {fileID: 760603241}
-  - {fileID: 860906332}
-  - {fileID: 528218014}
-  - {fileID: 275804113}
-  - {fileID: 340149343}
-  - {fileID: 708655487}
   ShootPrefab: {fileID: 3866752215759374849, guid: f0cd2a273c4dd1d4da0d7f0a3b5ef154, type: 3}
-  ShootingIntervals: 5
+  ShootingIntervals: 2
 --- !u!114 &2035415673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37762,9 +37767,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 550607974}
     m_Modifications:
+    - target: {fileID: 1428533664570440, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_Name
       value: soldier_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1858562566932166, guid: f60762c11a744f344ac58209df65bb73, type: 3}
       propertyPath: m_TagString
@@ -37874,15 +37887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 361872676}
-  Manekins:
-  - {fileID: 760603241}
-  - {fileID: 860906332}
-  - {fileID: 528218014}
-  - {fileID: 275804113}
-  - {fileID: 340149343}
-  - {fileID: 708655487}
   ShootPrefab: {fileID: 3866752215759374849, guid: f0cd2a273c4dd1d4da0d7f0a3b5ef154, type: 3}
-  ShootingIntervals: 5
+  ShootingIntervals: 2
 --- !u!114 &2091251678
 MonoBehaviour:
   m_ObjectHideFlags: 0

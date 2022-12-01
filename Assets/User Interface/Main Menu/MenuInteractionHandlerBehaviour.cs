@@ -17,7 +17,7 @@ public class MenuInteractionHandlerBehaviour : MonoBehaviour
 
     public void OnStartClicked ()
     {
-        SceneManager.LoadScene ("Training");
+        SceneManager.LoadScene ("Entrenamiento");
     }
 
     public void OnExitClicked ()

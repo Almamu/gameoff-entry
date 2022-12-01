@@ -2,10 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ManekinController : MonoBehaviour
 {
     public TutorialSceneController Controller;
+
+    private void OnTextBoxHidden ()
+    {
+        CombatEventManager.EnableMovement -= this.OnTextBoxHidden;
+        // go to next scene
+        SceneManager.LoadScene ("Scenes/Playground");
+    }
     
     private void OnCollisionEnter (Collision collision)
     {
@@ -14,6 +22,7 @@ public class ManekinController : MonoBehaviour
 
         if (this.gameObject.CompareTag ("Shooting Manekin") == true && this.Controller.IsFirstStageDone () == true)
         {
+            CombatEventManager.EnableMovement += this.OnTextBoxHidden;
             CombatEventManager.InvokeTextbox ("SARGE.RANT1", true);
             CombatEventManager.InvokeTextbox ("SARGE.RANT.ANSWER", false);
             CombatEventManager.InvokeTextbox ("SARGE.RANT5", true);
