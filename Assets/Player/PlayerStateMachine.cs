@@ -33,6 +33,10 @@ public class PlayerStateMachine : MonoBehaviour
     /// </summary>
     public float DamagePushbackForce = 8.0f;
     /// <summary>
+    /// Whether the player can take damage or not
+    /// </summary>
+    public bool CanTakeDamage = true;
+    /// <summary>
     /// Event fired when the health value is changed
     /// </summary>
     public static event Action <float> HealthUpdate;
@@ -251,7 +255,7 @@ public class PlayerStateMachine : MonoBehaviour
     public void ApplyDamage (float amount)
     {
         // invulnerability timer means no damage!
-        if (this.IsInvulnerable () == true)
+        if (this.IsInvulnerable () == true || this.CanTakeDamage == false)
             return;
         
         // start invulnerability timer

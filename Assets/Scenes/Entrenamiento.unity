@@ -4924,6 +4924,10 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 729491340}
+    - target: {fileID: 2880965047936480999, guid: 88c476ceca6021b46bcb8fdb984f4913, type: 3}
+      propertyPath: CanTakeDamage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6487754328240948492, guid: 88c476ceca6021b46bcb8fdb984f4913, type: 3}
       propertyPath: m_RootOrder
       value: 5
