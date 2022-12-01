@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public enum BossPhase
@@ -238,7 +239,7 @@ public class BossesController : MonoBehaviour
 
     void HandleFinishPhase ()
     {
-        
+        SceneManager.LoadScene ("Credits");
     }
 
     /// <summary>
