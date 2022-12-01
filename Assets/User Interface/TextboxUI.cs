@@ -129,12 +129,12 @@ public class TextboxUI : MonoBehaviour
         SetChildrenActive (true);
         
         // ensure the avatar is not enabled if not required
-        if (info.Source == MessageSource.Sarge)
+        if (info.Source == MessageSource.Player)
         {
             this.PlayerAvatar.SetActive (true);
             this.SargeAvatar.SetActive (false);
         }
-        else if (info.Source == MessageSource.Player)
+        else if (info.Source == MessageSource.Sarge)
         {
             this.PlayerAvatar.SetActive (false);
             this.SargeAvatar.SetActive (true);

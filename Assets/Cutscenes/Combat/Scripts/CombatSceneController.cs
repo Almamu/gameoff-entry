@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class CombatSceneController : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class CombatSceneController : MonoBehaviour
 
     public void MikeConversationSecond ()
     {
+        this.PauseDirector ();
         
         CombatEventManager.InvokeTextbox ("CUTSCENE.MIKE5", MessageSource.Player);
         CombatEventManager.InvokeTextbox ("CUTSCENE.MIKE6", MessageSource.Sarge);
@@ -68,5 +70,42 @@ public class CombatSceneController : MonoBehaviour
         CombatEventManager.InvokeTextbox ("CUTSCENE.MIKE10", MessageSource.Sarge);
         CombatEventManager.InvokeTextbox ("CUTSCENE.MIKE11", MessageSource.Player);
         CombatEventManager.InvokeTextbox ("CUTSCENE.MIKE12", MessageSource.Sarge);
+    }
+
+    public void EagleAppeared ()
+    {
+        this.PauseDirector ();
+
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE1", MessageSource.Player);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE2", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE3", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE4", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE5", MessageSource.Player);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE6", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE7", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE8", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE9", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE10", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE11", MessageSource.Player);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.EAGLE12", MessageSource.Sarge);
+    }
+
+    public void ScientificAppears ()
+    {
+        this.PauseDirector ();
+
+        CombatEventManager.EnableMovement += this.GoToNextScene;
+
+        CombatEventManager.InvokeTextbox ("CUTSCENE.SCIENTIFIC1", MessageSource.Player);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.SCIENTIFIC2", MessageSource.Other);
+        CombatEventManager.InvokeTextbox ("CUTSCENE.SCIENTIFIC3", MessageSource.Other);
+    }
+
+    private void GoToNextScene ()
+    {
+        CombatEventManager.EnableMovement -= this.GoToNextScene;
+        
+        // finally go to the playground
+        SceneManager.LoadScene ("Playground");
     }
 }

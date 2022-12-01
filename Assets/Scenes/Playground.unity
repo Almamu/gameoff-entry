@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaximumActiveEnemies: 15
-  AmountOfEnemies: 100
+  AmountOfEnemies: 89
   ActiveEnemiesCount: 0
   EnemyBProbability: 20
 --- !u!114 &180835788
