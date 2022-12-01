@@ -92,15 +92,8 @@ public class EnemySpawner : MonoBehaviour
         
         // randomly decide which enemy to activate
         float range = Random.Range (0.0f, 100.0f);
-        float probability;
-        if ((this.EnemyBProbability * (math.lerp(0, 2, (float)this.mCurrentEnemies / (float)this.AmountOfEnemies))) < 25)
-        {
-            probability = this.EnemyBProbability * (math.lerp(0, 2, (float)this.mCurrentEnemies / (float)this.AmountOfEnemies));
-        }
-        else
-        {
-            probability = 25;
-        }
+        float progress = (float) this.mCurrentEnemies / (float) this.AmountOfEnemies;
+        float probability = this.EnemyBProbability * math.lerp(0, 2, progress);
 
         if (range < probability)
             this.mActiveEnemies [i] = this.NormalEnemyBObjectPool.Pop ();

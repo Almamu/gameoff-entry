@@ -411,7 +411,7 @@ MonoBehaviour:
   MaximumActiveEnemies: 15
   AmountOfEnemies: 98
   ActiveEnemiesCount: 0
-  EnemyBProbability: 10
+  EnemyBProbability: 7
 --- !u!114 &180835788
 MonoBehaviour:
   m_ObjectHideFlags: 0
