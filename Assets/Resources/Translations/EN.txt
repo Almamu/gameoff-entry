@@ -9,15 +9,15 @@ CINEMA.GETUP_ANSWER;C'mon sarge, we arrived 2 hours ago...
 MOVE.ROOKIES1;Wakeup soldiers!
 MOVE.ROOKIES2;Surprise training!
 FUCK.SARGE;C'mon sarge, we arrived 2 hours ago...
-FUCK.SARGE.ANSWER;2 hours when no one tried\nto shoot up you're ass and you complain?!
+FUCK.SARGE.ANSWER;2 hours where no one tried\nto shoot up your ass and you complain?!
 SHOOT.ANSWER;Okay! Okay!\nWe're getting up!
 SARGE.FOLLOWME;Good! Follow me!
 SARGE.TUTORIAL1;Ladies, you know the drill.\nShoot, advance and dodge.
 SARGE.TUTORIAL2;C'mon soldier!
-SARGE.TUTORIAL3;Remember, WASD to move\n,aim with your mouse\nleft click to shoot.
+SARGE.TUTORIAL3;Remember, WASD to move,\naim with your mouse\nleft click to shoot.
 SARGE.TUTORIAL4;Do I really need to explain this?\nAm I a babysitter now?!
 SARGE.TUTORIAL5;Fucking Washington...\nI ask for real soldiers\nand they send me little babies...
-TUTORIAL.DODGE1;Space, shift\nor right click to shoot!
+TUTORIAL.DODGE1;Space, shift\nor right click to dodge!
 TUTORIAL.DODGE2;Shoot down those targets!
 SARGE.RANT1;I've met many platoons, and I must say\nyou're the worst platoon\nthat I've had the displeasure to meet!
 SARGE.RANT.ANSWER;Positive reinforcement, do you know it?

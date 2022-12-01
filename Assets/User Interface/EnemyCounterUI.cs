@@ -12,13 +12,13 @@ public class EnemyCounterUI : MonoBehaviour
     {
         this.mTextMesh = GetComponent <TextMeshProUGUI> ();
         EnemySpawner.EnemyDeath += this.EnemyDeath;
-        this.mTextMesh.text = TranslationService.Get ().Translate ("ENEMIES.LEFT") + " 98";
+        this.mTextMesh.text = TranslationService.Get ().Translate ("ENEMIES.LEFT") + " 100";
         this.mTextMesh.ForceMeshUpdate (true, true);
     }
 
     void EnemyDeath (EnemySpawner source)
     {
-        this.mTextMesh.text = TranslationService.Get ().Translate ("ENEMIES.LEFT") + " " + source.EnemiesLeft ().ToString ();
+        this.mTextMesh.text = TranslationService.Get ().Translate ("ENEMIES.LEFT") + " " + (2 + source.EnemiesLeft ()).ToString ();
         this.mTextMesh.ForceMeshUpdate (true, true);
     }
 }
