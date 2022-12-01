@@ -3,3 +3,74 @@ UI.START;Start
 UI.EXIT;Exit to Windows
 GAMEOVER.PAYRESPECTS;Press F to pay respects
 ENEMIES.LEFT;Enemies left:
+CINEMA.GETUP;Wakeup soldiers!
+CINEMA.TRAINING;Surprise training!
+CINEMA.GETUP_ANSWER;C'mon sarge, we arrived 2 hours ago...
+MOVE.ROOKIES1;Wakeup soldiers!
+MOVE.ROOKIES2;Surprise training!
+FUCK.SARGE;C'mon sarge, we arrived 2 hours ago...
+FUCK.SARGE.ANSWER;2 hours when no one tried\nto shoot up you're ass and you complain?!
+SHOOT.ANSWER;Okay! Okay!\nWe're getting up!
+SARGE.FOLLOWME;Good! Follow me!
+SARGE.TUTORIAL1;Ladies, you know the drill.\nShoot, advance and dodge.
+SARGE.TUTORIAL2;C'mon soldier!
+SARGE.TUTORIAL3;Remember, WASD to move\n,aim with your mouse\nleft click to shoot.
+SARGE.TUTORIAL4;Do I really need to explain this?\nAm I a babysitter now?!
+SARGE.TUTORIAL5;Fucking Washington...\nI ask for real soldiers\nand they send me little babies...
+TUTORIAL.DODGE1;Space, shift\nor right click to shoot!
+TUTORIAL.DODGE2;Shoot down those targets!
+SARGE.RANT1;I've met many platoons, and I must say\nyou're the worst platoon\nthat I've had the displeasure to meet!
+SARGE.RANT.ANSWER;Positive reinforcement, do you know it?
+SARGE.RANT5;Kid... I'll make you a soldier\nor a corpse.
+SARGE.RANT6;CHOOSE!
+COMBAT.CUTSCENE.TEXT1;Since then\nsarge made our life miserable.
+COMBAT.CUTSCENE.TEXT2;He woke us up with flashbangs...\nnhe whipped us up while taking a shower...\npunched our balls...
+COMBAT.CUTSCENE.TEXT3;Untill he made us authentic killing machines...\nI became their leader.
+COMBAT.CUTSCENE.TEXT4;We destroyed any enemy in front of us,\nuntil that fateful day...
+COMBAT.CUTSCENE.TEXT5;6 months later...
+CUTSCENE.WAKEUP;Ugh... What the hell happened?
+CUTSCENE.RADIO1;Omega, this is Gunnery Sargeant Ramirez\nAre you there? Over.
+CUTSCENE.RADIO2;Gunnery Sargeant Ramirez, this is Omega\nLoud and clear.\nOver.
+CUTSCENE.RADIO3;Rookie!\nWhat happened?
+CUTSCENE.RADIO4;We've been attacked...
+CUTSCENE.RADIO5;No information on casualties, we've been separated...\nI'm alone
+CUTSCENE.RADIO6;Keep talking kid
+CUTSCENE.RADIO7;It was really fast, like a plane\nbut it didn't make noise.
+CUTSCENE.RADIO8;It appeared out of nowhere,\nI couldn't see much...
+CUTSCENE.RADIO9;Fuck. Well, look for survivors\nand keep me updated.
+CUTSCENE.RADIO10;Sir! Yes sir!
+CUTSCENE.MIKE1;Mike!
+CUTSCENE.MIKE2;Uuuugh
+CUTSCENE.MIKE3;Mike!\nWhat happened?
+CUTSCENE.MIKE4;They were... birds...
+CUTSCENE.MIKE5;Gunnery Sargeant Ramirez, this is Omega.\nOver.
+CUTSCENE.MIKE6;Update soldier
+CUTSCENE.MIKE7;Mike's dead, I'm alone.
+CUTSCENE.MIKE8;The show must go on, soldier.
+CUTSCENE.MIKE9;I'm unarmed, sir.
+CUTSCENE.MIKE10;You're in the deser!\nLook for an eagle!
+CUTSCENE.MIKE11;What?
+CUTSCENE.MIKE12;¡¡¡EAGLE!!!
+CUTSCENE.EAGLE1;I have so many questions...
+CUTSCENE.EAGLE2;There's no time for that!
+CUTSCENE.EAGLE3;Defence intelligence reports...
+CUTSCENE.EAGLE4;The enemy has\nweapons of mass destruction.
+CUTSCENE.EAGLE5;Oh my god!
+CUTSCENE.EAGLE6;This is your mission.\nAnd of course you accept it
+CUTSCENE.EAGLE7;Infiltrate enemy territory.
+CUTSCENE.EAGLE8;Kill the naturalist scientific\nAlexander Mikael
+CUTSCENE.EAGLE9;And get out of there, and quick!
+CUTSCENE.EAGLE10;Salutes rookie, you're our las hope...
+CUTSCENE.EAGLE11;For America!
+CUTSCENE.EAGLE12;For America!
+CUTSCENE.SCIENTIFIC1;That's how far you'll get\nAlexander!
+CUTSCENE.SCIENTIFIC2;Really?\nThings have just started\nto take flight...
+CUTSCENE.SCIENTIFIC3;Enjoy this winged rain.\nHahahahaha
+COMBAT.BOSS_START;Time to bring out the legendaries
+END.ALEXANDER;Nooooooo!
+END.SARGE1;Gunnery Sargeant Ramirez, this is Omega.\nMission accomplished.
+END.SARGE2;Good soldier, America owes you one.\nYou've earned the medal of honor.
+END.SARGE3;I need no medals...\nJust my next objective
+END.SARGE4;War changes you...\nIt's fucked up soldier.\nBe careful not to get lost
+ENEMIES.LEFT;Enemies left:
+COMBAT.SECOND_PHASE;Damn you!\nYour luck ends here!

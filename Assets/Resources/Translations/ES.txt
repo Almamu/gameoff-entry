@@ -16,7 +16,7 @@ SARGE.TUTORIAL2;¡Vamos soldado!
 SARGE.TUTORIAL3;Recuerde, WASD para moverse,\nratón para apuntar\ny click izquierdo para disparar
 SARGE.TUTORIAL4;¿En serio tengo que explicarle esto?
 SARGE.TUTORIAL5;Joder con Washington...\nLes pido soldados\n y me envian maniquies que cagan...
-TUTORIAL.DODGE1;¡Espacio, shift\no click izquierdo para esquivar!
+TUTORIAL.DODGE1;¡Espacio, shift\no click derecho para esquivar!
 TUTORIAL.DODGE2;¡Acaba con esos tangos!
 SARGE.RANT1;¡He conocido muchos pelotones, y he de decir\nque vosotros sois el pelotón más pelotudo\nque he tenido la desgracia de conocer!
 SARGE.RANT.ANSWER;Usted lo del refuerzo positivo como que no, ¿cierto?
