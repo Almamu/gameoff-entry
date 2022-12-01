@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
     /// <summary>
     /// The amount of enemies spawned
     /// </summary>
-    private int mCurrentEnemies = 0;
+    private int mCurrentEnemies = 80;
 
     /// <summary>
     /// Checks the current spawn areas and picks up a random spawn point inside the boxes
@@ -122,7 +122,7 @@ public class EnemySpawner : MonoBehaviour
             this.mActiveEnemies [i] = null;
             
             // if required create a new one in place
-            if (this.mCurrentEnemies >= this.AmountOfEnemies && this.ActiveEnemiesCount <= 1)
+            if (this.mCurrentEnemies >= this.AmountOfEnemies)
                 break;
 
             this.ActivateEnemy (i);
