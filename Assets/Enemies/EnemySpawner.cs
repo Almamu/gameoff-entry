@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     /// <summary>
     /// Probability for enemy b
     /// </summary>
-    public float EnemyBProbability = 20.0f;
+    public float EnemyBProbability = 10.0f;
     
     /// <summary>
     /// Event fired when an enemy dies
@@ -92,7 +92,15 @@ public class EnemySpawner : MonoBehaviour
         
         // randomly decide which enemy to activate
         float range = Random.Range (0.0f, 100.0f);
-        float probability = this.EnemyBProbability * (math.lerp (0, 2, (float) this.mCurrentEnemies / (float) this.AmountOfEnemies));
+        float probability;
+        if ((this.EnemyBProbability * (math.lerp(0, 2, (float)this.mCurrentEnemies / (float)this.AmountOfEnemies))) < 25)
+        {
+            probability = this.EnemyBProbability * (math.lerp(0, 2, (float)this.mCurrentEnemies / (float)this.AmountOfEnemies));
+        }
+        else
+        {
+            probability = 25;
+        }
 
         if (range < probability)
             this.mActiveEnemies [i] = this.NormalEnemyBObjectPool.Pop ();

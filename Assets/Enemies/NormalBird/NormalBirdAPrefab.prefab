@@ -68,7 +68,7 @@ MonoBehaviour:
   MaximumTimeFlying: 4
   TurnSpeed: 0.005
   AggresiveTurnDistance: 100
-  MovementSpeed: 5
+  MovementSpeed: 4
 --- !u!114 &1097396960190201445
 MonoBehaviour:
   m_ObjectHideFlags: 0
