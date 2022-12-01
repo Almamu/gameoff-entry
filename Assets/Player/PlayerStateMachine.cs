@@ -267,7 +267,10 @@ public class PlayerStateMachine : MonoBehaviour
         
         // if no life left, the player is dead, show game over screen
         if (this.mHealth <= 0.0f)
+        {
+            CombatEventManager.ClearEvents ();
             SceneManager.LoadScene ("Game Over");
+        }
     }
 
     public void ApplyHitDamage ()

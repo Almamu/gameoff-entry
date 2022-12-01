@@ -239,6 +239,7 @@ public class BossesController : MonoBehaviour
 
     void HandleFinishPhase ()
     {
+        CombatEventManager.ClearEvents ();
         SceneManager.LoadScene ("Credits");
     }
 
