@@ -51,6 +51,6 @@ public class SmallRacimoAttackBehaviour : MonoBehaviour
     private void OnCollisionEnter (Collision collision)
     {
         // try to apply the hit damage to the player
-        collision.gameObject.SendMessage ("ApplyHitDamage");
+        collision.gameObject.SendMessage ("ApplyRacimoDamage");
     }
 }

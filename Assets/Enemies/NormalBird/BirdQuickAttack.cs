@@ -110,7 +110,7 @@ public class BirdQuickAttack : BirdState
         if (this.enabled == false || collision.gameObject.CompareTag ("Player") == false)
             return;
 
-        collision.gameObject.SendMessage ("ApplyHitDamage");
+        collision.gameObject.SendMessage ("ApplyQuickDamage");
     }
 
     private void OnDrawGizmos ()

@@ -70,6 +70,6 @@ public class RacimoAttackBehaviour : MonoBehaviour
         if (this.enabled == false || collision.gameObject.CompareTag ("Player") == false)
             return;
 
-        collision.gameObject.SendMessage ("ApplyHitDamage");
+        collision.gameObject.SendMessage ("ApplyBigRacimoDamage");
     }
 }
