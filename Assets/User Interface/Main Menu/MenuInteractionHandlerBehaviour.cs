@@ -17,6 +17,7 @@ public class MenuInteractionHandlerBehaviour : MonoBehaviour
 
     public void OnStartClicked ()
     {
+        CombatEventManager.ClearEvents ();
         SceneManager.LoadScene ("Entrenamiento");
     }
 

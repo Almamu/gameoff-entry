@@ -54,4 +54,13 @@ public class CombatEventManager : MonoBehaviour
     {
         TextboxHidden?.Invoke ();
     }
+
+    public static void ClearEvents ()
+    {
+        TextboxHidden = null;
+        BossHealth = null;
+        EnableMovement = null;
+        DisableMovement = null;
+        Textbox = null;
+    }
 }

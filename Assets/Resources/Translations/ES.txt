@@ -28,3 +28,40 @@ COMBAT.CUTSCENE.TEXT3;Hasta que nos hicimos auténticas máquinas de matar...\ny
 COMBAT.CUTSCENE.TEXT4;Hicimos añicos al enemigo,\nhasta ese fatídico día...
 COMBAT.CUTSCENE.TEXT5;6 meses después...
 CUTSCENE.WAKEUP;Ahh... ¿Qué cojones ha pasado?
+CUTSCENE.RADIO1;Aquí el sargento de artillería Ramirez\na compañía Omega, respondan.\nCambio.
+CUTSCENE.RADIO2;Aquí compañía Omega\nle recibo alto y claro.\nCambio.
+CUTSCENE.RADIO3;¡Novato!\n¿Qué ha pasado?
+CUTSCENE.RADIO4;Hemos sido atacados...
+CUTSCENE.RADIO5;No sé cuántas bajas, estamos dispersados...\nEstoy sólo
+CUTSCENE.RADIO6;Cuéntame más chico
+CUTSCENE.RADIO7;No sabría decirle, era rápido como un caza\npero no hacía ruido.
+CUTSCENE.RADIO8;Salió de la nada y saltamos por los aires,\napenas pude ver nada.
+CUTSCENE.RADIO9;Joder. Bueno soldado,\nbusque supervivientes e infórmeme.
+CUTSCENE.RADIO10;¡Señor! ¡Sí señor!
+CUTSCENE.MIKE1;¡Mike!
+CUTSCENE.MIKE2;Aaahh
+CUTSCENE.MIKE3;¡Mike!\n¿Qué ha pasado?
+CUTSCENE.MIKE4;Eran... pájaros...
+CUTSCENE.MIKE5;Aquí escuadrón Omega. Cambio.
+CUTSCENE.MIKE6;Informe soldado
+CUTSCENE.MIKE7;Mike está muerto, estoy solo.
+CUTSCENE.MIKE8;La misión debe continuar, soldado.
+CUTSCENE.MIKE9;Estoy desarmado señor.
+CUTSCENE.MIKE10;Está en el desierto\nBusque un águila
+CUTSCENE.MIKE11;¿Qué?
+CUTSCENE.MIKE12;¡¡¡EAGLE!!!
+CUTSCENE.EAGLE1;Ahora mismo tengo muchas preguntas...
+CUTSCENE.EAGLE2;¡No hay tiempo!
+CUTSCENE.EAGLE3;Inteligencia nos informa de\nque nuestros temores eran ciertos
+CUTSCENE.EAGLE4;El enemigo\ntiene armas de destrucción masiva.
+CUTSCENE.EAGLE5;Dios mio...
+CUTSCENE.EAGLE6;Esta es su misión.\nQue por supuesto va a aceptar
+CUTSCENE.EAGLE7;Infíltrese en territorio enemigo.
+CUTSCENE.EAGLE8;Elimine al científico naturalista\nAlexander Mikael
+CUTSCENE.EAGLE9;Y acabe con la amenaza nuclear
+CUTSCENE.EAGLE10;Saludos novato, es nuestra última esperanza.
+CUTSCENE.EAGLE11;¡Por América!
+CUTSCENE.EAGLE12;¡Por América!
+CUTSCENE.SCIENTIFIC1;¡Hasta aquí has llegado, Alexander!
+CUTSCENE.SCIENTIFIC2;¿Enserio?\nJusto empezaba a alzar el vuelo...
+CUTSCENE.SCIENTIFIC3;Disfruta de esta lluvia alada.\nJajajajaja

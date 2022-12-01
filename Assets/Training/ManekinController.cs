@@ -10,9 +10,9 @@ public class ManekinController : MonoBehaviour
 
     private void OnTextBoxHidden ()
     {
-        CombatEventManager.EnableMovement -= this.OnTextBoxHidden;
+        CombatEventManager.ClearEvents ();
         // go to next scene
-        SceneManager.LoadScene ("Scenes/Playground");
+        SceneManager.LoadScene ("Playground Cutscene");
     }
     
     private void OnCollisionEnter (Collision collision)

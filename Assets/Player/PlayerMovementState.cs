@@ -37,6 +37,8 @@ public class PlayerMovementState : PlayerState
     /// The time the player stops moving for shooting
     /// </summary>
     public float ShootBlockTime = 0.075f;
+
+    public ParticleSystem ShootParticles;
     
     /// <summary>
     /// Horizontal position of the stick

@@ -27,12 +27,6 @@ public class ShootingManekinController : MonoBehaviour
         CombatEventManager.EnableMovement += this.MovementEnabled;
     }
 
-    private void OnDestroy ()
-    {
-        CombatEventManager.DisableMovement -= this.MovementDisabled;
-        CombatEventManager.EnableMovement -= this.MovementEnabled;
-    }
-
     void MovementDisabled ()
     {
         this.mDisabled = true;

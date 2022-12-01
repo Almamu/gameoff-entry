@@ -94,17 +94,14 @@ public class CombatSceneController : MonoBehaviour
     {
         this.PauseDirector ();
 
-        CombatEventManager.EnableMovement += this.GoToNextScene;
-
         CombatEventManager.InvokeTextbox ("CUTSCENE.SCIENTIFIC1", MessageSource.Player);
         CombatEventManager.InvokeTextbox ("CUTSCENE.SCIENTIFIC2", MessageSource.Other);
         CombatEventManager.InvokeTextbox ("CUTSCENE.SCIENTIFIC3", MessageSource.Other);
     }
 
-    private void GoToNextScene ()
+    public void GoToNextScene ()
     {
-        CombatEventManager.EnableMovement -= this.GoToNextScene;
-        
+        CombatEventManager.ClearEvents ();
         // finally go to the playground
         SceneManager.LoadScene ("Playground");
     }

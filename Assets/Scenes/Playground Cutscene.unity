@@ -4343,10 +4343,10 @@ RectTransform:
   m_Father: {fileID: 913136223}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -668, y: -410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1170027369
 MonoBehaviour:
@@ -6138,6 +6138,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: fa036fa1205b8f340af38a42ef61040c, type: 2}
     - {fileID: 11400000, guid: 999e75c5f770031498289049e69fc7e9, type: 2}
     - {fileID: 11400000, guid: ced7b24c5297b0e4b8caf55ee3853f19, type: 2}
+    - {fileID: 11400000, guid: 596b94f158e5b184fb02afece7258ae4, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -6214,6 +6215,20 @@ MonoBehaviour:
         - m_Target: {fileID: 1419636428}
           m_TargetAssemblyTypeName: CombatSceneController, Assembly-CSharp
           m_MethodName: ScientificAppears
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1419636428}
+          m_TargetAssemblyTypeName: CombatSceneController, Assembly-CSharp
+          m_MethodName: GoToNextScene
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6915,7 +6930,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689101725}
-  m_LocalRotation: {x: 0.060011465, y: 0.29756874, z: -0.018745545, w: 0.952628}
+  m_LocalRotation: {x: 0.06001022, y: 0.2975777, z: -0.018745782, w: 0.9526253}
   m_LocalPosition: {x: 10, y: 2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9014,31 +9029,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2561738197107187189, guid: 1fef05741296aa247b349866ebed3313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 23.42
       objectReference: {fileID: 0}
     - target: {fileID: 2561738197107187189, guid: 1fef05741296aa247b349866ebed3313, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 2561738197107187189, guid: 1fef05741296aa247b349866ebed3313, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 2561738197107187189, guid: 1fef05741296aa247b349866ebed3313, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9216011
+      value: 0.83089185
       objectReference: {fileID: 0}
     - target: {fileID: 2561738197107187189, guid: 1fef05741296aa247b349866ebed3313, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.064844415
+      value: -0.13185498
       objectReference: {fileID: 0}
     - target: {fileID: 2561738197107187189, guid: 1fef05741296aa247b349866ebed3313, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.38173968
+      value: -0.5339051
       objectReference: {fileID: 0}
     - target: {fileID: 2561738197107187189, guid: 1fef05741296aa247b349866ebed3313, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.026859438
+      value: -0.0847259
       objectReference: {fileID: 0}
     - target: {fileID: 2561738197107187189, guid: 1fef05741296aa247b349866ebed3313, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
