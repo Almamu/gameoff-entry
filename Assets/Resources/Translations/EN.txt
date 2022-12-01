@@ -2,20 +2,31 @@ TITLE;A bird in hand is worth hundreds in the bush
 UI.START;Start
 UI.EXIT;Exit to Windows
 GAMEOVER.PAYRESPECTS;Press F to pay respects
-MOVE.ROOKIES1;¡Arriba novatos!
-MOVE.ROOKIES2;¡Entrenamiento sorpresa!
-FUCK.SARGE;Joder sargento,\nllegamos hace 2 horas...
-FUCK.SARGE.ANSWER;¡¿2 horas sin que intenten\nvolarte el culo y te quejas?!
-SHOOT.ANSWER;¡Vale! ¡Vale!\nYa me levanto
-SARGE.FOLLOWME;¡Bien! ¡Seguidme!
-SARGE.TUTORIAL1;Muy bien señoritas, ya sabéis como va esto.\nDisparar, avanzar y esquivar.
-SARGE.TUTORIAL2;¡Vamos soldado!
-SARGE.TUTORIAL3;Recuerde, WASD para moverse,\nratón para apuntar\ny click izquierdo para disparar
-SARGE.TUTORIAL4;¿En serio tengo que explicarle esto?
-SARGE.TUTORIAL5;Joder con Washington...\nLes pido soldados\n y me envian maniquies que cagan...
-TUTORIAL.DODGE1;¡Espacio, shift\no click izquierdo para esquivar!
-TUTORIAL.DODGE2;¡Acaba con esos tangos!
-SARGE.RANT1;¡He conocido muchos pelotones, y he de decir\nque vosotros sois el pelotón más pelotudo\nque he tenido la desgracia de conocer!
-SARGE.RANT.ANSWER;Usted lo del refuerzo positivo como que no, ¿cierto?
-SARGE.RANT5;Chaval... pienso convertirle en un soldado...\no en un cadaver
-SARGE.RANT6;¡ELIJA!
+COMBAT.CUTSCENE.TEXT1;Desde entonces el sargento\nnos hizo la vida imposible.
+COMBAT.CUTSCENE.TEXT2;Nos despertaba con cegadoras...\nnos daba latigazos mientras nos duchábamos...\npuñetazos en las pelotas mientras cagabamos...
+COMBAT.CUTSCENE.TEXT3;Hasta que nos hicimos auténticas máquinas de matar...\ny yo me convertí en su lider.
+COMBAT.CUTSCENE.TEXT4;Hicimos añicos al enemigo,\nhasta ese fatídico día...
+COMBAT.CUTSCENE.TEXT5;6 meses después...
+CUTSCENE.WAKEUP;Ahh... ¿Qué cojones ha pasado?
+CUTSCENE.RADIO1;Aquí el sargento de artillería Ramirez\na compañía Omega, respondan.\nCambio.
+CUTSCENE.RADIO2;Aquí compañía Omega\nle recibo alto y claro.\nCambio.
+CUTSCENE.RADIO3;¡Novato!\n¿Qué ha pasado?
+CUTSCENE.RADIO4;Hemos sido atacados...
+CUTSCENE.RADIO5;No sé cuántas bajas, estamos dispersados...\nEstoy sólo
+CUTSCENE.RADIO6;Cuéntame más chico
+CUTSCENE.RADIO7;No sabría decirle, era rápido como un caza\npero no hacía ruido.
+CUTSCENE.RADIO8;Salió de la nada y saltamos por los aires,\napenas pude ver nada.
+CUTSCENE.RADIO9;Joder. Bueno soldado,\nbusque supervivientes e infórmeme.
+CUTSCENE.RADIO10;¡Señor! ¡Sí señor!
+CUTSCENE.MIKE1;¡Mike!
+CUTSCENE.MIKE2;Aaahh
+CUTSCENE.MIKE3;¡Mike!\n¿Qué ha pasado?
+CUTSCENE.MIKE4;Eran... pájaros...
+CUTSCENE.MIKE5;Aquí escuadrón Omega. Cambio.
+CUTSCENE.MIKE6;Informe soldado
+CUTSCENE.MIKE7;Mike está muerto, estoy solo.
+CUTSCENE.MIKE8;La misión debe continuar, soldado.
+CUTSCENE.MIKE9;Estoy desarmado señor.
+CUTSCENE.MIKE10;Está en el desierto\nBusque un águila
+CUTSCENE.MIKE11;¿Qué?
+CUTSCENE.MIKE12;¡¡¡EAGLE!!!

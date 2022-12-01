@@ -34,34 +34,34 @@ public class TutorialSceneController : MonoBehaviour
     {
         this.PauseDirector ();
         
-        CombatEventManager.InvokeTextbox ("MOVE.ROOKIES1", true);
-        CombatEventManager.InvokeTextbox ("MOVE.ROOKIES2", true);
+        CombatEventManager.InvokeTextbox ("MOVE.ROOKIES1", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("MOVE.ROOKIES2", MessageSource.Sarge);
     }
 
     public void FirstAnswer (Transform protagonist)
     {
         this.PauseDirector ();
         
-        CombatEventManager.InvokeTextbox ("FUCK.SARGE", false);
+        CombatEventManager.InvokeTextbox ("FUCK.SARGE", MessageSource.Player);
     }
 
     public void SargeAnswer (Transform sarge)
     {
-        CombatEventManager.InvokeTextbox ("FUCK.SARGE.ANSWER", true);
+        CombatEventManager.InvokeTextbox ("FUCK.SARGE.ANSWER", MessageSource.Sarge);
     }
 
     public void SargeShoot (Transform protagonist)
     {
         this.PauseDirector ();
         
-        CombatEventManager.InvokeTextbox ("SHOOT.ANSWER", false);
+        CombatEventManager.InvokeTextbox ("SHOOT.ANSWER", MessageSource.Player);
     }
 
     public void FollowMe (Transform sarge)
     {
         this.PauseDirector ();
         
-        CombatEventManager.InvokeTextbox ("SARGE.FOLLOWME", true);
+        CombatEventManager.InvokeTextbox ("SARGE.FOLLOWME", MessageSource.Sarge);
     }
 
     public void CutsceneEnd ()
@@ -70,11 +70,11 @@ public class TutorialSceneController : MonoBehaviour
         this.Player.SetActive (true);
         
         // show text with the guide
-        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL1", true);
-        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL2", true);
-        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL3", true);
-        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL4", true);
-        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL5", true);
+        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL1", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL2", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL3", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL4", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("SARGE.TUTORIAL5", MessageSource.Sarge);
     }
 
     public bool IsFirstStageDone ()

@@ -7,12 +7,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+public enum MessageSource
+{
+    Player = 0,
+    Sarge = 1,
+    Other = 2
+}
 public class TextboxUI : MonoBehaviour
 {
     struct TextboxInformation
     {
         public string Message { get; set; }
-        public bool IsSarge { get; set; }
+        public MessageSource Source { get; set; }
     }
 
     public GameObject SargeAvatar;
@@ -123,19 +129,24 @@ public class TextboxUI : MonoBehaviour
         SetChildrenActive (true);
         
         // ensure the avatar is not enabled if not required
-        if (info.IsSarge == false)
+        if (info.Source == MessageSource.Sarge)
         {
             this.PlayerAvatar.SetActive (true);
             this.SargeAvatar.SetActive (false);
         }
-        else
+        else if (info.Source == MessageSource.Player)
         {
             this.PlayerAvatar.SetActive (false);
             this.SargeAvatar.SetActive (true);
         }
+        else
+        {
+            this.PlayerAvatar.SetActive (false);
+            this.SargeAvatar.SetActive (false);
+        }
     }
 
-    void QueueTextbox (string message, bool isSarge = false)
+    void QueueTextbox (string message, MessageSource source = MessageSource.Other)
     {
         // disable movement for everything
         CombatEventManager.InvokeDisableMovement ();
@@ -144,7 +155,7 @@ public class TextboxUI : MonoBehaviour
             new TextboxInformation ()
             {
                 Message = message,
-                IsSarge = isSarge
+                Source = source
             }
         );
         

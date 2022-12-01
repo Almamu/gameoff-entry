@@ -24,7 +24,7 @@ public class CombatEventManager : MonoBehaviour
     /// <summary>
     /// Event fired when a textbox has to be displayed on-screen
     /// </summary>
-    public static event Action<string, bool> Textbox;
+    public static event Action<string, MessageSource> Textbox;
     /// <summary>
     /// Event fired when the textbox is hidden
     /// </summary>
@@ -40,9 +40,9 @@ public class CombatEventManager : MonoBehaviour
         EnableMovement?.Invoke();
     }
 
-    public static void InvokeTextbox(string message, bool isSarge = false)
+    public static void InvokeTextbox(string message, MessageSource source = MessageSource.Other)
     {
-        Textbox?.Invoke(message, isSarge);
+        Textbox?.Invoke(message, source);
     }
 
     public static void InvokeBossHealth (float healthLeft)

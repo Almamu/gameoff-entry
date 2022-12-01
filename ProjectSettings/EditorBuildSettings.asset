@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Entrenamiento.unity
     guid: 882f58d4d7eceec4aae5d942dbf09083
+  - enabled: 1
+    path: Assets/Scenes/Playground Cutscene.unity
+    guid: a55e67cfff5ccde4aa117bcc005b8f94
   m_configObjects: {}

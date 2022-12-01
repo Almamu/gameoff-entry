@@ -23,10 +23,10 @@ public class ManekinController : MonoBehaviour
         if (this.gameObject.CompareTag ("Shooting Manekin") == true && this.Controller.IsFirstStageDone () == true)
         {
             CombatEventManager.EnableMovement += this.OnTextBoxHidden;
-            CombatEventManager.InvokeTextbox ("SARGE.RANT1", true);
-            CombatEventManager.InvokeTextbox ("SARGE.RANT.ANSWER", false);
-            CombatEventManager.InvokeTextbox ("SARGE.RANT5", true);
-            CombatEventManager.InvokeTextbox ("SARGE.RANT6", true);
+            CombatEventManager.InvokeTextbox ("SARGE.RANT1", MessageSource.Sarge);
+            CombatEventManager.InvokeTextbox ("SARGE.RANT.ANSWER", MessageSource.Player);
+            CombatEventManager.InvokeTextbox ("SARGE.RANT5", MessageSource.Sarge);
+            CombatEventManager.InvokeTextbox ("SARGE.RANT6", MessageSource.Sarge);
             return;
         }
         
@@ -41,7 +41,7 @@ public class ManekinController : MonoBehaviour
         this.Controller.SetFirstStageDone ();
         
         // show the message for dodging
-        CombatEventManager.InvokeTextbox ("TUTORIAL.DODGE1", true);
-        CombatEventManager.InvokeTextbox ("TUTORIAL.DODGE2", true);
+        CombatEventManager.InvokeTextbox ("TUTORIAL.DODGE1", MessageSource.Sarge);
+        CombatEventManager.InvokeTextbox ("TUTORIAL.DODGE2", MessageSource.Sarge);
     }
 }
