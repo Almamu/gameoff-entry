@@ -4496,7 +4496,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 288d38666c0209f4f847528d1c6f5438, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4594,7 +4594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SargeAvatar: {fileID: 1305057030}
   PlayerAvatar: {fileID: 1210356639}
-  TextDisplayDelay: 0.1
+  TextDisplayDelay: 0.05
   DisplayCharactersAtOnce: 1
   PitchShift: 0.1
 --- !u!1 &1416270125
