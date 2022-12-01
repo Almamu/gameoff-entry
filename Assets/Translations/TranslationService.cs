@@ -34,7 +34,7 @@ public class TranslationService
                 }
 
                 string key = line.Substring (0, separatorIndex);
-                string value = line.Substring (separatorIndex + 1).Replace ("\\n", "\n");
+                string value = line.Substring (separatorIndex + 1).Replace ("\\n", "\n").Replace ("\r", "");
 
                 data [key.ToUpperInvariant ()] = value;
             }

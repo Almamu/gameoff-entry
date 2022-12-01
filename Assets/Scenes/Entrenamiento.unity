@@ -4924,6 +4924,10 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 729491340}
+    - target: {fileID: 2880965047936480999, guid: 88c476ceca6021b46bcb8fdb984f4913, type: 3}
+      propertyPath: CanTakeDamage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6487754328240948492, guid: 88c476ceca6021b46bcb8fdb984f4913, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -14567,7 +14571,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 288d38666c0209f4f847528d1c6f5438, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14665,7 +14669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SargeAvatar: {fileID: 891848780}
   PlayerAvatar: {fileID: 492013950}
-  TextDisplayDelay: 0.1
+  TextDisplayDelay: 0.05
   DisplayCharactersAtOnce: 1
   PitchShift: 0.1
 --- !u!1 &943043097
