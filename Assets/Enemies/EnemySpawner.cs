@@ -57,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
             Random.Range (area.bounds.min.z, area.bounds.max.z)
         );
     }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -75,8 +76,13 @@ public class EnemySpawner : MonoBehaviour
             throw new InvalidDataException ("EnemySpawner must contain a child named SpawnArea with at least a box collider to mark the spawns");
         
         // create the required amount of enemies
-        for (int i = 0; i < this.mActiveEnemies.Length; i++)
+        for (int i = 0; i < this.mActiveEnemies.Length && i <= this.AmountOfEnemies - this.mCurrentEnemies; i++)
             ActivateEnemy (i);
+    }
+
+    private void OnDestroy ()
+    {
+        EnemyDeath = null;
     }
 
     private void ActivateEnemy (int i)
@@ -115,10 +121,15 @@ public class EnemySpawner : MonoBehaviour
             this.mActiveEnemies [i] = null;
             
             // if required create a new one in place
-            if (this.mCurrentEnemies >= this.AmountOfEnemies)
+            if (this.mCurrentEnemies >= this.AmountOfEnemies && this.ActiveEnemiesCount <= 1)
                 break;
 
             this.ActivateEnemy (i);
         }
+    }
+
+    public int EnemiesLeft ()
+    {
+        return this.AmountOfEnemies + this.ActiveEnemiesCount - this.mCurrentEnemies;
     }
 }

@@ -32,7 +32,7 @@ CUTSCENE.RADIO1;Aquí el sargento de artillería Ramirez\na compañía Omega, re
 CUTSCENE.RADIO2;Aquí compañía Omega\nle recibo alto y claro.\nCambio.
 CUTSCENE.RADIO3;¡Novato!\n¿Qué ha pasado?
 CUTSCENE.RADIO4;Hemos sido atacados...
-CUTSCENE.RADIO5;No sé cuántas bajas, estamos dispersados...\nEstoy sólo
+CUTSCENE.RADIO5;No se cuántas bajas, estamos dispersados...\nEstoy sólo
 CUTSCENE.RADIO6;Cuéntame más chico
 CUTSCENE.RADIO7;No sabría decirle, era rápido como un caza\npero no hacía ruido.
 CUTSCENE.RADIO8;Salió de la nada y saltamos por los aires,\napenas pude ver nada.
@@ -54,7 +54,7 @@ CUTSCENE.EAGLE1;Ahora mismo tengo muchas preguntas...
 CUTSCENE.EAGLE2;¡No hay tiempo!
 CUTSCENE.EAGLE3;Inteligencia nos informa de\nque nuestros temores eran ciertos
 CUTSCENE.EAGLE4;El enemigo\ntiene armas de destrucción masiva.
-CUTSCENE.EAGLE5;Dios mio...
+CUTSCENE.EAGLE5;Dios mío...
 CUTSCENE.EAGLE6;Esta es su misión.\nQue por supuesto va a aceptar
 CUTSCENE.EAGLE7;Infíltrese en territorio enemigo.
 CUTSCENE.EAGLE8;Elimine al científico naturalista\nAlexander Mikael
@@ -71,3 +71,5 @@ END.SARGE1;Aquí escuadrón Omega.\nMisión cumplida.
 END.SARGE2;Bien soldado, America te debe una.\nTe has ganado la medalla al valor.
 END.SARGE3;No necesito medallas...\nSólo el siguiente objetivo
 END.SARGE4;Sí, la guerra te cambia...\nEs jodido soldado.\nTen cuidado de no perderte
+ENEMIES.LEFT;Enemigos restantes:
+COMBAT.SECOND_PHASE;¡Maldito seas!\n¡Hasta aquí llega tu suerte!

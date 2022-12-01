@@ -90,6 +90,12 @@ public class PlayerMovementState : PlayerState
         OnReload?.Invoke (this.mClipBullets);
     }
 
+    private void OnDestroy ()
+    {
+        OnShoot = null;
+        OnReload = null;
+    }
+
     void FixedUpdate()
     {
         HandleMovement();
@@ -228,7 +234,9 @@ public class PlayerMovementState : PlayerState
         // fire the onshoot event
         OnShoot?.Invoke(this.mClipBullets);
         
-        // play the shoot sound
+        // play the shoot sound and particles
+        this.ShootParticles.Play ();
+        
         this.Machine.AudioSource.PlayOneShot (this.Machine.ShootSound);
 
         if (this.mClipBullets > 0)
