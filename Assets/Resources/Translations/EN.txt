@@ -2,3 +2,8 @@ TITLE;A bird in hand is worth hundreds in the bush
 UI.START;Start
 UI.EXIT;Exit to Windows
 GAMEOVER.PAYRESPECTS;Press F to pay respects
+END.ALEXANDER;¡Nooooooo!
+END.SARGE1;Aquí escuadrón Omega.\nMisión cumplida.
+END.SARGE2;Bien soldado, America te debe una.\nTe has ganado la medalla al valor.
+END.SARGE3;No necesito medallas...\nSólo el siguiente objetivo
+END.SARGE4;Sí, la guerra te cambia...\nEs jodido soldado.\nTen cuidado de no perderte
