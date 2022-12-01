@@ -134,7 +134,7 @@ public class BossesController : MonoBehaviour
         else if (this.Phase == BossPhase.FirstToSecond)
         {
             CombatEventManager.InvokeTextbox ("COMBAT.SECOND_PHASE");
-            CombatEventManager.EnableMovement += this.HandleTransition;
+            CombatEventManager.EnableMovement += this.HandleSecondPhaseTransition;
         }
     }
 
