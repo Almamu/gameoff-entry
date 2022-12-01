@@ -66,3 +66,8 @@ CUTSCENE.SCIENTIFIC1;¡Hasta aquí has llegado, Alexander!
 CUTSCENE.SCIENTIFIC2;¿Enserio?\nJusto empezaba a alzar el vuelo...
 CUTSCENE.SCIENTIFIC3;Disfruta de esta lluvia alada.\nJajajajaja
 COMBAT.BOSS_START;Es hora de sacar los legendarios
+END.ALEXANDER;¡Nooooooo!
+END.SARGE1;Aquí escuadrón Omega.\nMisión cumplida.
+END.SARGE2;Bien soldado, America te debe una.\nTe has ganado la medalla al valor.
+END.SARGE3;No necesito medallas...\nSólo el siguiente objetivo
+END.SARGE4;Sí, la guerra te cambia...\nEs jodido soldado.\nTen cuidado de no perderte
