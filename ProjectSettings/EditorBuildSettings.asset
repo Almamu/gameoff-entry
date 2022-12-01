@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: d1c9c57d17a3c554db263b2abb922348
+  - enabled: 1
+    path: Assets/Scenes/Playground End Cutscene.unity
+    guid: 9f7f023cda3048c4ebd9e160e58862e0
   m_configObjects: {}

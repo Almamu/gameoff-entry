@@ -240,7 +240,7 @@ public class BossesController : MonoBehaviour
     void HandleFinishPhase ()
     {
         CombatEventManager.ClearEvents ();
-        SceneManager.LoadScene ("Credits");
+        SceneManager.LoadScene ("Playground End Cutscene");
     }
 
     /// <summary>
