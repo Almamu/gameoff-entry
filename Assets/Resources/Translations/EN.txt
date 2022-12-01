@@ -24,8 +24,8 @@ SARGE.RANT.ANSWER;Positive reinforcement, do you know it?
 SARGE.RANT5;Kid... I'll make you a soldier\nor a corpse.
 SARGE.RANT6;CHOOSE!
 COMBAT.CUTSCENE.TEXT1;Since then\nsarge made our life miserable.
-COMBAT.CUTSCENE.TEXT2;He woke us up with flashbangs...\nnhe whipped us up while taking a shower...\npunched our balls...
-COMBAT.CUTSCENE.TEXT3;Untill he made us authentic killing machines...\nI became their leader.
+COMBAT.CUTSCENE.TEXT2;He woke us up with flashbangs...\nhe whipped us while taking a shower...\npunched us in the balls...
+COMBAT.CUTSCENE.TEXT3;Until he made us real killing machines...\nI became their leader.
 COMBAT.CUTSCENE.TEXT4;We destroyed any enemy in front of us,\nuntil that fateful day...
 COMBAT.CUTSCENE.TEXT5;6 months later...
 CUTSCENE.WAKEUP;Ugh... What the hell happened?
@@ -33,7 +33,7 @@ CUTSCENE.RADIO1;Omega, this is Gunnery Sargeant Ramirez\nAre you there? Over.
 CUTSCENE.RADIO2;Gunnery Sargeant Ramirez, this is Omega\nLoud and clear.\nOver.
 CUTSCENE.RADIO3;Rookie!\nWhat happened?
 CUTSCENE.RADIO4;We've been attacked...
-CUTSCENE.RADIO5;No information on casualties, we've been separated...\nI'm alone
+CUTSCENE.RADIO5;No information on casualties,\nwe've been separated...\nI'm alone
 CUTSCENE.RADIO6;Keep talking kid
 CUTSCENE.RADIO7;It was really fast, like a plane\nbut it didn't make noise.
 CUTSCENE.RADIO8;It appeared out of nowhere,\nI couldn't see much...
@@ -48,9 +48,9 @@ CUTSCENE.MIKE6;Update soldier
 CUTSCENE.MIKE7;Mike's dead, I'm alone.
 CUTSCENE.MIKE8;The show must go on, soldier.
 CUTSCENE.MIKE9;I'm unarmed, sir.
-CUTSCENE.MIKE10;You're in the deser!\nLook for an eagle!
+CUTSCENE.MIKE10;You're in the desert!\nLook for an eagle!
 CUTSCENE.MIKE11;What?
-CUTSCENE.MIKE12;¡¡¡EAGLE!!!
+CUTSCENE.MIKE12;EAGLE!!!
 CUTSCENE.EAGLE1;I have so many questions...
 CUTSCENE.EAGLE2;There's no time for that!
 CUTSCENE.EAGLE3;Defence intelligence reports...
@@ -60,7 +60,7 @@ CUTSCENE.EAGLE6;This is your mission.\nAnd of course you accept it
 CUTSCENE.EAGLE7;Infiltrate enemy territory.
 CUTSCENE.EAGLE8;Kill the naturalist scientific\nAlexander Mikael
 CUTSCENE.EAGLE9;And get out of there, and quick!
-CUTSCENE.EAGLE10;Salutes rookie, you're our las hope...
+CUTSCENE.EAGLE10;Salutes rookie, you're our last hope...
 CUTSCENE.EAGLE11;For America!
 CUTSCENE.EAGLE12;For America!
 CUTSCENE.SCIENTIFIC1;That's how far you'll get\nAlexander!
