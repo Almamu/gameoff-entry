@@ -125,12 +125,21 @@ public class BossesController : MonoBehaviour
         };
 
         this.Phase = phase;
+
+        if (this.Phase == BossPhase.Starting)
+        {
+            CombatEventManager.InvokeTextbox ("COMBAT.BOSS_START");
+            CombatEventManager.EnableMovement += this.HandleTransition;
+        }
+        else if (this.Phase == BossPhase.FirstToSecond)
+        {
+            CombatEventManager.InvokeTextbox ("COMBAT.SECOND_PHASE");
+            CombatEventManager.EnableMovement += this.HandleTransition;
+        }
     }
 
     void HandleStartingPhase ()
     {
-        // TODO: IMPLEMENT ANIMATIONS
-        this.TransitionToPhase (BossPhase.First);
     }
 
     void HandleFirstPhase ()
@@ -166,8 +175,21 @@ public class BossesController : MonoBehaviour
 
     void HandleFirstToSecondPhase ()
     {
-        // disable one of the bosses and switch to the second phase
-        this.mBosses[1].gameObject.SetActive (false);
+    }
+
+    void HandleTransition ()
+    {
+        CombatEventManager.EnableMovement -= this.HandleTransition;
+        
+        // transition to the real first phase
+        this.TransitionToPhase (BossPhase.First);
+    }
+
+    void HandleSecondPhaseTransition ()
+    {
+        CombatEventManager.EnableMovement -= this.HandleSecondPhaseTransition;
+        
+        // transition to the real second phase
         this.TransitionToPhase (BossPhase.Second);
     }
 

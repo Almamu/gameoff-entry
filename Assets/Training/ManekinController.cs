@@ -8,6 +8,60 @@ public class ManekinController : MonoBehaviour
 {
     public TutorialSceneController Controller;
 
+    public GameObject Player;
+
+    public GameObject ShootPrefab;
+    
+    public float ShootingIntervals;
+
+    private float mTimer;
+
+    private bool mDisabled = false;
+
+    private static int NumberOfManekinsDestroyed = 0;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        NumberOfManekinsDestroyed = 0;
+        this.mTimer = this.ShootingIntervals;
+        // disable ourselves on movement disabled
+        CombatEventManager.DisableMovement += this.MovementDisabled;
+        CombatEventManager.EnableMovement += this.MovementEnabled;
+    }
+
+    void MovementDisabled ()
+    {
+        this.mDisabled = true;
+    }
+
+    void MovementEnabled ()
+    {
+        this.mDisabled = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (this.Controller.IsFirstStageDone () == false || this.mDisabled == true)
+            return;
+        
+        // do the thing
+        this.mTimer -= Time.deltaTime;
+
+        if (this.mTimer > 0)
+            return;
+
+        this.mTimer = this.ShootingIntervals;
+        
+        // create a bullet, set it in motion, and go
+        Instantiate (
+            this.ShootPrefab,
+            transform.position,
+            Quaternion.LookRotation ((this.Player.transform.position - transform.position).normalized)
+        );
+    }
+    
     private void OnTextBoxHidden ()
     {
         CombatEventManager.ClearEvents ();
@@ -19,8 +73,12 @@ public class ManekinController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag ("Player Bullet") == false)
             return;
+        
+        Destroy (this.gameObject);
 
-        if (this.gameObject.CompareTag ("Shooting Manekin") == true && this.Controller.IsFirstStageDone () == true)
+        NumberOfManekinsDestroyed++;
+
+        if (NumberOfManekinsDestroyed >= 6)
         {
             CombatEventManager.EnableMovement += this.OnTextBoxHidden;
             CombatEventManager.InvokeTextbox ("SARGE.RANT1", MessageSource.Sarge);
@@ -30,10 +88,6 @@ public class ManekinController : MonoBehaviour
             return;
         }
         
-        if (this.gameObject.CompareTag ("Normal Manekin") == false)
-            return;
-        
-        Destroy (this.gameObject);
 
         if (this.Controller.IsFirstStageDone () == true)
             return;

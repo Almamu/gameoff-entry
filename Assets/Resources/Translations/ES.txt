@@ -65,3 +65,4 @@ CUTSCENE.EAGLE12;¡Por América!
 CUTSCENE.SCIENTIFIC1;¡Hasta aquí has llegado, Alexander!
 CUTSCENE.SCIENTIFIC2;¿Enserio?\nJusto empezaba a alzar el vuelo...
 CUTSCENE.SCIENTIFIC3;Disfruta de esta lluvia alada.\nJajajajaja
+COMBAT.BOSS_START;Es hora de sacar los legendarios
