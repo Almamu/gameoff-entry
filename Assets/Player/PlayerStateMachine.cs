@@ -275,7 +275,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void ApplyHitDamage ()
     {
-        this.ApplyDamage (0.1f);
+        this.ApplyDamage (0.03f);
     }
 
     public void ApplySwingDamage ()
