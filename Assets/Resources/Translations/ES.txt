@@ -72,3 +72,4 @@ END.SARGE2;Bien soldado, America te debe una.\nTe has ganado la medalla al valor
 END.SARGE3;No necesito medallas...\nSólo el siguiente objetivo
 END.SARGE4;Sí, la guerra te cambia...\nEs jodido soldado.\nTen cuidado de no perderte
 ENEMIES.LEFT;Enemigos restantes:
+COMBAT.SECOND_PHASE;¡Maldito seas!\n¡Hasta aquí llega tu suerte!
