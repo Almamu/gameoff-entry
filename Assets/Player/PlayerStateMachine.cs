@@ -40,6 +40,7 @@ public class PlayerStateMachine : MonoBehaviour
     /// Event fired when the health value is changed
     /// </summary>
     public static event Action <float> HealthUpdate;
+    public static event Action <float> StaminaUpdate;
 
     private Queue<PlayerState> mStateQueue = new Queue <PlayerState> ();
 
@@ -193,6 +194,11 @@ public class PlayerStateMachine : MonoBehaviour
         return this.mInvulnerabilityTimer > 0.0f;
     }
 
+    public void InvokeStamina (float newAmount)
+    {
+        StaminaUpdate?.Invoke (newAmount);
+    }
+
     void FixedUpdate ()
     {
         AnimatorTransitionInfo state = this.ModelAnimator.GetAnimatorTransitionInfo (0);
@@ -272,6 +278,8 @@ public class PlayerStateMachine : MonoBehaviour
         // if no life left, the player is dead, show game over screen
         if (this.mHealth <= 0.0f)
         {
+            HealthUpdate = null;
+            StaminaUpdate = null;
             CombatEventManager.ClearEvents ();
             SceneManager.LoadScene ("Game Over");
         }

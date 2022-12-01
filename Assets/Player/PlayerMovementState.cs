@@ -253,8 +253,13 @@ public class PlayerMovementState : PlayerState
         // increase the cooldown timers
         if (this.mShootingCooldown < this.ShootingCooldown)
             this.mShootingCooldown += Time.fixedDeltaTime;
+
         if (this.mDodgeCooldownTimer < this.DodgeCooldown)
+        {
             this.mDodgeCooldownTimer += Time.fixedDeltaTime;
+            this.Machine.InvokeStamina (this.mDodgeCooldownTimer / this.DodgeCooldown);
+        }
+        
         if (this.mShootBlock < this.ShootBlockTime)
             this.mShootBlock += Time.fixedDeltaTime;
     }
